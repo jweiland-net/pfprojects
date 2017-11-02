@@ -15,6 +15,7 @@ namespace JWeiland\Pfprojects\Domain\Model;
  */
 
 use JWeiland\Maps2\Domain\Model\PoiCollection;
+use JWeiland\ServiceBw2\Domain\Model\Behoerde;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -73,12 +74,11 @@ class Project extends AbstractEntity
     protected $officeType = false;
 
     /**
-     * officeEgovernment
+     * Behoerde from service_bw2 extension
      *
-     * @var \Tx_WesEgovernment_Domain_Model_Department
-     * @todo implement service_bw2
+     * @var Behoerde
      */
-    protected $officeEgovernment;
+    protected $officeServiceBw2;
 
     /**
      * officeManuell
@@ -298,24 +298,23 @@ class Project extends AbstractEntity
     }
 
     /**
-     * Returns the officeEgovernment
+     * Returns OfficeServiceBw2
      *
-     * @return \Tx_WesEgovernment_Domain_Model_Department $officeEgovernment
+     * @return Behoerde
      */
-    public function getOfficeEgovernment()
+    public function getOfficeServiceBw2(): Behoerde
     {
-        return $this->officeEgovernment;
+        return $this->officeServiceBw2;
     }
 
     /**
-     * Sets the officeEgovernment
+     * Sets OfficeServiceBw2
      *
-     * @param \Tx_WesEgovernment_Domain_Model_Department $officeEgovernment
-     * @return void
+     * @param Behoerde $officeServiceBw2
      */
-    public function setOfficeEgovernment($officeEgovernment)
+    public function setOfficeServiceBw2(Behoerde $officeServiceBw2)
     {
-        $this->officeEgovernment = $officeEgovernment;
+        $this->officeServiceBw2 = $officeServiceBw2;
     }
 
     /**
@@ -345,7 +344,6 @@ class Project extends AbstractEntity
      * Useful for Fluid Templates
      *
      * @return string
-     * @deprecated @todo implement service_bw2
      */
     public function getOffice()
     {
@@ -353,8 +351,8 @@ class Project extends AbstractEntity
             // get manually given organizer
             return $this->getOfficeManuell();
         } else {
-            if ($this->getOfficeEgovernment() instanceof \Tx_WesEgovernment_Domain_Model_Department) {
-                return $this->getOfficeEgovernment()->getTitle();
+            if ($this->getOfficeServiceBw2() instanceof Behoerde) {
+                return $this->getOfficeServiceBw2()->getName();
             } else {
                 return '';
             }

@@ -36,8 +36,8 @@
 			<trans-unit id="tx_pfprojects_domain_model_project.office_type">
 				<source>Default: Choose organizer by a record of wes_egovernment. If checked: You can insert your own organizer with help of a text field. Each click reloads the current form.</source>
 			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.office_egovernment">
-				<source>Choose an organizer by a record of wes_egovernment.</source>
+			<trans-unit id="tx_pfprojects_domain_model_project.office_service_bw2">
+				<source>Choose an organizer by a record of service_bw2.</source>
 			</trans-unit>
 			<trans-unit id="tx_pfprojects_domain_model_project.office_manuell">
 				<source>Insert your own organizer.</source>

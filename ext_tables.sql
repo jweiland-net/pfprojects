@@ -13,7 +13,7 @@ CREATE TABLE tx_pfprojects_domain_model_project (
 	telephone varchar(255) DEFAULT '' NOT NULL,
 	email varchar(255) DEFAULT '' NOT NULL,
 	office_type tinyint(1) unsigned DEFAULT '0' NOT NULL,
-	office_egovernment int(11) unsigned DEFAULT '0' NOT NULL,
+	office_service_bw2 int(11) unsigned DEFAULT '0' NOT NULL,
 	office_manuell varchar(255) DEFAULT '' NOT NULL,
 	images int(11) unsigned DEFAULT '0' NOT NULL,
 	description text NOT NULL,
