@@ -1,8 +1,8 @@
 plugin.tx_pfprojects {
 	view {
-		templateRootPath = {$plugin.tx_pfprojects.view.templateRootPath}
-		partialRootPath = {$plugin.tx_pfprojects.view.partialRootPath}
-		layoutRootPath = {$plugin.tx_pfprojects.view.layoutRootPath}
+		templateRootPaths.10 = {$plugin.tx_pfprojects.view.templateRootPath}
+		partialRootPaths.10 = {$plugin.tx_pfprojects.view.partialRootPath}
+		layoutRootPaths.10 = {$plugin.tx_pfprojects.view.layoutRootPath}
 	}
 	persistence {
 		storagePid = {$plugin.tx_pfprojects.persistence.storagePid}

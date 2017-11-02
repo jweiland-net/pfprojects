@@ -1,30 +1,20 @@
-<?php
+<?php declare(strict_types=1);
 namespace JWeiland\Pfprojects\Domain\Model;
 
-/***************************************************************
+/*
+ * This file is part of the service_bw2 project.
  *
- *  Copyright notice
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
  *
- *  (c) 2016 Stefan Froemken <projects@jweiland.net>, jweiland.net
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
  *
- *  All rights reserved
- *
- *  This script is part of the TYPO3 project. The TYPO3 project is
- *  free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  The GNU General Public License can be found at
- *  http://www.gnu.org/copyleft/gpl.html.
- *
- *  This script is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  This copyright notice MUST APPEAR in all copies of the script!
- ***************************************************************/
+ * The TYPO3 project - inspiring people to share!
+ */
+
+use JWeiland\Maps2\Domain\Model\PoiCollection;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -33,7 +23,6 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  */
 class Project extends AbstractEntity
 {
-
     /**
      * title
      *
@@ -46,7 +35,7 @@ class Project extends AbstractEntity
      *
      * @var \DateTime
      */
-    protected $startDate = null;
+    protected $startDate;
 
     /**
      * status
@@ -87,8 +76,9 @@ class Project extends AbstractEntity
      * officeEgovernment
      *
      * @var \Tx_WesEgovernment_Domain_Model_Department
+     * @todo implement service_bw2
      */
-    protected $officeEgovernment = null;
+    protected $officeEgovernment;
 
     /**
      * officeManuell
@@ -102,7 +92,7 @@ class Project extends AbstractEntity
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
      */
-    protected $images = null;
+    protected $images;
 
     /**
      * description
@@ -123,21 +113,21 @@ class Project extends AbstractEntity
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
      */
-    protected $files = null;
+    protected $files;
 
     /**
      * links
      *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JWeiland\Pfprojects\Domain\Model\Link>
      */
-    protected $links = null;
+    protected $links;
 
     /**
      * areaOfActivity
      *
-     * @var \SplObjectStorage<\JWeiland\Pfprojects\Domain\Model\Category>
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JWeiland\Pfprojects\Domain\Model\Category>
      */
-    protected $areaOfActivity = NULL;
+    protected $areaOfActivity;
 
     /**
      * __construct
@@ -176,9 +166,9 @@ class Project extends AbstractEntity
      * @param string $title
      * @return void
      */
-    public function setTitle($title)
+    public function setTitle(string $title)
     {
-        $this->title = (string)$title;
+        $this->title = $title;
     }
 
     /**
@@ -186,7 +176,7 @@ class Project extends AbstractEntity
      *
      * @return \DateTime $startDate
      */
-    public function getStartDate()
+    public function getStartDate(): \DateTime
     {
         return $this->startDate;
     }
@@ -197,7 +187,7 @@ class Project extends AbstractEntity
      * @param \DateTime $startDate
      * @return void
      */
-    public function setStartDate($startDate)
+    public function setStartDate(\DateTime $startDate)
     {
         $this->startDate = $startDate;
     }
@@ -207,7 +197,7 @@ class Project extends AbstractEntity
      *
      * @return string $status
      */
-    public function getStatus()
+    public function getStatus(): string
     {
         return $this->status;
     }
@@ -218,9 +208,9 @@ class Project extends AbstractEntity
      * @param string $status
      * @return void
      */
-    public function setStatus($status)
+    public function setStatus(string $status)
     {
-        $this->status = (string)$status;
+        $this->status = $status;
     }
 
     /**
@@ -228,7 +218,7 @@ class Project extends AbstractEntity
      *
      * @return string $contactPerson
      */
-    public function getContactPerson()
+    public function getContactPerson(): string
     {
         return $this->contactPerson;
     }
@@ -239,7 +229,7 @@ class Project extends AbstractEntity
      * @param string $contactPerson
      * @return void
      */
-    public function setContactPerson($contactPerson)
+    public function setContactPerson(string $contactPerson)
     {
         $this->contactPerson = $contactPerson;
     }
@@ -249,7 +239,7 @@ class Project extends AbstractEntity
      *
      * @return string $telephone
      */
-    public function getTelephone()
+    public function getTelephone(): string
     {
         return $this->telephone;
     }
@@ -260,7 +250,7 @@ class Project extends AbstractEntity
      * @param string $telephone
      * @return void
      */
-    public function setTelephone($telephone)
+    public function setTelephone(string $telephone)
     {
         $this->telephone = $telephone;
     }
@@ -270,7 +260,7 @@ class Project extends AbstractEntity
      *
      * @return string $email
      */
-    public function getEmail()
+    public function getEmail(): string
     {
         return $this->email;
     }
@@ -281,7 +271,7 @@ class Project extends AbstractEntity
      * @param string $email
      * @return void
      */
-    public function setEmail($email)
+    public function setEmail(string $email)
     {
         $this->email = $email;
     }
@@ -291,7 +281,7 @@ class Project extends AbstractEntity
      *
      * @return bool $officeType
      */
-    public function getOfficeType()
+    public function getOfficeType(): bool
     {
         return $this->officeType;
     }
@@ -302,9 +292,9 @@ class Project extends AbstractEntity
      * @param bool $officeType
      * @return void
      */
-    public function setOfficeType($officeType)
+    public function setOfficeType(bool $officeType)
     {
-        $this->officeType = (bool)$officeType;
+        $this->officeType = $officeType;
     }
 
     /**
@@ -333,7 +323,7 @@ class Project extends AbstractEntity
      *
      * @return string $officeManuell
      */
-    public function getOfficeManuell()
+    public function getOfficeManuell(): string
     {
         return $this->officeManuell;
     }
@@ -344,9 +334,9 @@ class Project extends AbstractEntity
      * @param string $officeManuell
      * @return void
      */
-    public function setOfficeManuell($officeManuell)
+    public function setOfficeManuell(string $officeManuell)
     {
-        $this->officeManuell = (string)$officeManuell;
+        $this->officeManuell = $officeManuell;
     }
 
     /**
@@ -355,6 +345,7 @@ class Project extends AbstractEntity
      * Useful for Fluid Templates
      *
      * @return string
+     * @deprecated @todo implement service_bw2
      */
     public function getOffice()
     {
@@ -373,9 +364,9 @@ class Project extends AbstractEntity
     /**
      * Returns the images
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage $images
+     * @return ObjectStorage $images
      */
-    public function getImages()
+    public function getImages(): ObjectStorage
     {
         return $this->images;
     }
@@ -383,10 +374,10 @@ class Project extends AbstractEntity
     /**
      * Sets the images
      *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $images
+     * @param ObjectStorage $images
      * @return void
      */
-    public function setImages(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $images)
+    public function setImages(ObjectStorage $images)
     {
         $this->images = $images;
     }
@@ -396,7 +387,7 @@ class Project extends AbstractEntity
      *
      * @return string $description
      */
-    public function getDescription()
+    public function getDescription(): string
     {
         return $this->description;
     }
@@ -407,7 +398,7 @@ class Project extends AbstractEntity
      * @param string $description
      * @return void
      */
-    public function setDescription($description)
+    public function setDescription(string $description)
     {
         $this->description = $description;
     }
@@ -415,7 +406,7 @@ class Project extends AbstractEntity
     /**
      * Returns the txMaps2Uid
      *
-     * @return \JWeiland\Maps2\Domain\Model\PoiCollection $txMaps2Uid
+     * @return PoiCollection|null $txMaps2Uid
      */
     public function getTxMaps2Uid()
     {
@@ -425,10 +416,10 @@ class Project extends AbstractEntity
     /**
      * Sets the txMaps2Uid
      *
-     * @param \JWeiland\Maps2\Domain\Model\PoiCollection $txMaps2Uid
+     * @param PoiCollection $txMaps2Uid
      * @return void
      */
-    public function setTxMaps2Uid(\JWeiland\Maps2\Domain\Model\PoiCollection $txMaps2Uid)
+    public function setTxMaps2Uid(PoiCollection $txMaps2Uid)
     {
         $this->txMaps2Uid = $txMaps2Uid;
     }
@@ -436,9 +427,9 @@ class Project extends AbstractEntity
     /**
      * Returns the files
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage $files
+     * @return ObjectStorage $files
      */
-    public function getFiles()
+    public function getFiles(): ObjectStorage
     {
         return $this->files;
     }
@@ -446,10 +437,10 @@ class Project extends AbstractEntity
     /**
      * Sets the files
      *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $files
+     * @param ObjectStorage $files
      * @return void
      */
-    public function setFiles($files)
+    public function setFiles(ObjectStorage $files)
     {
         $this->files = $files;
     }
@@ -457,9 +448,9 @@ class Project extends AbstractEntity
     /**
      * Returns the links
      *
-     * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage $links
+     * @return ObjectStorage $links
      */
-    public function getLinks()
+    public function getLinks(): ObjectStorage
     {
         return $this->links;
     }
@@ -467,10 +458,10 @@ class Project extends AbstractEntity
     /**
      * Sets the links
      *
-     * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $links
+     * @param ObjectStorage $links
      * @return void
      */
-    public function setLinks($links)
+    public function setLinks(ObjectStorage $links)
     {
         $this->links = $links;
     }
@@ -480,7 +471,8 @@ class Project extends AbstractEntity
      *
      * @return ObjectStorage $areaOfActivity
      */
-    public function getAreaOfActivity() {
+    public function getAreaOfActivity(): ObjectStorage
+    {
         return $this->areaOfActivity;
     }
 
@@ -490,7 +482,8 @@ class Project extends AbstractEntity
      * @param ObjectStorage $areaOfActivity
      * @return void
      */
-    public function setAreaOfActivity(ObjectStorage $areaOfActivity) {
+    public function setAreaOfActivity(ObjectStorage $areaOfActivity)
+    {
         $this->areaOfActivity = $areaOfActivity;
     }
 

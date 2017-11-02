@@ -35,8 +35,8 @@ class CategoryRepository extends \TYPO3\CMS\Extbase\Domain\Repository\CategoryRe
     /**
      * @var array
      */
-    protected $defaultOrderings = array(
+    protected $defaultOrderings = [
         'title' => QueryInterface::ORDER_ASCENDING
-    );
+    ];
 
 }

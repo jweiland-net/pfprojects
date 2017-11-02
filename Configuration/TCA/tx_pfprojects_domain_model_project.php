@@ -1,6 +1,6 @@
 <?php
-return array(
-    'ctrl' => array(
+return [
+    'ctrl' => [
         'title'	=> 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project',
         'label' => 'title',
         'tstamp' => 'tstamp',
@@ -15,242 +15,242 @@ return array(
         'transOrigPointerField' => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
         'delete' => 'deleted',
-        'enablecolumns' => array(
+        'enablecolumns' => [
             'disabled' => 'hidden',
             'starttime' => 'starttime',
             'endtime' => 'endtime',
-        ),
+        ],
         'searchFields' => 'title,contact_person,description',
-        'iconfile' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extRelPath('pfprojects') . 'Resources/Public/Icons/tx_pfprojects_domain_model_project.gif'
-    ),
-    'interface' => array(
+        'iconfile' => 'EXT:pfprojects/Resources/Public/Icons/tx_pfprojects_domain_model_project.gif'
+    ],
+    'interface' => [
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, start_date, status, contact_person, telephone, email, office_type, office_egovernment, office_manuell, images, description, tx_maps2_uid, files, links',
-    ),
-    'columns' => array(
-        'sys_language_uid' => array(
+    ],
+    'columns' => [
+        'sys_language_uid' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.language',
-            'config' => array(
+            'config' => [
                 'type' => 'select',
                 'foreign_table' => 'sys_language',
                 'foreign_table_where' => 'ORDER BY sys_language.title',
-                'items' => array(
-                    array('LLL:EXT:lang/locallang_general.xlf:LGL.allLanguages', -1),
-                    array('LLL:EXT:lang/locallang_general.xlf:LGL.default_value', 0)
-                ),
-            ),
-        ),
-        'l10n_parent' => array(
+                'items' => [
+                    ['LLL:EXT:lang/locallang_general.xlf:LGL.allLanguages', -1],
+                    ['LLL:EXT:lang/locallang_general.xlf:LGL.default_value', 0]
+                ],
+            ],
+        ],
+        'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
             'exclude' => 1,
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.l18n_parent',
-            'config' => array(
+            'config' => [
                 'type' => 'select',
-                'items' => array(
-                    array('', 0),
-                ),
+                'items' => [
+                    ['', 0],
+                ],
                 'foreign_table' => 'tx_pfprojects_domain_model_project',
                 'foreign_table_where' => 'AND tx_pfprojects_domain_model_project.pid=###CURRENT_PID### AND tx_pfprojects_domain_model_project.sys_language_uid IN (-1,0)',
-            ),
-        ),
-        'l10n_diffsource' => array(
-            'config' => array(
+            ],
+        ],
+        'l10n_diffsource' => [
+            'config' => [
                 'type' => 'passthrough',
-            ),
-        ),
+            ],
+        ],
 
-        't3ver_label' => array(
+        't3ver_label' => [
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.versionLabel',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => 30,
                 'max' => 255,
-            )
-        ),
+            ]
+        ],
 
-        'hidden' => array(
+        'hidden' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
-            'config' => array(
+            'config' => [
                 'type' => 'check',
-            ),
-        ),
-        'starttime' => array(
+            ],
+        ],
+        'starttime' => [
             'exclude' => 1,
             'l10n_mode' => 'mergeIfNotBlank',
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => 13,
                 'max' => 20,
                 'eval' => 'datetime',
                 'checkbox' => 0,
                 'default' => 0,
-                'range' => array(
+                'range' => [
                     'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-                ),
-            ),
-        ),
-        'endtime' => array(
+                ],
+            ],
+        ],
+        'endtime' => [
             'exclude' => 1,
             'l10n_mode' => 'mergeIfNotBlank',
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => 13,
                 'max' => 20,
                 'eval' => 'datetime',
                 'checkbox' => 0,
                 'default' => 0,
-                'range' => array(
+                'range' => [
                     'lower' => mktime(0, 0, 0, date('m'), date('d'), date('Y'))
-                ),
-            ),
-        ),
+                ],
+            ],
+        ],
 
-        'title' => array(
+        'title' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.title',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim'
-            ),
-        ),
-        'start_date' => array(
+            ],
+        ],
+        'start_date' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.start_date',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'dbType' => 'date',
                 'size' => 10,
                 'eval' => 'date'
-            ),
-        ),
-        'status' => array(
+            ],
+        ],
+        'status' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.status',
-            'config' => array(
+            'config' => [
                 'type' => 'select',
                 'size' => 1,
-                'items' => array(
+                'items' => [
                     // I need the numbers in front, because of sorting
-                    array(
+                    [
                         'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.status.1green',
                         '1green',
                         'EXT:pfprojects/Resources/Public/Icons/light_1green.png'
-                    ),
-                    array(
+                    ],
+                    [
                         'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.status.2yellow',
                         '2yellow',
                         'EXT:pfprojects/Resources/Public/Icons/light_2yellow.png'
-                    ),
-                    array(
+                    ],
+                    [
                         'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.status.3red',
                         '3red',
                         'EXT:pfprojects/Resources/Public/Icons/light_3red.png'
-                    ),
-                ),
-            ),
-        ),
-        'contact_person' => array(
+                    ],
+                ],
+            ],
+        ],
+        'contact_person' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.contact_person',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim'
-            ),
-        ),
-        'telephone' => array(
+            ],
+        ],
+        'telephone' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.telephone',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim'
-            ),
-        ),
-        'email' => array(
+            ],
+        ],
+        'email' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.email',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim'
-            ),
-        ),
-        'office_type' => array(
+            ],
+        ],
+        'office_type' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.office_type',
-            'config' => array(
+            'config' => [
                 'type' => 'check',
                 'default' => 0,
-            ),
-        ),
-        'office_egovernment' => array(
+            ],
+        ],
+        'office_egovernment' => [
             'displayCond' => 'FIELD:office_type:=:0',
             'exclude' => 1,
             'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.office_egovernment',
-            'config' => array(
+            'config' => [
                 'type' => 'group',
                 'internal_type' => 'db',
                 'allowed' => 'tx_wesegovernment_domain_model_department',
                 'maxitems' => '1',
                 'size' => '1',
-                'wizards' => array(
-                    'suggest' => array(
+                'wizards' => [
+                    'suggest' => [
                         'type' => 'suggest',
-                        'default' => array(
+                        'default' => [
                             'searchWholePhrase' => true,
-                        )
-                    )
-                ),
-            ),
-        ),
-        'office_manuell' => array(
+                        ]
+                    ]
+                ],
+            ],
+        ],
+        'office_manuell' => [
             'displayCond' => 'FIELD:office_type:=:1',
             'exclude' => 1,
             'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.office_manuell',
-            'config' => array(
+            'config' => [
                 'type' => 'input',
                 'size' => 30,
                 'eval' => 'trim'
-            ),
-        ),
-        'images' => array(
+            ],
+        ],
+        'images' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.images',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
                 'images',
-                array('maxitems' => 5),
+                ['maxitems' => 5],
                 $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
             ),
-        ),
-        'description' => array(
+        ],
+        'description' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.description',
-            'config' => array(
+            'config' => [
                 'type' => 'text',
                 'cols' => 40,
                 'rows' => 15,
                 'eval' => 'trim',
-                'wizards' => array(
-                    'RTE' => array(
+                'wizards' => [
+                    'RTE' => [
                         'icon' => 'wizard_rte2.gif',
                         'notNewRecords'=> 1,
                         'RTEonly' => 1,
                         'script' => 'wizard_rte.php',
                         'title' => 'LLL:EXT:cms/locallang_ttc.xlf:bodytext.W.RTE',
                         'type' => 'script'
-                    )
-                )
-            ),
-        ),
-        'tx_maps2_uid' => array(
+                    ]
+                ]
+            ],
+        ],
+        'tx_maps2_uid' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.tx_maps2_uid',
-            'config' => Array (
+            'config' => [
                 'type' => 'group',
                 'internal_type' => 'db',
                 'allowed' => 'tx_maps2_domain_model_poicollection',
@@ -258,41 +258,41 @@ return array(
                 'show_thumbs' => false,
                 'size' => 1,
                 'maxitems' => 1,
-                'wizards' => array(
-                    'suggest' => array(
+                'wizards' => [
+                    'suggest' => [
                         'type' => 'suggest',
-                        'default' => array(
+                        'default' => [
                             'searchWholePhrase' => true
-                        ),
-                    ),
-                ),
-            ),
-        ),
-        'files' => array(
+                        ],
+                    ],
+                ],
+            ],
+        ],
+        'files' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.files',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
                 'files',
-                array('maxitems' => 5),
+                ['maxitems' => 5],
                 '',
                 'php,exe'
             ),
-        ),
-        'links' => array(
+        ],
+        'links' => [
             'exclude' => 1,
             'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.links',
-            'config' => array(
+            'config' => [
                 'type' => 'inline',
                 'foreign_table' => 'tx_pfprojects_domain_model_link',
                 'foreign_field' => 'project',
                 'foreign_label' => 'title',
-            ),
-        ),
-    ),
-    'types' => array(
-        '1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, start_date, status, contact_person, telephone, email, office_type, office_egovernment, office_manuell, images, description;;;richtext:rte_transform[mode=ts_links], tx_maps2_uid, files, links, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
-    ),
-    'palettes' => array(
-        '1' => array('showitem' => ''),
-    ),
-);
+            ],
+        ],
+    ],
+    'types' => [
+        '1' => ['showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, start_date, status, contact_person, telephone, email, office_type, office_egovernment, office_manuell, images, description;;;richtext:rte_transform[mode=ts_links], tx_maps2_uid, files, links, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'],
+    ],
+    'palettes' => [
+        '1' => ['showitem' => ''],
+    ],
+];

@@ -1,31 +1,23 @@
-<?php
+<?php declare(strict_types=1);
 namespace JWeiland\Pfprojects\ViewHelpers;
 
-/***************************************************************
+/*
+ * This file is part of the service_bw2 project.
  *
- *  Copyright notice
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
  *
- *  (c) 2016 Stefan Froemken <projects@jweiland.net>, www.jweiland.net
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
  *
- *  All rights reserved
- *
- *  This script is part of the TYPO3 project. The TYPO3 project is
- *  free software; you can redistribute it and/or modify
- *  it under the terms of the GNU General Public License as published by
- *  the Free Software Foundation; either version 3 of the License, or
- *  (at your option) any later version.
- *
- *  The GNU General Public License can be found at
- *  http://www.gnu.org/copyleft/gpl.html.
- *
- *  This script is distributed in the hope that it will be useful,
- *  but WITHOUT ANY WARRANTY; without even the implied warranty of
- *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *  GNU General Public License for more details.
- *
- *  This copyright notice MUST APPEAR in all copies of the script!
- ***************************************************************/
+ * The TYPO3 project - inspiring people to share!
+ */
+
+use JWeiland\Pfprojects\Configuration\ExtConf;
+use JWeiland\Pfprojects\Domain\Repository\CategoryRepository;
 use TYPO3\CMS\Extbase\Domain\Model\Category;
+use TYPO3\CMS\Extbase\Persistence\Generic\QueryResult;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
@@ -34,32 +26,34 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 class GetAreasOfActivityViewHelper extends AbstractViewHelper {
 
     /**
-     * @var \JWeiland\Pfprojects\Domain\Repository\CategoryRepository
+     * @var CategoryRepository
      */
     protected $categoryRepository;
 
     /**
-     * @var \JWeiland\Pfprojects\Configuration\ExtConf;
+     * @var ExtConf;
      */
-    protected $extConf = NULL;
+    protected $extConf;
 
     /**
      * inject category repository
      *
-     * @param \JWeiland\Pfprojects\Domain\Repository\CategoryRepository $categoryRepository
+     * @param CategoryRepository $categoryRepository
      * @return void
      */
-    public function injectCategoryRepository(\JWeiland\Pfprojects\Domain\Repository\CategoryRepository $categoryRepository) {
+    public function injectCategoryRepository(CategoryRepository $categoryRepository)
+    {
         $this->categoryRepository = $categoryRepository;
     }
 
     /**
      * inject extension configuration
      *
-     * @param \JWeiland\Pfprojects\Configuration\ExtConf $extConf
+     * @param ExtConf $extConf
      * @return void
      */
-    public function injectExtConf(\JWeiland\Pfprojects\Configuration\ExtConf $extConf) {
+    public function injectExtConf(ExtConf $extConf)
+    {
         $this->extConf = $extConf;
     }
 
@@ -69,12 +63,13 @@ class GetAreasOfActivityViewHelper extends AbstractViewHelper {
      * @param array $areasOfActivity
      * @return array
      */
-    public function render(array $areasOfActivity = array()) {
+    public function render(array $areasOfActivity = []):array
+    {
         $rootCategory = (int)$this->extConf->getRootCategory();
-        $categories = array();
+        $categories = [];
         // make sure to have only categories which are direct children of rootCategory
-        if ($areasOfActivity !== array()) {
-            /** @var \TYPO3\CMS\Extbase\Domain\Model\Category $areaOfActivity */
+        if ($areasOfActivity !== []) {
+            /** @var Category $areaOfActivity */
             foreach ($areasOfActivity as $areaOfActivity) {
                 $parentCategory = $areaOfActivity->getParent();
                 if ($parentCategory instanceof Category && $parentCategory->getUid() === $rootCategory) {
@@ -82,23 +77,24 @@ class GetAreasOfActivityViewHelper extends AbstractViewHelper {
                 }
             }
         } else {
-            /** @var \TYPO3\CMS\Extbase\Persistence\Generic\QueryResult $categoryResult */
+            /** @var QueryResult $categoryResult */
             $categoryResult = $this->categoryRepository->findByParent($rootCategory);
             // we need an Array as collection for usort and not an ObjectStorage
             $categories = $categoryResult->toArray();
         }
-        usort($categories, array('self', 'sortCategoriesByTitle'));
+        usort($categories, ['self', 'sortCategoriesByTitle']);
         return $categories;
     }
 
     /**
      * sort categories
      *
-     * @param \TYPO3\CMS\Extbase\Domain\Model\Category $categoryA
-     * @param \TYPO3\CMS\Extbase\Domain\Model\Category $categoryB
+     * @param Category $categoryA
+     * @param Category $categoryB
      * @return int
      */
-    protected function sortCategoriesByTitle($categoryA, $categoryB) {
+    protected function sortCategoriesByTitle(Category $categoryA, Category $categoryB): int
+    {
         if ($categoryA->getTitle() == $categoryB->getTitle()) {
             return 0;
         }
