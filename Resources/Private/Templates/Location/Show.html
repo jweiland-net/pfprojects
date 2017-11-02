@@ -1,0 +1,6 @@
+{namespace map=JWeiland\Maps2\ViewHelpers}
+
+<f:if condition="{project.txMaps2Uid}">
+	<map:widget.poiCollection width="100%" poiCollection="{project.txMaps2Uid}" />
+	<f:link.action action="show" controller="Project" arguments="{project: project}" pageUid="{settings.pidOfListPage}"><f:translate key="backToDetails" /></f:link.action><br />
+</f:if>

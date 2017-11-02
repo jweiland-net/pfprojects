@@ -1,0 +1,34 @@
+
+plugin.tx_pfprojects {
+	view {
+		# cat=plugin.tx_pfprojects/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:pfprojects/Resources/Private/Templates/
+		# cat=plugin.tx_pfprojects/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:pfprojects/Resources/Private/Partials/
+		# cat=plugin.tx_pfprojects/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:pfprojects/Resources/Private/Layouts/
+	}
+	persistence {
+		# cat=plugin.tx_pfprojects//a; type=string; label=Default storage PID
+		storagePid =
+	}
+	settings {
+		# cat=plugin.tx_pfprojects//b; type=int+; label=PID where maps2 plugin for detail view is inserted
+		pidOfMaps2Plugin =
+		# cat=plugin.tx_pfprojects//c; type=int+; label=PID of Detail page: Leave empty to show details on current page.
+		pidOfDetailPage =
+		# cat=plugin.tx_pfprojects//d; type=int+; label=PID of WES E-Government Detail Page.
+		pidOfGovernmentPage =
+
+		pageBrowser {
+			# cat=plugin.tx_pfprojects/basic/dims; type=int+; label=Items per page: How many items should be displayed on one page
+			itemsPerPage = 15
+			# cat=plugin.tx_pfprojects/basic/enable; type=boolean; label=insert above: Should pagebrowser be displayed on top of the list
+			insertAbove = 1
+			# cat=plugin.tx_pfprojects/basic/enable; type=boolean; label=insert below: Should pagebrowser be displayed at bottom of the list
+			insertBelow = 0
+			# cat=plugin.tx_pfprojects/basic/dims; type=int+; label=max number of links: Define maximum amount of pages which should be displayed
+			maximumNumberOfLinks = 5
+		}
+	}
+}
