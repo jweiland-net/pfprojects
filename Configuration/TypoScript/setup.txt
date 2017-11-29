@@ -6,13 +6,6 @@ plugin.tx_pfprojects {
   }
   persistence {
     storagePid = {$plugin.tx_pfprojects.persistence.storagePid}
-    classes {
-      JWeiland\Pfprojects\Domain\Model\Category {
-        mapping {
-          tableName = sys_category
-        }
-      }
-    }
   }
   settings {
     pidOfMaps2Plugin = {$plugin.tx_pfprojects.settings.pidOfMaps2Plugin}
