@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2016-01-05T15:29:00Z" product-name="pfprojects">
-		<header/>
-		<body>
+  <file source-language="en" datatype="plaintext" original="messages" date="2016-01-05T15:29:00Z" product-name="pfprojects">
+    <header/>
+    <body>
 
-			<trans-unit id="rootCategory" xml:space="preserve">
-				<source>Root category for area of activity: In each project record you have the possibility to add one or more areas of activity. In huge installations it's better to define a root category here to NOT show all categories.</source>
-				<target>Rootkategorie für Handlungsfeld: In jedem Projektdatensatz haben Sie die Möglichkeit ein oder mehrere Handlungsfelder auszuwählen. In großen Installationen ist es sinnvoll eine Rootketegorie auszuwählen, damit bei der Auswahl nicht alle Kategorien erscheinen.</target>
-			</trans-unit>
+      <trans-unit id="rootCategory" xml:space="preserve">
+        <source>Root category for area of activity: In each project record you have the possibility to add one or more areas of activity. In huge installations it's better to define a root category here to NOT show all categories.</source>
+        <target>Rootkategorie für Handlungsfeld: In jedem Projektdatensatz haben Sie die Möglichkeit ein oder mehrere Handlungsfelder auszuwählen. In großen Installationen ist es sinnvoll eine Rootketegorie auszuwählen, damit bei der Auswahl nicht alle Kategorien erscheinen.</target>
+      </trans-unit>
 
-		</body>
-	</file>
+    </body>
+  </file>
 </xliff>

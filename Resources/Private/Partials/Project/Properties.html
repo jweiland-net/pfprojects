@@ -4,9 +4,9 @@
 <f:render partial="Project/Field" arguments="{value: project.contactPerson, languageField: 'contact_person'}" />
 
 <f:if condition="{project.tradeOffice}">
-	<f:if condition="{project.tradeOffice.title}">
-		<div><span><f:translate key="tx_pfprojects_domain_model_project.trade_office" />:</span>{project.tradeOffice.title}</div>
-	</f:if>
+  <f:if condition="{project.tradeOffice.title}">
+    <div><span><f:translate key="tx_pfprojects_domain_model_project.trade_office" />:</span>{project.tradeOffice.title}</div>
+  </f:if>
 </f:if>
 
 <f:render partial="Project/Field" arguments="{value: '{project.startDate->f:format.date(format: \'d.m.Y\')}', languageField: 'start_date'}" />
@@ -14,51 +14,51 @@
 <f:render partial="Project/Field" arguments="{value: project.description, languageField: 'description'}" />
 
 <f:if condition="{project.txMaps2Uid}">
-	<f:link.action action="show" pageUid="{settings.pidOfLocationPage}" controller="Location" arguments="{project: project}">[MAP]</f:link.action>
+  <f:link.action action="show" pageUid="{settings.pidOfLocationPage}" controller="Location" arguments="{project: project}">[MAP]</f:link.action>
 </f:if>
 
 <f:render partial="Project/Images" arguments="{images: project.images}" />
 
 <f:if condition="{project.files}">
-	<div><span><f:translate key="tx_pfprojects_domain_model_project.files" />:</span>
-		<ul>
-			<f:for each="{project.files}" as="file">
-				<li><a href="{file.originalResource.publicUrl}" target="_blank">{file.originalResource.publicUrl}</a></li>
-			</f:for>
-		</ul>
-	</div>
+  <div><span><f:translate key="tx_pfprojects_domain_model_project.files" />:</span>
+    <ul>
+      <f:for each="{project.files}" as="file">
+        <li><a href="{file.originalResource.publicUrl}" target="_blank">{file.originalResource.publicUrl}</a></li>
+      </f:for>
+    </ul>
+  </div>
 </f:if>
 
 <f:if condition="{project.links}">
-	<div><span><f:translate key="tx_pfprojects_domain_model_project.links" />:</span>
-		<ul>
-			<f:for each="{project.links}" as="link">
-				<li><f:link.external uri="{link.link}" target="_blank">{link.title}</f:link.external></li>
-			</f:for>
-		</ul>
-	</div>
+  <div><span><f:translate key="tx_pfprojects_domain_model_project.links" />:</span>
+    <ul>
+      <f:for each="{project.links}" as="link">
+        <li><f:link.external uri="{link.link}" target="_blank">{link.title}</f:link.external></li>
+      </f:for>
+    </ul>
+  </div>
 </f:if>
 
 <f:alias map="{activities: '{pp:getAreasOfActivity(areasOfActivity: \'{project.areaOfActivity}\')}'}">
-	<f:if condition="{activities}">
-		<div><span><f:translate key="tx_pfprojects_domain_model_project.area_of_activity" />:</span>
-			<ul>
-				<f:for each="{activities}" as="activity">
-					<li>{activity.title}
-						<f:alias map="{targets: '{pp:getTargets(parent: \'{activity.uid}\', areasOfActivity: \'{project.areaOfActivity}\')}'}">
-							<f:if condition="{targets}">
-								<div><span><f:translate key="targets" />:</span>
-									<ul>
-										<f:for each="{targets}" as="target">
-											<li>{target.title}</li>
-										</f:for>
-									</ul>
-								</div>
-							</f:if>
-						</f:alias>
-					</li>
-				</f:for>
-			</ul>
-		</div>
-	</f:if>
+  <f:if condition="{activities}">
+    <div><span><f:translate key="tx_pfprojects_domain_model_project.area_of_activity" />:</span>
+      <ul>
+        <f:for each="{activities}" as="activity">
+          <li>{activity.title}
+            <f:alias map="{targets: '{pp:getTargets(parent: \'{activity.uid}\', areasOfActivity: \'{project.areaOfActivity}\')}'}">
+              <f:if condition="{targets}">
+                <div><span><f:translate key="targets" />:</span>
+                  <ul>
+                    <f:for each="{targets}" as="target">
+                      <li>{target.title}</li>
+                    </f:for>
+                  </ul>
+                </div>
+              </f:if>
+            </f:alias>
+          </li>
+        </f:for>
+      </ul>
+    </div>
+  </f:if>
 </f:alias>
