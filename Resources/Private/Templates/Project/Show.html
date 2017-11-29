@@ -3,7 +3,7 @@
 <f:section name="main">
   <h1>{project.title}</h1>
 
-  <f:flashMessages renderMode="div" />
+  <f:flashMessages />
 
   <f:render partial="Project/Properties" arguments="{project: project}" />
   <f:link.action action="list" pageUid="{settings.pidOfListPage}"><f:translate key="backToList" /></f:link.action><br />
