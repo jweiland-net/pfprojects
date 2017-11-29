@@ -20,8 +20,8 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 /**
  * A ViewHelper to get a sorting array
  */
-class GetTargetsViewHelper extends AbstractViewHelper {
-
+class GetTargetsViewHelper extends AbstractViewHelper
+{
     /**
      * get direct child categories of defined root category in extConf
      *
@@ -63,5 +63,4 @@ class GetTargetsViewHelper extends AbstractViewHelper {
             return -1;
         }
     }
-
 }

@@ -21,8 +21,8 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  * @package pfprojects
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class ProjectController extends ActionController {
-
+class ProjectController extends ActionController
+{
     /**
      * projectRepository
      *
@@ -61,8 +61,10 @@ class ProjectController extends ActionController {
      * @param int $areaOfActivity
      * @param string $sortBy
      * @param string $direction
+     *
      * @validate $sortBy RegularExpression(regularExpression=/title|status|start_date|area_of_activity/)
      * @validate $direction RegularExpression(regularExpression=/ASC|DESC/)
+     *
      * @return void
      */
     public function listAction(int $areaOfActivity = 0, string $sortBy = 'status', string $direction = 'ASC')
@@ -78,6 +80,7 @@ class ProjectController extends ActionController {
      * action show
      *
      * @param int $project
+     *
      * @return void
      */
     public function showAction(int $project) {

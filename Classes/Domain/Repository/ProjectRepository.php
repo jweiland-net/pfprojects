@@ -22,8 +22,8 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
  * @package pfproject
  * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  */
-class ProjectRepository extends Repository {
-
+class ProjectRepository extends Repository
+{
     /**
      * @var array
      */
@@ -39,7 +39,8 @@ class ProjectRepository extends Repository {
      * @param string $direction
      * @return \TYPO3\CMS\Extbase\Persistence\QueryResultInterface
      */
-    public function findAllSorted(int $areaOfActivity, string $sortBy, string $direction) {
+    public function findAllSorted(int $areaOfActivity, string $sortBy, string $direction)
+    {
         $query = $this->createQuery();
 
         $constraint = [];

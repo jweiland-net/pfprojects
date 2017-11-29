@@ -14,3 +14,4 @@ $extConf = unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['pfprojects
         ]
     ]
 );
+unset($extConf);

@@ -19,13 +19,12 @@ use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 /**
  * The repository for Projects
  */
-class CategoryRepository extends \TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository {
-
+class CategoryRepository extends \TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository
+{
     /**
      * @var array
      */
     protected $defaultOrderings = [
         'title' => QueryInterface::ORDER_ASCENDING
     ];
-
 }

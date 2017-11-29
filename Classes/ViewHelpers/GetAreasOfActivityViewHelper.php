@@ -23,8 +23,8 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 /**
  * A ViewHelper to get a sorting array
  */
-class GetAreasOfActivityViewHelper extends AbstractViewHelper {
-
+class GetAreasOfActivityViewHelper extends AbstractViewHelper
+{
     /**
      * @var CategoryRepository
      */
@@ -104,5 +104,4 @@ class GetAreasOfActivityViewHelper extends AbstractViewHelper {
             return -1;
         }
     }
-
 }
