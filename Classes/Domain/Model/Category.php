@@ -2,7 +2,7 @@
 namespace JWeiland\Pfprojects\Domain\Model;
 
 /*
- * This file is part of the service_bw2 project.
+ * This file is part of the pfprojects project.
  *
  * It is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License, either version 2
