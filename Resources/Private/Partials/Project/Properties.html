@@ -41,7 +41,6 @@
 </f:if>
 
 <f:alias map="{activities: '{pp:getAreasOfActivity(areasOfActivity: \'{project.areaOfActivity}\')}'}">
-<<<<<<< HEAD
 	<f:if condition="{activities}">
 		<div><span><f:translate key="tx_pfprojects_domain_model_project.area_of_activity" />:</span>
 			<ul>
@@ -63,27 +62,4 @@
 			</ul>
 		</div>
 	</f:if>
-=======
-  <f:if condition="{activities}">
-    <div><span><f:translate key="tx_pfprojects_domain_model_project.area_of_activity" />:</span>
-      <ul>
-        <f:for each="{activities}" as="activity">
-          <li>{activity.title}
-            <f:alias map="{targets: '{pp:getTargets(parent: \'{activity.uid}\', areasOfActivity: \'{project.areaOfActivity}\')}'}">
-              <f:if condition="{targets}">
-                <div><span><f:translate key="targets" />:</span>
-                  <ul>
-                    <f:for each="{targets}" as="target">
-                      <li>{target.title}</li>
-                    </f:for>
-                  </ul>
-                </div>
-              </f:if>
-            </f:alias>
-          </li>
-        </f:for>
-      </ul>
-    </div>
-  </f:if>
->>>>>>> 292ccfcb804e0f27d38693d28cbe4c472c6c26c4
 </f:alias>
