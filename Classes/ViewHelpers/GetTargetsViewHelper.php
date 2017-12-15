@@ -15,6 +15,7 @@ namespace JWeiland\Pfprojects\ViewHelpers;
  */
 
 use TYPO3\CMS\Extbase\Domain\Model\Category;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
@@ -26,17 +27,17 @@ class GetTargetsViewHelper extends AbstractViewHelper
      * get direct child categories of defined root category in extConf
      *
      * @param int $parent
-     * @param array $areasOfActivity
+     * @param ObjectStorage $areasOfActivity
      * @return array
      */
-    public function render(int $parent, array $areasOfActivity = []): array
+    public function render(int $parent, ObjectStorage $areasOfActivity = null): array
     {
         $categories = [];
-        if (count($areasOfActivity)) {
+        if ($areasOfActivity !== null) {
             /** @var Category $areaOfActivity */
             foreach ($areasOfActivity as $areaOfActivity) {
                 $parentCategory = $areaOfActivity->getParent();
-                if ($parentCategory !== NULL && $parentCategory->getUid() === $parent) {
+                if ($parentCategory !== null && $parentCategory->getUid() === $parent) {
                     $categories[] = $areaOfActivity;
                 }
             }
