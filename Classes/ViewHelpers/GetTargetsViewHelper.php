@@ -2,7 +2,7 @@
 namespace JWeiland\Pfprojects\ViewHelpers;
 
 /*
- * This file is part of the service_bw2 project.
+ * This file is part of the pfprojects project.
  *
  * It is free software; you can redistribute it and/or modify it under
  * the terms of the GNU General Public License, either version 2
@@ -20,8 +20,8 @@ use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 /**
  * A ViewHelper to get a sorting array
  */
-class GetTargetsViewHelper extends AbstractViewHelper {
-
+class GetTargetsViewHelper extends AbstractViewHelper
+{
     /**
      * get direct child categories of defined root category in extConf
      *
@@ -62,5 +62,4 @@ class GetTargetsViewHelper extends AbstractViewHelper {
         }
         return -1;
     }
-
 }
