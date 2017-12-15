@@ -2,11 +2,12 @@
 
 <f:render partial="Project/Field" arguments="{value: project.title, languageField: 'title'}" />
 <f:render partial="Project/Field" arguments="{value: project.contactPerson, languageField: 'contact_person'}" />
-
-<f:if condition="{project.tradeOffice}">
-	<f:if condition="{project.tradeOffice.title}">
-		<div><span><f:translate key="tx_pfprojects_domain_model_project.trade_office" />:</span>{project.tradeOffice.title}</div>
-	</f:if>
+<f:if condition="{project.organisationseinheit}">
+  <div><span><f:translate key="tx_pfprojects_domain_model_project.organisationseinheit" />:</span>
+  <f:for each="{project.organisationseinheit}" as="organisationseinheit">
+    {organisationseinheit.name}
+  </f:for>
+  </div>
 </f:if>
 
 <f:render partial="Project/Field" arguments="{value: '{project.startDate->f:format.date(format: \'d.m.Y\')}', languageField: 'start_date'}" />

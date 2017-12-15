@@ -188,25 +188,11 @@ return [
                 'default' => 0,
             ],
         ],
-        'office_service_bw2' => [
+        'organisationseinheit' => [
             'displayCond' => 'FIELD:office_type:=:0',
             'exclude' => 1,
-            'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.office_service_bw2',
-            'config' => [
-                'type' => 'group',
-                'internal_type' => 'db',
-                'allowed' => 'tx_servicebw2_domain_model_behoerde',
-                'maxitems' => '1',
-                'size' => '1',
-                'wizards' => [
-                    'suggest' => [
-                        'type' => 'suggest',
-                        'default' => [
-                            'searchWholePhrase' => true,
-                        ]
-                    ]
-                ],
-            ],
+            'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.organisationseinheit',
+            'config' => \JWeiland\ServiceBw2\Utility\TCAUtility::getOrganisationseinheitenFieldTCAConfig(['maxitems' => 1])
         ],
         'office_manuell' => [
             'displayCond' => 'FIELD:office_type:=:1',
@@ -293,7 +279,7 @@ return [
         ],
     ],
     'types' => [
-        '1' => ['showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, start_date, status, contact_person, telephone, email, office_type, office_service_bw2, office_manuell, images, description;;;richtext:rte_transform[mode=ts_links], tx_maps2_uid, files, links, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access, starttime, endtime'],
+        '1' => ['showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, start_date, status, contact_person, telephone, email, office_type, organisationseinheit, office_manuell, images, description;;;richtext:rte_transform[mode=ts_links], tx_maps2_uid, files, links, --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:tabs.access, starttime, endtime'],
     ],
     'palettes' => [
         '1' => ['showitem' => ''],

@@ -1,101 +1,104 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2016-01-05T15:53:45Z" product-name="pfproducts">
-		<header/>
-		<body>
-			<trans-unit id="tx_pfprojects_domain_model_project">
-				<source>Project</source>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.title">
-				<source>Title</source>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.start_date">
-				<source>Project Start</source>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.status">
-				<source>Project Status</source>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.status.1green">
-				<source>Finished</source>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.status.2yellow">
-				<source>In Progress</source>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.status.3red">
-				<source>Planned</source>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.contact_person">
-				<source>Contact Person</source>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.telephone">
-				<source>Telephone</source>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.email">
-				<source>Email</source>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.office_type">
-				<source>Default: Choose organizer by a record of wes_egovernment. If checked: You can insert your own organizer with help of a text field. Each click reloads the current form.</source>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.office_egovernment">
-				<source>Choose an organizer by a record of wes_egovernment.</source>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.office_manuell">
-				<source>Insert your own organizer.</source>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.images">
-				<source>Images</source>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.description">
-				<source>Description</source>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.tx_maps2_uid">
-				<source>Map</source>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.files">
-				<source>Files</source>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.links">
-				<source>Links</source>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.area_of_activity">
-				<source>Area of Activity</source>
-			</trans-unit>
+  <file source-language="en" datatype="plaintext" original="messages" date="2016-01-05T15:53:45Z"
+        product-name="pfproducts">
+    <header/>
+    <body>
+      <trans-unit id="tx_pfprojects_domain_model_project">
+        <source>Project</source>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.title">
+        <source>Title</source>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.start_date">
+        <source>Project Start</source>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.status">
+        <source>Project Status</source>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.status.1green">
+        <source>Finished</source>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.status.2yellow">
+        <source>In Progress</source>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.status.3red">
+        <source>Planned</source>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.contact_person">
+        <source>Contact Person</source>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.telephone">
+        <source>Telephone</source>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.email">
+        <source>Email</source>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.office_type">
+        <source>Default: Choose organizer by a record of service_bw2. If checked: You can insert your own organizer with
+          help of a text field. Each click reloads the current form.
+        </source>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.organisationseinheit">
+        <source>Organisationseinheit</source>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.office_manuell">
+        <source>Insert your own organizer.</source>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.images">
+        <source>Images</source>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.description">
+        <source>Description</source>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.tx_maps2_uid">
+        <source>Map</source>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.files">
+        <source>Files</source>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.links">
+        <source>Links</source>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.area_of_activity">
+        <source>Area of Activity</source>
+      </trans-unit>
 
-			<trans-unit id="tx_pfprojects_domain_model_link">
-				<source>Link</source>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_link.title">
-				<source>Title</source>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_link.link">
-				<source>Link</source>
-			</trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_link">
+        <source>Link</source>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_link.title">
+        <source>Title</source>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_link.link">
+        <source>Link</source>
+      </trans-unit>
 
-			<trans-unit id="backToList">
-				<source>Back to list</source>
-			</trans-unit>
-			<trans-unit id="backToDetails">
-				<source>Back to detail view</source>
-			</trans-unit>
-			<trans-unit id="targets">
-				<source>Targets</source>
-			</trans-unit>
-			<trans-unit id="noResults">
-				<source>No results</source>
-			</trans-unit>
-			<trans-unit id="asc">
-				<source>Ascending</source>
-			</trans-unit>
-			<trans-unit id="desc">
-				<source>Descending</source>
-			</trans-unit>
-			<trans-unit id="sortBy">
-				<source>Sort by</source>
-			</trans-unit>
-			<trans-unit id="ordering">
-				<source>Ordering</source>
-			</trans-unit>
+      <trans-unit id="backToList">
+        <source>Back to list</source>
+      </trans-unit>
+      <trans-unit id="backToDetails">
+        <source>Back to detail view</source>
+      </trans-unit>
+      <trans-unit id="targets">
+        <source>Targets</source>
+      </trans-unit>
+      <trans-unit id="noResults">
+        <source>No results</source>
+      </trans-unit>
+      <trans-unit id="asc">
+        <source>Ascending</source>
+      </trans-unit>
+      <trans-unit id="desc">
+        <source>Descending</source>
+      </trans-unit>
+      <trans-unit id="sortBy">
+        <source>Sort by</source>
+      </trans-unit>
+      <trans-unit id="ordering">
+        <source>Ordering</source>
+      </trans-unit>
 
-		</body>
-	</file>
+    </body>
+  </file>
 </xliff>

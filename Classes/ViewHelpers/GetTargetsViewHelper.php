@@ -54,14 +54,13 @@ class GetTargetsViewHelper extends AbstractViewHelper {
      */
     protected function sortTargetsByTitle(Category $categoryA, Category $categoryB): int
     {
-        if ($categoryA->getTitle() == $categoryB->getTitle()) {
+        if ($categoryA->getTitle() === $categoryB->getTitle()) {
             return 0;
         }
         if ($categoryA->getTitle() > $categoryB->getTitle()) {
             return 1;
-        } else {
-            return -1;
         }
+        return -1;
     }
 
 }

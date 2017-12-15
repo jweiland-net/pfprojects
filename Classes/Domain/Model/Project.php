@@ -15,7 +15,7 @@ namespace JWeiland\Pfprojects\Domain\Model;
  */
 
 use JWeiland\Maps2\Domain\Model\PoiCollection;
-use JWeiland\ServiceBw2\Domain\Model\Behoerde;
+use JWeiland\ServiceBw2\Utility\ModelUtility;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -74,11 +74,12 @@ class Project extends AbstractEntity
     protected $officeType = false;
 
     /**
-     * Behoerde from service_bw2 extension
+     * Organisationseinheit from ext:service_bw2
+     * Will be an array after first getter call!
      *
-     * @var Behoerde
+     * @var int
      */
-    protected $officeServiceBw2;
+    protected $organisationseinheit = 0;
 
     /**
      * officeManuell
@@ -298,23 +299,23 @@ class Project extends AbstractEntity
     }
 
     /**
-     * Returns OfficeServiceBw2
+     * Returns Organisationseinheit
      *
-     * @return Behoerde
+     * @return array
      */
-    public function getOfficeServiceBw2(): Behoerde
+    public function getOrganisationseinheit(): array
     {
-        return $this->officeServiceBw2;
+        return $this->organisationseinheit = ModelUtility::getOrganisationseinheiten($this->organisationseinheit);
     }
 
     /**
-     * Sets OfficeServiceBw2
+     * Sets Organisationseinheit
      *
-     * @param Behoerde $officeServiceBw2
+     * @param array $organisationseinheit
      */
-    public function setOfficeServiceBw2(Behoerde $officeServiceBw2)
+    public function setOrganisationseinheit(array $organisationseinheit)
     {
-        $this->officeServiceBw2 = $officeServiceBw2;
+        $this->organisationseinheit = $organisationseinheit;
     }
 
     /**
@@ -350,13 +351,16 @@ class Project extends AbstractEntity
         if ($this->officeType) {
             // get manually given organizer
             return $this->getOfficeManuell();
-        } else {
-            if ($this->getOfficeServiceBw2() instanceof Behoerde) {
-                return $this->getOfficeServiceBw2()->getName();
-            } else {
-                return '';
+        }
+        if (!empty($this->organisationseinheit) && !empty($this->getOrganisationseinheit())) {
+            // we will get an array like $arr[123 => ['name' => 'John', ...]
+            foreach ($this->getOrganisationseinheit() as $record) {
+                if (isset($record['name'])) {
+                    return $record['name'];
+                }
             }
         }
+        return '';
     }
 
     /**
@@ -364,7 +368,7 @@ class Project extends AbstractEntity
      *
      * @return ObjectStorage $images
      */
-    public function getImages(): ObjectStorage
+    public function getImages()
     {
         return $this->images;
     }
@@ -427,7 +431,7 @@ class Project extends AbstractEntity
      *
      * @return ObjectStorage $files
      */
-    public function getFiles(): ObjectStorage
+    public function getFiles()
     {
         return $this->files;
     }
@@ -448,7 +452,7 @@ class Project extends AbstractEntity
      *
      * @return ObjectStorage $links
      */
-    public function getLinks(): ObjectStorage
+    public function getLinks()
     {
         return $this->links;
     }
@@ -469,7 +473,7 @@ class Project extends AbstractEntity
      *
      * @return ObjectStorage $areaOfActivity
      */
-    public function getAreaOfActivity(): ObjectStorage
+    public function getAreaOfActivity()
     {
         return $this->areaOfActivity;
     }

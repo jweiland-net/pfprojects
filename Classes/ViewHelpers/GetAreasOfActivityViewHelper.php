@@ -18,6 +18,7 @@ use JWeiland\Pfprojects\Configuration\ExtConf;
 use JWeiland\Pfprojects\Domain\Repository\CategoryRepository;
 use TYPO3\CMS\Extbase\Domain\Model\Category;
 use TYPO3\CMS\Extbase\Persistence\Generic\QueryResult;
+use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
@@ -60,15 +61,15 @@ class GetAreasOfActivityViewHelper extends AbstractViewHelper {
     /**
      * get direct child categories of defined root category in extConf
      *
-     * @param array $areasOfActivity
+     * @param ObjectStorage $areasOfActivity
      * @return array
      */
-    public function render(array $areasOfActivity = []):array
+    public function render(ObjectStorage $areasOfActivity = null):array
     {
-        $rootCategory = (int)$this->extConf->getRootCategory();
+        $rootCategory = $this->extConf->getRootCategory();
         $categories = [];
         // make sure to have only categories which are direct children of rootCategory
-        if ($areasOfActivity !== []) {
+        if ($areasOfActivity !== null) {
             /** @var Category $areaOfActivity */
             foreach ($areasOfActivity as $areaOfActivity) {
                 $parentCategory = $areaOfActivity->getParent();
@@ -95,14 +96,13 @@ class GetAreasOfActivityViewHelper extends AbstractViewHelper {
      */
     protected function sortCategoriesByTitle(Category $categoryA, Category $categoryB): int
     {
-        if ($categoryA->getTitle() == $categoryB->getTitle()) {
+        if ($categoryA->getTitle() === $categoryB->getTitle()) {
             return 0;
         }
         if ($categoryA->getTitle() > $categoryB->getTitle()) {
             return 1;
-        } else {
-            return -1;
         }
+        return -1;
     }
 
 }

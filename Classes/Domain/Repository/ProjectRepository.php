@@ -56,8 +56,7 @@ class ProjectRepository extends Repository {
         }
         if (empty($constraint)) {
             return $query->execute();
-        } else {
-            return $query->matching($query->logicalAnd($constraint))->execute();
         }
+        return $query->matching($query->logicalAnd($constraint))->execute();
     }
 }

@@ -44,12 +44,12 @@
 				<target>E-Mail</target>
 			</trans-unit>
 			<trans-unit id="tx_pfprojects_domain_model_project.office_type">
-				<source>Default: Choose organizer by a record of wes_egovernment. If checked: You can insert your own organizer with help of a text field. Each click reloads the current form.</source>
-				<target>Standard: Wählen Sie einen Veranstalter der wes_egovernment-Extension. Markiert: Sie erhalten eine Textbox, um den Veranstalter manuell einzutragen.</target>
+				<source>Default: Choose organizer by a record of service_bw2. If checked: You can insert your own organizer with help of a text field. Each click reloads the current form.</source>
+				<target>Standard: Wählen Sie einen Veranstalter der service_bw2-Extension. Markiert: Sie erhalten eine Textbox, um den Veranstalter manuell einzutragen.</target>
 			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.office_service_bw2">
-				<source>Choose an organizer by a record of service_bw2.</source>
-				<target>Wählen Sie einen Veranstalter der service_bw2-Extension.</target>
+			<trans-unit id="tx_pfprojects_domain_model_project.organisationseinheit">
+        <source>Choose an organizer record of service_bw2.</source>
+        <target>Wählen Sie einen Veranstalter der service_bw2-Extension.</target>
 			</trans-unit>
 			<trans-unit id="tx_pfprojects_domain_model_project.office_manuell">
 				<source>Insert your own organizer.</source>
