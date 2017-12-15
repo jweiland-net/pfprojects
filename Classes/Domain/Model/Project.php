@@ -177,7 +177,7 @@ class Project extends AbstractEntity
      *
      * @return \DateTime $startDate
      */
-    public function getStartDate(): \DateTime
+    public function getStartDate()
     {
         return $this->startDate;
     }
