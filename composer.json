@@ -1,0 +1,31 @@
+{
+  "name": "jweiland/pfprojects",
+  "type": "typo3-cms-extension",
+  "description": "This extension shows a list of all masterplan projects of Pforzheim",
+  "version": "2.0.0",
+  "license": "GPL-2.0+",
+  "keywords": ["typo3", "TYPO3 CMS", "template"],
+  "homepage": "https://jweiland.net",
+  "authors": [
+    {
+      "name": "Stefan Froemken",
+      "email": "sfroemken@jweiland.net",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "email": "support@jweiland.net",
+    "issues": "https://github.com/jweiland-net/pfprojects/issues",
+    "source": "https://github.com/jweiland-net/pfprojects"
+  },
+  "require": {
+    "typo3/cms-core": "~8.7",
+    "jweiland/maps2": "~3.0",
+    "jweiland/service-bw2": "<2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "JWeiland\\Pfprojects\\": "Classes"
+    }
+  }
+}
