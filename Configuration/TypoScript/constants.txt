@@ -17,8 +17,8 @@ plugin.tx_pfprojects {
     pidOfMaps2Plugin =
     # cat=plugin.tx_pfprojects//c; type=int+; label=PID of Detail page: Leave empty to show details on current page.
     pidOfDetailPage =
-    # cat=plugin.tx_pfprojects//d; type=int+; label=PID of WES E-Government Detail Page.
-    pidOfGovernmentPage =
+    # cat=plugin.tx_pfprojects//d; type=int+; label=PID of the Service BW 2 page.
+    pidOfServiceBw2Page =
 
     pageBrowser {
       # cat=plugin.tx_pfprojects/basic/dims; type=int+; label=Items per page: How many items should be displayed on one page
