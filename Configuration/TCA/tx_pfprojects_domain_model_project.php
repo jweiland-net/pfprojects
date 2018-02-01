@@ -24,7 +24,7 @@ return [
         'iconfile' => 'EXT:pfprojects/Resources/Public/Icons/tx_pfprojects_domain_model_project.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, start_date, status, contact_person, telephone, email, office_type, office_egovernment, office_manuell, images, description, tx_maps2_uid, files, links',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, start_date, status, contact_person, telephone, email, office_type, organisationseinheit, office_manuell, images, description, tx_maps2_uid, files, links',
     ],
     'columns' => [
         'sys_language_uid' => [

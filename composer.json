@@ -2,7 +2,7 @@
   "name": "jweiland/pfprojects",
   "type": "typo3-cms-extension",
   "description": "This extension shows a list of all masterplan projects of Pforzheim",
-  "license": "GPL-2.0+",
+  "license": "GPL-2.0-or-later",
   "keywords": ["typo3", "TYPO3 CMS", "template"],
   "homepage": "https://jweiland.net",
   "authors": [
