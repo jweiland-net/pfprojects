@@ -8,9 +8,7 @@ return [
         'cruser_id' => 'cruser_id',
         'dividers2tabs' => true,
         'type' => 'office_type',
-        'versioningWS' => 2,
-        'versioning_followPages' => true,
-
+        'versioningWS' => true,
         'languageField' => 'sys_language_uid',
         'transOrigPointerField' => 'l10n_parent',
         'transOrigDiffSourceField' => 'l10n_diffsource',
@@ -24,13 +22,13 @@ return [
         'iconfile' => 'EXT:pfprojects/Resources/Public/Icons/tx_pfprojects_domain_model_project.gif'
     ],
     'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, start_date, status, contact_person, telephone, email, office_type, organisationseinheit, office_manuell, images, description, tx_maps2_uid, files, links',
+        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, start_date, status, contact_person, telephone, email, office_type, organisationseinheit, office_manuell, images, description, files, links',
     ],
     'types' => [
         '1' => [
-            'showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, title, start_date,
+            'showitem' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, start_date,
             status, contact_person, telephone, email, office_type, organisationseinheit, office_manuell, images,
-            description;;;richtext:rte_transform[mode=ts_links], tx_maps2_uid, files, links,
+            description, files, links,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access, 
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.access;access'
         ],
@@ -70,7 +68,6 @@ return [
                 ],
                 'foreign_table' => 'tx_pfprojects_domain_model_project',
                 'foreign_table_where' => 'AND tx_pfprojects_domain_model_project.pid=###CURRENT_PID### AND tx_pfprojects_domain_model_project.sys_language_uid IN (-1,0)',
-                'showIconTable' => false,
                 'default' => 0,
             ]
         ],
@@ -84,8 +81,8 @@ return [
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.versionLabel',
             'config' => [
                 'type' => 'input',
-                'size' => '30',
-                'max' => '255'
+                'size' => 30,
+                'max' => 255
             ]
         ],
         'hidden' => [
@@ -105,7 +102,8 @@ return [
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.starttime',
             'config' => [
                 'type' => 'input',
-                'size' => '13',
+                'renderType' => 'inputDateTime',
+                'size' => 13,
                 'eval' => 'datetime',
                 'default' => 0
             ],
@@ -117,7 +115,8 @@ return [
             'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.endtime',
             'config' => [
                 'type' => 'input',
-                'size' => '13',
+                'renderType' => 'inputDateTime',
+                'size' => 13,
                 'eval' => 'datetime',
                 'default' => 0,
                 'range' => [
@@ -141,6 +140,7 @@ return [
             'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.start_date',
             'config' => [
                 'type' => 'input',
+                'renderType' => 'inputDateTime',
                 'dbType' => 'date',
                 'size' => 10,
                 'eval' => 'date'
@@ -151,6 +151,7 @@ return [
             'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.status',
             'config' => [
                 'type' => 'select',
+                'renderType' => 'selectSingle',
                 'size' => 1,
                 'items' => [
                     // I need the numbers in front, because of sorting
@@ -239,41 +240,9 @@ return [
                 'type' => 'text',
                 'cols' => 40,
                 'rows' => 15,
-                'eval' => 'trim',
-                'wizards' => [
-                    '_PADDING' => 2,
-                    'RTE' => [
-                        'notNewRecords' => 1,
-                        'RTEonly' => 1,
-                        'type' => 'script',
-                        'title' => 'Full screen Rich Text Editing',
-                        'icon' => 'wizard_rte2.gif',
-                        'module' => [
-                            'name' => 'wizard_rte',
-                        ],
-                    ],
-                ],
-            ],
-        ],
-        'tx_maps2_uid' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.tx_maps2_uid',
-            'config' => [
-                'type' => 'group',
-                'internal_type' => 'db',
-                'allowed' => 'tx_maps2_domain_model_poicollection',
-                'prepend_tname' => false,
-                'show_thumbs' => false,
-                'size' => 1,
-                'maxitems' => 1,
-                'wizards' => [
-                    'suggest' => [
-                        'type' => 'suggest',
-                        'default' => [
-                            'searchWholePhrase' => true
-                        ],
-                    ],
-                ],
+                'softref' => 'rtehtmlarea_images,typolink_tag,images,email[subst],url',
+                'enableRichtext' => true,
+                'richtextConfiguration' => 'default',
             ],
         ],
         'files' => [
