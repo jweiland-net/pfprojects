@@ -17,7 +17,6 @@ CREATE TABLE tx_pfprojects_domain_model_project (
   office_manuell varchar(255) DEFAULT '' NOT NULL,
   images int(11) unsigned DEFAULT '0' NOT NULL,
   description text NOT NULL,
-  tx_maps2_uid int(11) unsigned NOT NULL default '0',
   files int(11) unsigned DEFAULT '0' NOT NULL,
   links int(11) unsigned NOT NULL default '0',
 
