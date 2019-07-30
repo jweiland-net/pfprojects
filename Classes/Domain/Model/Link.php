@@ -1,4 +1,5 @@
-<?php declare(strict_types=1);
+<?php
+declare(strict_types=1);
 namespace JWeiland\Pfprojects\Domain\Model;
 
 /*
@@ -22,23 +23,17 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 class Link extends AbstractEntity
 {
     /**
-     * Link
-     *
      * @var string
      */
     protected $link = '';
 
     /**
-     * Title
-     *
      * @var string
      */
     protected $title = 'Video';
 
     /**
-     * Returns the link
-     *
-     * @return string $link
+     * @return string
      */
     public function getLink(): string
     {
@@ -46,10 +41,7 @@ class Link extends AbstractEntity
     }
 
     /**
-     * Sets the link
-     *
      * @param string $link
-     * @return void
      */
     public function setLink(string $link)
     {
@@ -57,9 +49,7 @@ class Link extends AbstractEntity
     }
 
     /**
-     * Returns the title
-     *
-     * @return string $title
+     * @return string
      */
     public function getTitle(): string
     {
@@ -67,10 +57,7 @@ class Link extends AbstractEntity
     }
 
     /**
-     * Sets the title
-     *
      * @param string $title
-     * @return void
      */
     public function setTitle(string $title)
     {

@@ -1,4 +1,5 @@
-<?php declare(strict_types=1);
+<?php
+declare(strict_types=1);
 namespace JWeiland\Pfprojects\ViewHelpers;
 
 /*
@@ -19,7 +20,7 @@ use JWeiland\Pfprojects\Domain\Repository\CategoryRepository;
 use TYPO3\CMS\Extbase\Domain\Model\Category;
 use TYPO3\CMS\Extbase\Persistence\Generic\QueryResult;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
-use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
+use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
  * With this VH you get all direct child categories of a given parent category.
@@ -39,10 +40,7 @@ class GetAreasOfActivityViewHelper extends AbstractViewHelper
     protected $extConf;
 
     /**
-     * inject category repository
-     *
      * @param CategoryRepository $categoryRepository
-     * @return void
      */
     public function injectCategoryRepository(CategoryRepository $categoryRepository)
     {
@@ -50,10 +48,7 @@ class GetAreasOfActivityViewHelper extends AbstractViewHelper
     }
 
     /**
-     * inject extension configuration
-     *
      * @param ExtConf $extConf
-     * @return void
      */
     public function injectExtConf(ExtConf $extConf)
     {
@@ -61,12 +56,12 @@ class GetAreasOfActivityViewHelper extends AbstractViewHelper
     }
 
     /**
-     * get direct child categories of defined root category in extConf
+     * Get direct child categories of defined root category in extConf
      *
      * @param ObjectStorage $areasOfActivity
      * @return array
      */
-    public function render(ObjectStorage $areasOfActivity = null):array
+    public function render(ObjectStorage $areasOfActivity = null): array
     {
         $rootCategory = $this->extConf->getRootCategory();
         $categories = [];
@@ -90,7 +85,7 @@ class GetAreasOfActivityViewHelper extends AbstractViewHelper
     }
 
     /**
-     * sort categories
+     * Sort categories
      *
      * @param Category $categoryA
      * @param Category $categoryB
