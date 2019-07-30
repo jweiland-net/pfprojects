@@ -11,12 +11,12 @@ $EM_CONF['pfprojects'] = [
     'uploadfolder' => '1',
     'createDirs' => '',
     'clearCacheOnLoad' => 0,
-    'version' => '2.2.2',
+    'version' => '3.0.0',
     'constraints' => [
         'depends' => [
-            'typo3' => '8.7.0-8.7.99',
-            'maps2' => '4.2.0-4.99.99',
-            'service_bw2' => '1.4.0-1.99.99'
+            'typo3' => '8.7.0-9.5..99',
+            'maps2' => '5.0.0-5.99.99',
+            'service_bw2' => '2.0.0-2.99.99'
         ],
         'conflicts' => [
         ],
