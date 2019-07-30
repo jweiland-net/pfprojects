@@ -72,7 +72,8 @@ class ProjectController extends ActionController
      *
      * @param int $project
      */
-    public function showAction(int $project) {
+    public function showAction(int $project)
+    {
         $project = $this->projectRepository->findByIdentifier($project);
         $this->view->assign('project', $project);
     }
