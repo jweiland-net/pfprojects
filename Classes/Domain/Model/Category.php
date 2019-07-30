@@ -23,4 +23,26 @@ namespace JWeiland\Pfprojects\Domain\Model;
  */
 class Category extends \TYPO3\CMS\Extbase\Domain\Model\Category
 {
+    /**
+     * @var string
+     */
+    protected $icon = '';
+
+    /**
+     * @return string
+     */
+    public function getIcon()
+    {
+        return $this->icon;
+    }
+
+    /**
+     * Sets the icon
+     *
+     * @param string $icon
+     */
+    public function setIcon($icon)
+    {
+        $this->icon = (string)$icon;
+    }
 }
