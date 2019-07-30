@@ -1,4 +1,5 @@
-<?php declare(strict_types=1);
+<?php
+declare(strict_types=1);
 namespace JWeiland\Pfprojects\Domain\Model;
 
 /*
@@ -25,50 +26,36 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 class Project extends AbstractEntity
 {
     /**
-     * title
-     *
      * @var string
      */
     protected $title = '';
 
     /**
-     * startDate
-     *
      * @var \DateTime
      */
     protected $startDate;
 
     /**
-     * status
-     *
      * @var string
      */
     protected $status = '';
 
     /**
-     * contactPerson
-     *
      * @var string
      */
     protected $contactPerson = '';
 
     /**
-     * telephone
-     *
      * @var string
      */
     protected $telephone = '';
 
     /**
-     * email
-     *
      * @var string
      */
     protected $email = '';
 
     /**
-     * officeType
-     *
      * @var bool
      */
     protected $officeType = false;
@@ -82,57 +69,40 @@ class Project extends AbstractEntity
     protected $organisationseinheit = 0;
 
     /**
-     * officeManuell
-     *
      * @var string
      */
     protected $officeManuell = '';
 
     /**
-     * images
-     *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
      */
     protected $images;
 
     /**
-     * description
-     *
      * @var string
      */
     protected $description = '';
 
     /**
-     * TxMaps2Uid
-     *
      * @var \JWeiland\Maps2\Domain\Model\PoiCollection
      */
     protected $txMaps2Uid;
 
     /**
-     * files
-     *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
      */
     protected $files;
 
     /**
-     * links
-     *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JWeiland\Pfprojects\Domain\Model\Link>
      */
     protected $links;
 
     /**
-     * areaOfActivity
-     *
      * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JWeiland\Pfprojects\Domain\Model\Category>
      */
     protected $areaOfActivity;
 
-    /**
-     * __construct
-     */
     public function __construct()
     {
         $this->initStorageObjects();
@@ -140,8 +110,6 @@ class Project extends AbstractEntity
 
     /**
      * Initializes all \TYPO3\CMS\Extbase\Persistence\ObjectStorage properties.
-     *
-     * @return void
      */
     protected function initStorageObjects()
     {
@@ -152,20 +120,15 @@ class Project extends AbstractEntity
     }
 
     /**
-     * Returns the title
-     *
-     * @return string $title
+     * @return string
      */
-    public function getTitle()
+    public function getTitle(): string
     {
         return $this->title;
     }
 
     /**
-     * Sets the title
-     *
      * @param string $title
-     * @return void
      */
     public function setTitle(string $title)
     {
@@ -173,9 +136,7 @@ class Project extends AbstractEntity
     }
 
     /**
-     * Returns the startDate
-     *
-     * @return \DateTime $startDate
+     * @return \DateTime|null
      */
     public function getStartDate()
     {
@@ -183,20 +144,15 @@ class Project extends AbstractEntity
     }
 
     /**
-     * Sets the startDate
-     *
      * @param \DateTime $startDate
-     * @return void
      */
-    public function setStartDate(\DateTime $startDate)
+    public function setStartDate(\DateTime $startDate = null)
     {
         $this->startDate = $startDate;
     }
 
     /**
-     * Returns the status
-     *
-     * @return string $status
+     * @return string
      */
     public function getStatus(): string
     {
@@ -204,10 +160,7 @@ class Project extends AbstractEntity
     }
 
     /**
-     * Sets the status
-     *
      * @param string $status
-     * @return void
      */
     public function setStatus(string $status)
     {
@@ -215,9 +168,7 @@ class Project extends AbstractEntity
     }
 
     /**
-     * Returns the contactPerson
-     *
-     * @return string $contactPerson
+     * @return string
      */
     public function getContactPerson(): string
     {
@@ -225,10 +176,7 @@ class Project extends AbstractEntity
     }
 
     /**
-     * Sets the contactPerson
-     *
      * @param string $contactPerson
-     * @return void
      */
     public function setContactPerson(string $contactPerson)
     {
@@ -236,9 +184,7 @@ class Project extends AbstractEntity
     }
 
     /**
-     * Returns the telephone
-     *
-     * @return string $telephone
+     * @return string
      */
     public function getTelephone(): string
     {
@@ -246,10 +192,7 @@ class Project extends AbstractEntity
     }
 
     /**
-     * Sets the telephone
-     *
      * @param string $telephone
-     * @return void
      */
     public function setTelephone(string $telephone)
     {
@@ -257,9 +200,7 @@ class Project extends AbstractEntity
     }
 
     /**
-     * Returns the email
-     *
-     * @return string $email
+     * @return string
      */
     public function getEmail(): string
     {
@@ -267,10 +208,7 @@ class Project extends AbstractEntity
     }
 
     /**
-     * Sets the email
-     *
      * @param string $email
-     * @return void
      */
     public function setEmail(string $email)
     {
@@ -278,9 +216,7 @@ class Project extends AbstractEntity
     }
 
     /**
-     * Returns the officeType
-     *
-     * @return bool $officeType
+     * @return bool
      */
     public function getOfficeType(): bool
     {
@@ -288,10 +224,7 @@ class Project extends AbstractEntity
     }
 
     /**
-     * Sets the officeType
-     *
      * @param bool $officeType
-     * @return void
      */
     public function setOfficeType(bool $officeType)
     {
@@ -299,8 +232,6 @@ class Project extends AbstractEntity
     }
 
     /**
-     * Returns Organisationseinheit
-     *
      * @return array
      */
     public function getOrganisationseinheit(): array
@@ -309,8 +240,6 @@ class Project extends AbstractEntity
     }
 
     /**
-     * Sets Organisationseinheit
-     *
      * @param array $organisationseinheit
      */
     public function setOrganisationseinheit(array $organisationseinheit)
@@ -319,9 +248,7 @@ class Project extends AbstractEntity
     }
 
     /**
-     * Returns the officeManuell
-     *
-     * @return string $officeManuell
+     * @return string
      */
     public function getOfficeManuell(): string
     {
@@ -329,10 +256,7 @@ class Project extends AbstractEntity
     }
 
     /**
-     * Sets the officeManuell
-     *
      * @param string $officeManuell
-     * @return void
      */
     public function setOfficeManuell(string $officeManuell)
     {
@@ -364,20 +288,15 @@ class Project extends AbstractEntity
     }
 
     /**
-     * Returns the images
-     *
-     * @return ObjectStorage $images
+     * @return ObjectStorage
      */
-    public function getImages()
+    public function getImages(): ObjectStorage
     {
         return $this->images;
     }
 
     /**
-     * Sets the images
-     *
      * @param ObjectStorage $images
-     * @return void
      */
     public function setImages(ObjectStorage $images)
     {
@@ -385,9 +304,7 @@ class Project extends AbstractEntity
     }
 
     /**
-     * Returns the description
-     *
-     * @return string $description
+     * @return string
      */
     public function getDescription(): string
     {
@@ -395,10 +312,7 @@ class Project extends AbstractEntity
     }
 
     /**
-     * Sets the description
-     *
      * @param string $description
-     * @return void
      */
     public function setDescription(string $description)
     {
@@ -406,9 +320,7 @@ class Project extends AbstractEntity
     }
 
     /**
-     * Returns the txMaps2Uid
-     *
-     * @return PoiCollection|null $txMaps2Uid
+     * @return PoiCollection|null
      */
     public function getTxMaps2Uid()
     {
@@ -416,31 +328,23 @@ class Project extends AbstractEntity
     }
 
     /**
-     * Sets the txMaps2Uid
-     *
-     * @param PoiCollection $txMaps2Uid
-     * @return void
+     * @param PoiCollection|null $txMaps2Uid
      */
-    public function setTxMaps2Uid(PoiCollection $txMaps2Uid)
+    public function setTxMaps2Uid(PoiCollection $txMaps2Uid = null)
     {
         $this->txMaps2Uid = $txMaps2Uid;
     }
 
     /**
-     * Returns the files
-     *
-     * @return ObjectStorage $files
+     * @return ObjectStorage
      */
-    public function getFiles()
+    public function getFiles(): ObjectStorage
     {
         return $this->files;
     }
 
     /**
-     * Sets the files
-     *
      * @param ObjectStorage $files
-     * @return void
      */
     public function setFiles(ObjectStorage $files)
     {
@@ -448,20 +352,15 @@ class Project extends AbstractEntity
     }
 
     /**
-     * Returns the links
-     *
-     * @return ObjectStorage $links
+     * @return ObjectStorage
      */
-    public function getLinks()
+    public function getLinks(): ObjectStorage
     {
         return $this->links;
     }
 
     /**
-     * Sets the links
-     *
      * @param ObjectStorage $links
-     * @return void
      */
     public function setLinks(ObjectStorage $links)
     {
@@ -469,24 +368,18 @@ class Project extends AbstractEntity
     }
 
     /**
-     * Returns the areaOfActivity
-     *
-     * @return ObjectStorage $areaOfActivity
+     * @return ObjectStorage
      */
-    public function getAreaOfActivity()
+    public function getAreaOfActivity(): ObjectStorage
     {
         return $this->areaOfActivity;
     }
 
     /**
-     * Sets the areaOfActivity
-     *
      * @param ObjectStorage $areaOfActivity
-     * @return void
      */
     public function setAreaOfActivity(ObjectStorage $areaOfActivity)
     {
         $this->areaOfActivity = $areaOfActivity;
     }
-
 }

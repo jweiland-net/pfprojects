@@ -1,4 +1,5 @@
-<?php declare(strict_types=1);
+<?php
+declare(strict_types=1);
 namespace JWeiland\Pfprojects\Controller;
 
 /*
@@ -23,17 +24,12 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 class ProjectController extends ActionController
 {
     /**
-     * projectRepository
-     *
      * @var ProjectRepository
      */
     protected $projectRepository;
 
     /**
-     * inject projectRepository
-     *
      * @param ProjectRepository $projectRepository
-     * @return void
      */
     public function injectProjectRepository(ProjectRepository $projectRepository)
     {
@@ -41,9 +37,7 @@ class ProjectController extends ActionController
     }
 
     /**
-     * pre processing of all actions
-     *
-     * @return void
+     * Pre processing of all actions
      */
     public function initializeAction()
     {
@@ -55,7 +49,7 @@ class ProjectController extends ActionController
     }
 
     /**
-     * action list
+     * Action list
      *
      * @param int $areaOfActivity
      * @param string $sortBy
@@ -63,8 +57,6 @@ class ProjectController extends ActionController
      *
      * @validate $sortBy RegularExpression(regularExpression=/title|status|start_date|area_of_activity/)
      * @validate $direction RegularExpression(regularExpression=/ASC|DESC/)
-     *
-     * @return void
      */
     public function listAction(int $areaOfActivity = 0, string $sortBy = 'status', string $direction = 'ASC')
     {
@@ -76,11 +68,9 @@ class ProjectController extends ActionController
     }
 
     /**
-     * action show
+     * Action show
      *
      * @param int $project
-     *
-     * @return void
      */
     public function showAction(int $project) {
         $project = $this->projectRepository->findByIdentifier($project);

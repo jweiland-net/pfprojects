@@ -21,4 +21,6 @@ namespace JWeiland\Pfprojects\Domain\Model;
  * to use the icon setter/getter of extbase. Maybe they will be removed
  * in future.
  */
-class Category extends \TYPO3\CMS\Extbase\Domain\Model\Category {}
+class Category extends \TYPO3\CMS\Extbase\Domain\Model\Category
+{
+}
