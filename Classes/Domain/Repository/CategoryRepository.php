@@ -17,7 +17,7 @@ namespace JWeiland\Pfprojects\Domain\Repository;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 
 /**
- * The repository for Projects
+ * Our own Repository for Categories (sys_category) because we need another sorting
  */
 class CategoryRepository extends \TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository
 {

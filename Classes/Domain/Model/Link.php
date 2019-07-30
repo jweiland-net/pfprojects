@@ -17,7 +17,7 @@ namespace JWeiland\Pfprojects\Domain\Model;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
- * Projects
+ * Domain model for links which are related to projects
  */
 class Link extends AbstractEntity
 {

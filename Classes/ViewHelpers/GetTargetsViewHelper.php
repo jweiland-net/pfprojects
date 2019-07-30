@@ -19,7 +19,8 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\CMS\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
- * A ViewHelper to get a sorting array
+ * With this VH you get all direct child categories of a given parent category.
+ * All available categories have to be send via $areasOfActivity, so no Repo is needed.
  */
 class GetTargetsViewHelper extends AbstractViewHelper
 {
