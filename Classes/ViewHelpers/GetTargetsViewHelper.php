@@ -16,7 +16,6 @@ namespace JWeiland\Pfprojects\ViewHelpers;
  */
 
 use TYPO3\CMS\Extbase\Domain\Model\Category;
-use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
@@ -26,20 +25,38 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 class GetTargetsViewHelper extends AbstractViewHelper
 {
     /**
+     * Initialize all VH arguments
+     */
+    public function initializeArguments()
+    {
+        $this->registerArgument(
+            'parent',
+            'int',
+            'Set the parent category to get the direct children from',
+            true
+        );
+        $this->registerArgument(
+            'areasOfActivity',
+            'array',
+            'Pre defined categories which should be filtered by parent category',
+            false,
+            []
+        );
+    }
+
+    /**
      * Get direct child categories of defined root category in extConf
      *
-     * @param int $parent
-     * @param ObjectStorage $areasOfActivity
      * @return array
      */
-    public function render(int $parent, ObjectStorage $areasOfActivity = null): array
+    public function render(): array
     {
         $categories = [];
-        if ($areasOfActivity !== null) {
+        if (!empty($this->arguments['areasOfActivity'])) {
             /** @var Category $areaOfActivity */
-            foreach ($areasOfActivity as $areaOfActivity) {
+            foreach ($this->arguments['areasOfActivity'] as $areaOfActivity) {
                 $parentCategory = $areaOfActivity->getParent();
-                if ($parentCategory !== null && $parentCategory->getUid() === $parent) {
+                if ($parentCategory !== null && $parentCategory->getUid() === $this->arguments['parent']) {
                     $categories[] = $areaOfActivity;
                 }
             }

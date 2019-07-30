@@ -56,19 +56,32 @@ class GetAreasOfActivityViewHelper extends AbstractViewHelper
     }
 
     /**
+     * Initialize all VH arguments
+     */
+    public function initializeArguments()
+    {
+        $this->registerArgument(
+            'areasOfActivity',
+            'array',
+            'Predefined list of available categories to filter for',
+            false,
+            []
+        );
+    }
+
+    /**
      * Get direct child categories of defined root category in extConf
      *
-     * @param ObjectStorage $areasOfActivity
      * @return array
      */
-    public function render(ObjectStorage $areasOfActivity = null): array
+    public function render(): array
     {
         $rootCategory = $this->extConf->getRootCategory();
         $categories = [];
         // make sure to have only categories which are direct children of rootCategory
-        if ($areasOfActivity !== null) {
+        if (!empty($this->arguments['areasOfActivity'])) {
             /** @var Category $areaOfActivity */
-            foreach ($areasOfActivity as $areaOfActivity) {
+            foreach ($this->arguments['areasOfActivity'] as $areaOfActivity) {
                 $parentCategory = $areaOfActivity->getParent();
                 if ($parentCategory instanceof Category && $parentCategory->getUid() === $rootCategory) {
                     $categories[] = $areaOfActivity;
