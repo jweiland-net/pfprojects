@@ -1,5 +1,5 @@
 <?php
-call_user_func(function($extConf) {
+call_user_func(function ($extConf) {
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable(
         'pfprojects',
         'tx_pfprojects_domain_model_project',
