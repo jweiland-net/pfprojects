@@ -15,5 +15,10 @@ namespace JWeiland\Pfprojects\Domain\Model;
  */
 
 /**
+ * Domain model for categories.
+ *
+ * As TYPO3 does not come with TCA nor with a SQL entry, it is not save
+ * to use the icon setter/getter of extbase. Maybe they will be removed
+ * in future.
  */
 class Category extends \TYPO3\CMS\Extbase\Domain\Model\Category {}

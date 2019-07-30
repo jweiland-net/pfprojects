@@ -19,6 +19,7 @@ use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
+ * Main repository to retrieve project records.
  */
 class ProjectRepository extends Repository
 {

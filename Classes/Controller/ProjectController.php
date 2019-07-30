@@ -18,6 +18,7 @@ use JWeiland\Pfprojects\Domain\Repository\ProjectRepository;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
 /**
+ * Main controller to list and show Pforzheim projects
  */
 class ProjectController extends ActionController
 {

@@ -17,6 +17,7 @@ namespace JWeiland\Pfprojects\Configuration;
 use TYPO3\CMS\Core\SingletonInterface;
 
 /**
+ * This class will streamline the values from extension manager configuration
  */
 class ExtConf implements SingletonInterface
 {
