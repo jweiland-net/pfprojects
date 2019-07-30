@@ -1,30 +1,51 @@
 {
-  "name": "jweiland/pfprojects",
-  "type": "typo3-cms-extension",
-  "description": "This extension shows a list of all masterplan projects of Pforzheim",
-  "license": "GPL-2.0-or-later",
-  "keywords": ["typo3", "TYPO3 CMS", "projects"],
-  "homepage": "https://jweiland.net",
-  "authors": [
-    {
-      "name": "Stefan Froemken",
-      "email": "sfroemken@jweiland.net",
-      "role": "Developer"
-    }
-  ],
-  "support": {
-    "email": "support@jweiland.net",
-    "issues": "https://github.com/jweiland-net/pfprojects/issues",
-    "source": "https://github.com/jweiland-net/pfprojects"
-  },
-  "require": {
-    "typo3/cms-core": "^8.7 || ^9.5",
-    "jweiland/maps2": "^5.0",
-    "jweiland/service-bw2": "^2.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "JWeiland\\Pfprojects\\": "Classes"
-    }
-  }
+	"name": "jweiland/pfprojects",
+	"type": "typo3-cms-extension",
+	"description": "This extension shows a list of all masterplan projects of Pforzheim",
+	"license": "GPL-2.0-or-later",
+	"keywords": ["typo3", "TYPO3 CMS", "projects"],
+	"homepage": "https://jweiland.net",
+	"authors": [
+		{
+			"name": "Stefan Froemken",
+			"email": "sfroemken@jweiland.net",
+			"role": "Developer"
+		}
+	],
+	"support": {
+		"email": "support@jweiland.net",
+		"issues": "https://github.com/jweiland-net/pfprojects/issues",
+		"source": "https://github.com/jweiland-net/pfprojects"
+	},
+	"require": {
+		"typo3/cms-core": "^8.7 || ^9.5",
+		"jweiland/maps2": "^5.0",
+		"jweiland/service-bw2": "^2.0"
+	},
+	"require-dev": {
+		"friendsofphp/php-cs-fixer": "^2.0",
+		"nimut/testing-framework": "^4.1"
+	},
+	"autoload": {
+		"psr-4": {
+			"JWeiland\\Pfprojects\\": "Classes"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"JWeiland\\Pfprojects\\Tests\\": "Tests"
+		}
+	},
+	"config": {
+		"vendor-dir": ".Build/vendor",
+		"bin-dir": ".Build/bin"
+	},
+	"extra": {
+		"typo3/cms": {
+			"extension-key": "pfprojects",
+			"cms-package-dir": "{$vendor-dir}/typo3/cms",
+			"app-dir": ".Build",
+			"web-dir": ".Build/public"
+		}
+	}
 }

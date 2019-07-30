@@ -1,0 +1,79 @@
+language: php
+
+jobs:
+  include:
+    - stage: test
+      php: "7.0"
+      env:
+        - TYPO3_VERSION=^8
+    - stage: test
+      php: "7.1"
+      env:
+        - TYPO3_VERSION=^8
+    - stage: test
+      php: "7.2"
+      env:
+        - TYPO3_VERSION=^8
+    - stage: test
+      php: "7.2"
+      env:
+        - TYPO3_VERSION=^9
+
+sudo: false
+
+addons:
+  apt:
+    packages:
+      - parallel
+
+cache:
+  directories:
+    - "$HOME/.composer/cache"
+
+notifications:
+  slack:
+    on_success: change
+    on_failure: always
+    rooms:
+      - secure: "se9jEpr0b6b5tq7kjC6sA8psh6IEFyEHyzk+LQBqCh3r/1jsTpldsX+OBzkGbp0ufQoBbWtKWqyhF+mmsbAuHHr7cwBKjJTTUzH187HpwhswAxis1I6ptLxnglT0JSKk8PKrVEJp5eLpKXVsiHMneAfjrDlmRkrr5pYsFCBtewivdQU4vLDWxRO4AURZ4lCUBWx0/rzEIhYYVrCjGlYSab7F9qsLGxPzUBNPEFDduuTWRTgEfoxGMCjRotNMWymOtcEIolDl+Rp9XEhHDrhukIXzUvVSqsGMvl4/Iu/297tqUAB3th/hw5CNuJfvd+OZmnPwpTXirMAqDKiMil9iHICtGgWUvkGEdLx+hoS24WzEL1VTreQq5d4XAU/t0MlJcPbYFYLLUw6xTqUGqoovJ+uL6+epFA/iAVy44c+Mi615TdIiQURL+fh5MPxTeva+7QqwgxGQHUYLCboA6Asrue3vp17A9ekm7agKJKrIj+3O7GniRN59RRrfMhW7jkm8WjL/sJT/ZOVtOgO2LB4ajyMG20VXPW/EzqDwES0iObSQ01CdUcKU7DdKkfQ7YXC5T/gN7NJxyHLGVvmcgJb73SCGrBzlHYJPAQGfjLkg2fgSeE7a9ukGlq/qktYXLoMCA4sccmb+8dia4DXSqbB3pByXbg91yT4ge5h+fFkWrE4="
+
+before_install:
+  - if php -i | grep -q xdebug; then phpenv config-rm xdebug.ini; fi
+  - composer self-update
+
+install:
+  - >
+    composer config minimum-stability dev;
+    composer config prefer-stable true;
+  - while true; do echo "..."; sleep 60; done &
+  - composer require typo3/minimal=$TYPO3_VERSION
+  - kill %1
+  - mkdir -p .Build/public/typo3conf/ext/
+  - if [ ! -L .Build/public/typo3conf/ext/pfprojects ]; then ln -snvf ../../../../. .Build/public/typo3conf/ext/pfprojects; fi
+  - echo 'date.timezone = "Europe/Paris"' >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini
+  - git checkout composer.json
+  - export TYPO3_PATH_ROOT=$PWD/.Build/public
+
+script:
+  - >
+    if [ -d "Tests/Unit" ]; then
+      echo;
+      echo "Running unit tests";
+      echo;
+      echo;
+      .Build/bin/phpunit --color --bootstrap .Build/vendor/nimut/testing-framework/res/Configuration/UnitTestsBootstrap.php Tests/Unit/;
+    fi
+
+  - >
+    echo;
+    echo "Running parallel";
+    echo;
+    echo;
+    find . -name \*.php ! -path "./.Build/*" | parallel --gnu php -d display_errors=stderr -l {} > /dev/null \;;
+
+  - >
+    echo;
+    echo "Running PHP Coding Standards Fixer checks";
+    echo;
+    echo;
+    .Build/bin/php-cs-fixer fix --config=Build/.php_cs.php --dry-run --using-cache=no -v --diff;
