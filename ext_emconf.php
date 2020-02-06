@@ -16,7 +16,7 @@ $EM_CONF['pfprojects'] = [
         'depends' => [
             'typo3' => '8.7.0-9.5..99',
             'maps2' => '7.1.3-7.99.99',
-            'service_bw2' => '2.0.0-2.99.99'
+            'service_bw2' => '3.0.0-3.99.99'
         ],
         'conflicts' => [
         ],
