@@ -5,19 +5,16 @@ if (!defined('TYPO3_MODE')) {
 
 $tempColumns = [
     'icon' => [
-        'exclude' => 1,
-        'label' => 'LLL:EXT:masterplan/Resources/Private/Language/locallang_db.xlf:sys_category.icon',
-        'config' => [
-            'type' => 'group',
-            'internal_type' => 'file',
-            'uploadfolder' => 'uploads/tx_pfprojects',
-            'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
-            'max_size' => $GLOBALS['TYPO3_CONF_VARS']['BE']['maxFileSize'],
-            'show_thumbs' => true,
-            'size' => 5,
-            'maxitems' => 1,
-            'minitems' => 0,
-        ],
+        'exclude' => true,
+        'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:sys_category.icon',
+        'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+            'icon',
+            [
+                'maxitems' => 1,
+                'minitems' => 0,
+            ],
+            $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
+        )
     ],
 ];
 

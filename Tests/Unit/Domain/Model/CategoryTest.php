@@ -1,18 +1,13 @@
 <?php
-namespace JWeiland\Pfprojects\Tests\Unit\Domain\Model;
 
 /*
- * This file is part of the pfprojects project..
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
+ * This file is part of the package jweiland/pfprojects.
  *
  * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
+ * LICENSE file that was distributed with this source code.
  */
+
+namespace JWeiland\Pfprojects\Tests\Unit\Domain\Model;
 
 use JWeiland\Pfprojects\Domain\Model\Category;
 use Nimut\TestingFramework\TestCase\UnitTestCase;
@@ -65,16 +60,13 @@ class CategoryTest extends UnitTestCase
      */
     public function propertiesAndItsGetterAndSetterAreDefinedInCategoryModel($property, $getter, $setter)
     {
-        $this->assertSame(
-            true,
+        self::assertTrue(
             property_exists($this->subject, $property)
         );
-        $this->assertSame(
-            true,
+        self::assertTrue(
             method_exists($this->subject, $getter)
         );
-        $this->assertSame(
-            true,
+        self::assertTrue(
             method_exists($this->subject, $setter)
         );
     }

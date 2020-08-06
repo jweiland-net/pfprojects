@@ -1,19 +1,15 @@
 <?php
+
 declare(strict_types=1);
-namespace JWeiland\Pfprojects\ViewHelpers;
 
 /*
- * This file is part of the pfprojects project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
+ * This file is part of the package jweiland/pfprojects.
  *
  * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
+ * LICENSE file that was distributed with this source code.
  */
+
+namespace JWeiland\Pfprojects\ViewHelpers;
 
 use TYPO3\CMS\Extbase\Domain\Model\Category;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
@@ -27,7 +23,7 @@ class GetTargetsViewHelper extends AbstractViewHelper
     /**
      * Initialize all VH arguments
      */
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         $this->registerArgument(
             'parent',
@@ -65,13 +61,6 @@ class GetTargetsViewHelper extends AbstractViewHelper
         return $categories;
     }
 
-    /**
-     * Sort categories
-     *
-     * @param Category $categoryA
-     * @param Category $categoryB
-     * @return int
-     */
     protected function sortTargetsByTitle(Category $categoryA, Category $categoryB): int
     {
         if ($categoryA->getTitle() === $categoryB->getTitle()) {

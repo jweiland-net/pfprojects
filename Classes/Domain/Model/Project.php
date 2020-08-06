@@ -1,19 +1,15 @@
 <?php
+
 declare(strict_types=1);
-namespace JWeiland\Pfprojects\Domain\Model;
 
 /*
- * This file is part of the pfprojects project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
+ * This file is part of the package jweiland/pfprojects.
  *
  * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
+ * LICENSE file that was distributed with this source code.
  */
+
+namespace JWeiland\Pfprojects\Domain\Model;
 
 use JWeiland\Maps2\Domain\Model\PoiCollection;
 use JWeiland\ServiceBw2\Utility\ModelUtility;
@@ -108,10 +104,7 @@ class Project extends AbstractEntity
         $this->initStorageObjects();
     }
 
-    /**
-     * Initializes all \TYPO3\CMS\Extbase\Persistence\ObjectStorage properties.
-     */
-    protected function initStorageObjects()
+    protected function initStorageObjects(): void
     {
         $this->images = new ObjectStorage();
         $this->files = new ObjectStorage();
@@ -119,146 +112,92 @@ class Project extends AbstractEntity
         $this->areaOfActivity = new ObjectStorage();
     }
 
-    /**
-     * @return string
-     */
     public function getTitle(): string
     {
         return $this->title;
     }
 
-    /**
-     * @param string $title
-     */
-    public function setTitle(string $title)
+    public function setTitle(string $title): void
     {
         $this->title = $title;
     }
 
-    /**
-     * @return \DateTime|null
-     */
-    public function getStartDate()
+    public function getStartDate(): ?\DateTime
     {
         return $this->startDate;
     }
 
-    /**
-     * @param \DateTime $startDate
-     */
-    public function setStartDate(\DateTime $startDate = null)
+    public function setStartDate(\DateTime $startDate = null): void
     {
         $this->startDate = $startDate;
     }
 
-    /**
-     * @return string
-     */
     public function getStatus(): string
     {
         return $this->status;
     }
 
-    /**
-     * @param string $status
-     */
-    public function setStatus(string $status)
+    public function setStatus(string $status): void
     {
         $this->status = $status;
     }
 
-    /**
-     * @return string
-     */
     public function getContactPerson(): string
     {
         return $this->contactPerson;
     }
 
-    /**
-     * @param string $contactPerson
-     */
-    public function setContactPerson(string $contactPerson)
+    public function setContactPerson(string $contactPerson): void
     {
         $this->contactPerson = $contactPerson;
     }
 
-    /**
-     * @return string
-     */
     public function getTelephone(): string
     {
         return $this->telephone;
     }
 
-    /**
-     * @param string $telephone
-     */
-    public function setTelephone(string $telephone)
+    public function setTelephone(string $telephone): void
     {
         $this->telephone = $telephone;
     }
 
-    /**
-     * @return string
-     */
     public function getEmail(): string
     {
         return $this->email;
     }
 
-    /**
-     * @param string $email
-     */
-    public function setEmail(string $email)
+    public function setEmail(string $email): void
     {
         $this->email = $email;
     }
 
-    /**
-     * @return bool
-     */
     public function getOfficeType(): bool
     {
         return $this->officeType;
     }
 
-    /**
-     * @param bool $officeType
-     */
-    public function setOfficeType(bool $officeType)
+    public function setOfficeType(bool $officeType): void
     {
         $this->officeType = $officeType;
     }
 
-    /**
-     * @return array
-     */
     public function getOrganisationseinheit(): array
     {
         return $this->organisationseinheit = ModelUtility::getOrganisationseinheiten($this->organisationseinheit);
     }
 
-    /**
-     * @param array $organisationseinheit
-     */
-    public function setOrganisationseinheit(array $organisationseinheit)
+    public function setOrganisationseinheit(array $organisationseinheit): void
     {
         $this->organisationseinheit = $organisationseinheit;
     }
 
-    /**
-     * @return string
-     */
     public function getOfficeManuell(): string
     {
         return $this->officeManuell;
     }
 
-    /**
-     * @param string $officeManuell
-     */
-    public function setOfficeManuell(string $officeManuell)
+    public function setOfficeManuell(string $officeManuell): void
     {
         $this->officeManuell = $officeManuell;
     }
@@ -270,7 +209,7 @@ class Project extends AbstractEntity
      *
      * @return string
      */
-    public function getOffice()
+    public function getOffice(): string
     {
         if ($this->officeType) {
             // get manually given organizer
@@ -287,98 +226,62 @@ class Project extends AbstractEntity
         return '';
     }
 
-    /**
-     * @return ObjectStorage
-     */
     public function getImages(): ObjectStorage
     {
         return $this->images;
     }
 
-    /**
-     * @param ObjectStorage $images
-     */
-    public function setImages(ObjectStorage $images)
+    public function setImages(ObjectStorage $images): void
     {
         $this->images = $images;
     }
 
-    /**
-     * @return string
-     */
     public function getDescription(): string
     {
         return $this->description;
     }
 
-    /**
-     * @param string $description
-     */
-    public function setDescription(string $description)
+    public function setDescription(string $description): void
     {
         $this->description = $description;
     }
 
-    /**
-     * @return PoiCollection|null
-     */
-    public function getTxMaps2Uid()
+    public function getTxMaps2Uid(): ?PoiCollection
     {
         return $this->txMaps2Uid;
     }
 
-    /**
-     * @param PoiCollection|null $txMaps2Uid
-     */
-    public function setTxMaps2Uid(PoiCollection $txMaps2Uid = null)
+    public function setTxMaps2Uid(PoiCollection $txMaps2Uid = null): void
     {
         $this->txMaps2Uid = $txMaps2Uid;
     }
 
-    /**
-     * @return ObjectStorage
-     */
     public function getFiles(): ObjectStorage
     {
         return $this->files;
     }
 
-    /**
-     * @param ObjectStorage $files
-     */
-    public function setFiles(ObjectStorage $files)
+    public function setFiles(ObjectStorage $files): void
     {
         $this->files = $files;
     }
 
-    /**
-     * @return ObjectStorage
-     */
     public function getLinks(): ObjectStorage
     {
         return $this->links;
     }
 
-    /**
-     * @param ObjectStorage $links
-     */
-    public function setLinks(ObjectStorage $links)
+    public function setLinks(ObjectStorage $links): void
     {
         $this->links = $links;
     }
 
-    /**
-     * @return ObjectStorage
-     */
     public function getAreaOfActivity(): ObjectStorage
     {
         return $this->areaOfActivity;
     }
 
-    /**
-     * @param ObjectStorage $areaOfActivity
-     */
-    public function setAreaOfActivity(ObjectStorage $areaOfActivity)
+    public function setAreaOfActivity(ObjectStorage $areaOfActivity): void
     {
         $this->areaOfActivity = $areaOfActivity;
     }

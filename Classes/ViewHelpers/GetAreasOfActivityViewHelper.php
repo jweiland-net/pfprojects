@@ -1,25 +1,20 @@
 <?php
+
 declare(strict_types=1);
-namespace JWeiland\Pfprojects\ViewHelpers;
 
 /*
- * This file is part of the pfprojects project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
+ * This file is part of the package jweiland/pfprojects.
  *
  * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
+ * LICENSE file that was distributed with this source code.
  */
+
+namespace JWeiland\Pfprojects\ViewHelpers;
 
 use JWeiland\Pfprojects\Configuration\ExtConf;
 use JWeiland\Pfprojects\Domain\Repository\CategoryRepository;
 use TYPO3\CMS\Extbase\Domain\Model\Category;
 use TYPO3\CMS\Extbase\Persistence\Generic\QueryResult;
-use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
@@ -35,30 +30,14 @@ class GetAreasOfActivityViewHelper extends AbstractViewHelper
     protected $categoryRepository;
 
     /**
-     * @var ExtConf;
-     */
-    protected $extConf;
-
-    /**
      * @param CategoryRepository $categoryRepository
      */
-    public function injectCategoryRepository(CategoryRepository $categoryRepository)
+    public function injectCategoryRepository(CategoryRepository $categoryRepository): void
     {
         $this->categoryRepository = $categoryRepository;
     }
 
-    /**
-     * @param ExtConf $extConf
-     */
-    public function injectExtConf(ExtConf $extConf)
-    {
-        $this->extConf = $extConf;
-    }
-
-    /**
-     * Initialize all VH arguments
-     */
-    public function initializeArguments()
+    public function initializeArguments(): void
     {
         $this->registerArgument(
             'areasOfActivity',
@@ -73,10 +52,11 @@ class GetAreasOfActivityViewHelper extends AbstractViewHelper
      * Get direct child categories of defined root category in extConf
      *
      * @return array
+     * @noinspection PhpUndefinedMethodInspection
      */
     public function render(): array
     {
-        $rootCategory = $this->extConf->getRootCategory();
+        $rootCategory = 1;
         $categories = [];
         // make sure to have only categories which are direct children of rootCategory
         if (!empty($this->arguments['areasOfActivity'])) {
@@ -97,13 +77,6 @@ class GetAreasOfActivityViewHelper extends AbstractViewHelper
         return $categories;
     }
 
-    /**
-     * Sort categories
-     *
-     * @param Category $categoryA
-     * @param Category $categoryB
-     * @return int
-     */
     protected function sortCategoriesByTitle(Category $categoryA, Category $categoryB): int
     {
         if ($categoryA->getTitle() === $categoryB->getTitle()) {

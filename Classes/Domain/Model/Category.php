@@ -1,18 +1,15 @@
-<?php declare(strict_types=1);
-namespace JWeiland\Pfprojects\Domain\Model;
+<?php
+
+declare(strict_types=1);
 
 /*
- * This file is part of the pfprojects project.
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
+ * This file is part of the package jweiland/pfprojects.
  *
  * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
+ * LICENSE file that was distributed with this source code.
  */
+
+namespace JWeiland\Pfprojects\Domain\Model;
 
 /**
  * Domain model for categories.
@@ -28,21 +25,13 @@ class Category extends \TYPO3\CMS\Extbase\Domain\Model\Category
      */
     protected $icon = '';
 
-    /**
-     * @return string
-     */
-    public function getIcon()
+    public function getIcon(): string
     {
         return $this->icon;
     }
 
-    /**
-     * Sets the icon
-     *
-     * @param string $icon
-     */
-    public function setIcon($icon)
+    public function setIcon(string $icon): void
     {
-        $this->icon = (string)$icon;
+        $this->icon = $icon;
     }
 }

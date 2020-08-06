@@ -1,24 +1,20 @@
 <?php
-namespace JWeiland\Pfprojects\Tests\Unit\Domain\Model;
 
 /*
- * This file is part of the pfprojects project..
- *
- * It is free software; you can redistribute it and/or modify it under
- * the terms of the GNU General Public License, either version 2
- * of the License, or any later version.
+ * This file is part of the package jweiland/pfprojects.
  *
  * For the full copyright and license information, please read the
- * LICENSE.txt file that was distributed with this source code.
- *
- * The TYPO3 project - inspiring people to share!
+ * LICENSE file that was distributed with this source code.
  */
+
+namespace JWeiland\Pfprojects\Tests\Unit\Domain\Model;
 
 use JWeiland\Pfprojects\Domain\Repository\CategoryRepository;
 use Nimut\TestingFramework\TestCase\UnitTestCase;
 use Prophecy\Argument;
 use Prophecy\Prophecy\ObjectProphecy;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\DependencyInjection\FailsafeContainer;
+use TYPO3\CMS\Extbase\Object\Container\Container;
 use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Persistence\Generic\PersistenceManager;
 use TYPO3\CMS\Extbase\Persistence\Generic\Query;
@@ -52,7 +48,8 @@ class CategoryRepositoryTest extends UnitTestCase
             ->shouldBeCalled()
             ->willReturn($query);
 
-        $objectManager = GeneralUtility::makeInstance(ObjectManager::class);
+        $psrContainer = new FailsafeContainer();
+        $objectManager = new ObjectManager($psrContainer, new Container($psrContainer));
         $this->subject = new CategoryRepository($objectManager);
         $this->subject->injectPersistenceManager($this->persistenceManagerProphecy->reveal());
     }
@@ -76,7 +73,7 @@ class CategoryRepositoryTest extends UnitTestCase
         $expectedResult = [
             'title' => QueryInterface::ORDER_ASCENDING
         ];
-        $this->assertSame(
+        self::assertSame(
             $expectedResult,
             $this->subject->createQuery()->getOrderings()
         );

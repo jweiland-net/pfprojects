@@ -1,5 +1,7 @@
 <?php
-call_user_func(function ($extConf) {
+call_user_func(function () {
+    $extConf = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\JWeiland\Pfprojects\Configuration\ExtConf::class);
+
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable(
         'pfprojects',
         'tx_pfprojects_domain_model_project',
@@ -8,7 +10,7 @@ call_user_func(function ($extConf) {
             'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.area_of_activity',
             'fieldConfiguration' => [
                 'treeConfig' => [
-                    'rootUid' => (int)$extConf['rootCategory']
+                    'rootUid' => $extConf->getRootCategory()
                 ]
             ]
         ]
@@ -21,4 +23,4 @@ call_user_func(function ($extConf) {
             'tx_pfprojects_domain_model_project'
         );
     }
-}, unserialize($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['pfprojects']));
+});

@@ -15,3 +15,6 @@ if (!defined('TYPO3_MODE')) {
         'Project' => '',
     ]
 );
+
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['pfProjectsCategoryIcon']
+    = \JWeiland\Pfprojects\Updates\CategoryIconUpdateWizard::class;
