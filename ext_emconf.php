@@ -2,7 +2,7 @@
 
 $EM_CONF[$_EXTKEY] = [
     'title' => 'PF Projects',
-    'description' => 'This extension shows a list of all masterplan projects of Pforzheim',
+    'description' => 'This extension shows a list of projects and can be connected with service_bw2.',
     'category' => 'plugin',
     'author' => 'Stefan Froemken',
     'author_email' => 'projects@jweiland.net',
