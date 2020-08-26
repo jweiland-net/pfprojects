@@ -29,10 +29,10 @@ class ExtConf implements SingletonInterface
     {
         $extConf = [];
         if (class_exists(ExtensionConfiguration::class)) {
-            $extConf = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('reserve');
-        } elseif (isset($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['reserve'])) {
+            $extConf = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('pfprojects');
+        } elseif (isset($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['pfprojects'])) {
             $extConf = unserialize(
-                $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['reserve'],
+                $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['pfprojects'],
                 ['allowed_classes' => false]
             );
         }
@@ -52,8 +52,8 @@ class ExtConf implements SingletonInterface
         return $this->rootCategory;
     }
 
-    public function setRootCategory(int $rootCategory): void
+    public function setRootCategory(string $rootCategory): void
     {
-        $this->rootCategory = $rootCategory;
+        $this->rootCategory = (int)$rootCategory;
     }
 }
