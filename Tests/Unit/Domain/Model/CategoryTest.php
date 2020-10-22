@@ -46,7 +46,6 @@ class CategoryTest extends UnitTestCase
         $properties = [];
         $properties['property title exists in category object'] = ['title', 'getTitle', 'setTitle'];
         $properties['property description exists in category object'] = ['description', 'getDescription', 'setDescription'];
-        $properties['property icon exists in category object'] = ['icon', 'getIcon', 'setIcon'];
         $properties['property parent exists in category object'] = ['parent', 'getParent', 'setParent'];
         return $properties;
     }

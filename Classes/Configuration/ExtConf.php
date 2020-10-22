@@ -27,21 +27,14 @@ class ExtConf implements SingletonInterface
 
     public function __construct()
     {
-        $extConf = [];
-        if (class_exists(ExtensionConfiguration::class)) {
-            $extConf = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('pfprojects');
-        } elseif (isset($GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['pfprojects'])) {
-            $extConf = unserialize(
-                $GLOBALS['TYPO3_CONF_VARS']['EXT']['extConf']['pfprojects'],
-                ['allowed_classes' => false]
-            );
-        }
+        // get global configuration
+        $extConf = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('clubdirectory');
         if (is_array($extConf) && count($extConf)) {
             // call setter method foreach configuration entry
             foreach ($extConf as $key => $value) {
                 $methodName = 'set' . ucfirst($key);
                 if (method_exists($this, $methodName)) {
-                    $this->$methodName($value);
+                    $this->$methodName((string)$value);
                 }
             }
         }
