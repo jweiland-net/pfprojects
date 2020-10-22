@@ -1,10 +1,12 @@
-# ==============================================
-# Persistence object mapping configuration
-# ==============================================
-config.tx_extbase.persistence.classes {
-  JWeiland\Pfprojects\Domain\Model\Category {
-    mapping {
-      tableName = sys_category
+# Remove that part while removing TYPO3 9 compatibility
+config.tx_extbase {
+  persistence{
+    classes {
+      JWeiland\Pfprojects\Domain\Model\Category {
+        mapping {
+          tableName = sys_category
+        }
+      }
     }
   }
 }
