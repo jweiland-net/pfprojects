@@ -29,9 +29,6 @@ class GetAreasOfActivityViewHelper extends AbstractViewHelper
      */
     protected $categoryRepository;
 
-    /**
-     * @param CategoryRepository $categoryRepository
-     */
     public function injectCategoryRepository(CategoryRepository $categoryRepository): void
     {
         $this->categoryRepository = $categoryRepository;

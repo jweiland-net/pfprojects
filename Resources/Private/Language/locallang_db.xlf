@@ -3,10 +3,6 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2016-01-05T15:40:45Z" product-name="pfprojects">
 		<header/>
 		<body>
-			<trans-unit id="sys_category.icon" xml:space="preserve">
-				<source>Icon</source>
-			</trans-unit>
-
 			<trans-unit id="tx_pfprojects_domain_model_project">
 				<source>Project</source>
 			</trans-unit>
