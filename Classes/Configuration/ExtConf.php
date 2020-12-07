@@ -28,7 +28,7 @@ class ExtConf implements SingletonInterface
     public function __construct()
     {
         // get global configuration
-        $extConf = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('clubdirectory');
+        $extConf = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('pfprojects');
         if (is_array($extConf) && count($extConf)) {
             // call setter method foreach configuration entry
             foreach ($extConf as $key => $value) {

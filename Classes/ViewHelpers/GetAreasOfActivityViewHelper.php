@@ -29,9 +29,15 @@ class GetAreasOfActivityViewHelper extends AbstractViewHelper
      */
     protected $categoryRepository;
 
-    public function injectCategoryRepository(CategoryRepository $categoryRepository): void
+    /**
+     * @var ExtConf
+     */
+    protected $extConf;
+
+    public function __construct(CategoryRepository $categoryRepository, ExtConf $extConf)
     {
         $this->categoryRepository = $categoryRepository;
+        $this->extConf = $extConf;
     }
 
     public function initializeArguments(): void
@@ -53,7 +59,7 @@ class GetAreasOfActivityViewHelper extends AbstractViewHelper
      */
     public function render(): array
     {
-        $rootCategory = 1;
+        $rootCategory = $this->extConf->getRootCategory();
         $categories = [];
         // make sure to have only categories which are direct children of rootCategory
         if (!empty($this->arguments['areasOfActivity'])) {
