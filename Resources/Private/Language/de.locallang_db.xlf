@@ -11,6 +11,10 @@
 				<source>Title</source>
 				<target>Projekttitel</target>
 			</trans-unit>
+			<trans-unit id="tx_pfprojects_domain_model_project.path_segment">
+				<source>Segment for URL</source>
+				<target>Abschnitt für URL</target>
+			</trans-unit>
 			<trans-unit id="tx_pfprojects_domain_model_project.start_date">
 				<source>Project Start</source>
 				<target>Projektstart</target>
