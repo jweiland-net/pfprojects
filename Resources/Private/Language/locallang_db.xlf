@@ -9,6 +9,9 @@
 			<trans-unit id="tx_pfprojects_domain_model_project.title">
 				<source>Title</source>
 			</trans-unit>
+			<trans-unit id="tx_pfprojects_domain_model_project.path_segment">
+				<source>Segment for URL</source>
+			</trans-unit>
 			<trans-unit id="tx_pfprojects_domain_model_project.start_date">
 				<source>Project Start</source>
 			</trans-unit>
