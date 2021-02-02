@@ -1,65 +1,68 @@
-{namespace pp=JWeiland\Pfprojects\ViewHelpers}
+<html lang="en"
+			xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+			xmlns:pp="http://typo3.org/ns/JWeiland/Pfprojects/ViewHelpers"
+			data-namespace-typo3-fluid="true">
 
 <f:layout name="Default"/>
 
 <f:section name="main">
-  <aside class="floatright grid_4">
-    <f:form action="list" noCache="1">
-      <div class="marginbottom nobreakinside">
-        <label class="width100"><f:translate key="sortBy" />:</label>
-        <f:form.select class="width100" name="areaOfActivity" value="{areaOfActivity}" options="{pp:getAreasOfActivity()}" optionLabelField="title" optionValueField="uid" prependOptionLabel="" prependOptionValue="0" additionalAttributes="{onChange: 'this.form.submit()'}" />
-      </div>
-      <div class="marginbottom nobreakinside">
-        <label class="width100"><f:translate key="ordering" />:</label>
-        <f:form.select class="width100 marginbottom" name="sortBy" value="{sortBy}" options="{title: '{f:translate(key: \'tx_pfprojects_domain_model_project.title\')}', status: '{f:translate(key: \'tx_pfprojects_domain_model_project.status\')}', start_date: '{f:translate(key: \'tx_pfprojects_domain_model_project.start_date\')}'}" additionalAttributes="{onChange: 'this.form.submit()'}" />
-        <f:form.select class="width100" name="direction" value="{direction}" options="{ASC: '{f:translate(key: \'asc\')}', DESC: '{f:translate(key: \'desc\')}'}" additionalAttributes="{onChange: 'this.form.submit()'}" />
-      </div>
-    </f:form>
-  </aside>
+	<aside class="floatright grid_4">
+		<f:form action="list" noCache="1">
+			<div class="marginbottom nobreakinside">
+				<label class="width100">{f:translate(key: 'sortBy')}:</label>
+				<f:form.select class="width100" name="areaOfActivity" value="{areaOfActivity}" options="{pp:getAreasOfActivity()}" optionLabelField="title" optionValueField="uid" prependOptionLabel="" prependOptionValue="0" additionalAttributes="{onChange: 'this.form.submit()'}" />
+			</div>
+			<div class="marginbottom nobreakinside">
+				<label class="width100">{f:translate(key: 'ordering')}:</label>
+				<f:form.select class="width100 marginbottom" name="sortBy" value="{sortBy}" options="{title: '{f:translate(key: \'tx_pfprojects_domain_model_project.title\')}', status: '{f:translate(key: \'tx_pfprojects_domain_model_project.status\')}', start_date: '{f:translate(key: \'tx_pfprojects_domain_model_project.start_date\')}'}" additionalAttributes="{onChange: 'this.form.submit()'}" />
+				<f:form.select class="width100" name="direction" value="{direction}" options="{ASC: '{f:translate(key: \'asc\')}', DESC: '{f:translate(key: \'desc\')}'}" additionalAttributes="{onChange: 'this.form.submit()'}" />
+			</div>
+		</f:form>
+	</aside>
 
-  <div class="floatleft grid_8">
-    <f:if condition="{projects}">
-      <f:then>
-        <div class="list scroll-container gridright">
-          <f:widget.paginate objects="{projects}" as="paginatedProjects" configuration="{itemsPerPage: settings.pageBrowser.itemsPerPage, insertAbove: settings.pageBrowser.insertAbove, insertBelow: settings.pageBrowser.insertBelow, maximumNumberOfLinks: settings.pageBrowser.maximumNumberOfLinks, addQueryStringMethod: 'GET,POST'}">
-            <f:for each="{paginatedProjects}" as="project">
-              <div class="marginbottom scroll-item clearfix">
-                <div class="thumbnail grid_2 floatleft">
-                  <figure class="gridrightstd">
-                    <f:image src="{f:uri.resource(path: 'Icons/{project.status}.png')}" width="64" title="{f:translate(key: 'tx_pfprojects_domain_model_project.status.{project.status}')}" />
-                  </figure>
-                </div>
-                <div class="grid_10 floatleft rulerafter">
-                  <h2 class="noborder nomargin">
-                    <f:link.action pageUid="{settings.pidOfDetailPage}" action="show" arguments="{project: project}">
-                      {project.title}
-                    </f:link.action>
-                  </h2>
-                  <dl class="nomargin">
-                    <dd>
-                      <f:translate key="tx_pfprojects_domain_model_project.start_date" />: {project.startDate -> f:format.date(format: 'd.m.Y')}
-                    </dd>
-                    <dd>
-                      <f:if condition="{project.areaOfActivity}">
-                        <f:translate key="tx_pfprojects_domain_model_project.area_of_activity" />:
-                        <f:for each="{pp:getAreasOfActivity(areasOfActivity: project.areaOfActivity)}" as="activity">
-                          <br/>{activity.title}
-                        </f:for>
-                      </f:if>
-                    </dd>
-                  </dl>
-                </div>
-              </div>
-            </f:for>
-          </f:widget.paginate>
-        </div>
-      </f:then>
-      <f:else>
-        <div class="noResults">
-          <f:translate key="noResults" />
-        </div>
-      </f:else>
-    </f:if>
-  </div>
-
+	<div class="floatleft grid_8">
+		<f:if condition="{projects}">
+			<f:then>
+				<div class="list scroll-container gridright">
+					<f:widget.paginate objects="{projects}" as="paginatedProjects" configuration="{itemsPerPage: settings.pageBrowser.itemsPerPage, insertAbove: settings.pageBrowser.insertAbove, insertBelow: settings.pageBrowser.insertBelow, maximumNumberOfLinks: settings.pageBrowser.maximumNumberOfLinks, addQueryStringMethod: 'GET,POST'}">
+						<f:for each="{paginatedProjects}" as="project">
+							<div class="marginbottom scroll-item clearfix">
+								<div class="thumbnail grid_2 floatleft">
+									<figure class="gridrightstd">
+										<f:image src="{f:uri.resource(path: 'Icons/{project.status}.png')}" width="64" title="{f:translate(key: 'tx_pfprojects_domain_model_project.status.{project.status}')}" />
+									</figure>
+								</div>
+								<div class="grid_10 floatleft rulerafter">
+									<h2 class="noborder nomargin">
+										<f:link.action pageUid="{settings.pidOfDetailPage}" action="show" arguments="{project: project}">
+											{project.title}
+										</f:link.action>
+									</h2>
+									<dl class="nomargin">
+										<dd>
+											<f:translate key="tx_pfprojects_domain_model_project.start_date" />: {project.startDate -> f:format.date(format: 'd.m.Y')}
+										</dd>
+										<dd>
+											<f:if condition="{project.areaOfActivity}">
+												<f:translate key="tx_pfprojects_domain_model_project.area_of_activity" />:
+												<f:for each="{pp:getAreasOfActivity(areasOfActivity: project.areaOfActivity)}" as="activity">
+													<br/>{activity.title}
+												</f:for>
+											</f:if>
+										</dd>
+									</dl>
+								</div>
+							</div>
+						</f:for>
+					</f:widget.paginate>
+				</div>
+			</f:then>
+			<f:else>
+				<div class="noResults">
+					<f:translate key="noResults" />
+				</div>
+			</f:else>
+		</f:if>
+	</div>
 </f:section>
+</html>
