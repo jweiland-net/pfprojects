@@ -13,14 +13,11 @@ namespace JWeiland\Pfprojects\Controller;
 
 use JWeiland\Pfprojects\Domain\Repository\ProjectRepository;
 use JWeiland\Pfprojects\Event\PostProcessFluidVariablesEvent;
-use TYPO3\CMS\Core\Pagination\SimplePagination;
 use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
-use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 
 /**
- * Main controller to list and show Pforzheim projects
+ * Main controller to list and show projects
  */
 class ProjectController extends ActionController
 {
@@ -29,7 +26,7 @@ class ProjectController extends ActionController
      */
     protected $projectRepository;
 
-    public function injectProjectRepository(ProjectRepository $projectRepository): void
+    public function __construct(ProjectRepository $projectRepository)
     {
         $this->projectRepository = $projectRepository;
     }

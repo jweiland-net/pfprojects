@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace JWeiland\Pfprojects\Event;
 
 use TYPO3\CMS\Extbase\Mvc\Request;
-use TYPO3\CMS\Extbase\Mvc\View\ViewInterface;
 
 class PostProcessFluidVariablesEvent
 {
