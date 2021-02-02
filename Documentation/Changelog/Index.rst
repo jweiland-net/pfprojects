@@ -8,7 +8,7 @@ ChangeLog
 
 **Version 4.0.0**
 
-- Remove TYPO3 9 compatibility
+- Remove TYPO3 8 compatibility
 - Add TYPO3 10 compatibility
 - Remove icon from sys_category. Please extend that column by yourself.
 
