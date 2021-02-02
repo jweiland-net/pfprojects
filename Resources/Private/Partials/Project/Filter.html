@@ -1,0 +1,37 @@
+<html lang="en"
+			xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+			xmlns:pp="http://typo3.org/ns/JWeiland/Pfprojects/ViewHelpers"
+			data-namespace-typo3-fluid="true">
+
+<aside class="floatright grid_4">
+	<f:form action="search" method="POST">
+		<div class="marginbottom nobreakinside">
+			<label class="width100">{f:translate(key: 'sortBy')}:</label>
+			<f:form.select class="width100"
+										 name="areaOfActivity"
+										 value="{areaOfActivity}"
+										 options="{pp:getAreasOfActivity()}"
+										 optionLabelField="title"
+										 optionValueField="uid"
+										 prependOptionLabel=""
+										 prependOptionValue="0"
+										 additionalAttributes="{onChange: 'this.form.submit()'}" />
+		</div>
+
+		<div class="marginbottom nobreakinside">
+			<label class="width100">{f:translate(key: 'ordering')}:</label>
+			<f:form.select class="width100 marginbottom"
+										 name="sortBy"
+										 value="{sortBy}"
+										 options="{title: '{f:translate(key: \'tx_pfprojects_domain_model_project.title\')}', status: '{f:translate(key: \'tx_pfprojects_domain_model_project.status\')}',
+										 start_date: '{f:translate(key: \'tx_pfprojects_domain_model_project.start_date\')}'}"
+										 additionalAttributes="{onChange: 'this.form.submit()'}" />
+			<f:form.select class="width100"
+										 name="direction"
+										 value="{direction}"
+										 options="{ASC: '{f:translate(key: \'asc\')}', DESC: '{f:translate(key: \'desc\')}'}"
+										 additionalAttributes="{onChange: 'this.form.submit()'}" />
+		</div>
+	</f:form>
+</aside>
+</html>

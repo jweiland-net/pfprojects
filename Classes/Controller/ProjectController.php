@@ -12,8 +12,12 @@ declare(strict_types=1);
 namespace JWeiland\Pfprojects\Controller;
 
 use JWeiland\Pfprojects\Domain\Repository\ProjectRepository;
+use JWeiland\Pfprojects\Event\PostProcessFluidVariablesEvent;
+use TYPO3\CMS\Core\Pagination\SimplePagination;
 use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
+use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 
 /**
  * Main controller to list and show Pforzheim projects
@@ -39,6 +43,25 @@ class ProjectController extends ActionController
         }
     }
 
+    public function listAction(): void
+    {
+        /** @var PostProcessFluidVariablesEvent $event */
+        $event = $this->eventDispatcher->dispatch(
+            new PostProcessFluidVariablesEvent(
+                $this->request,
+                $this->settings,
+                [
+                    'projects' => $this->projectRepository->findAllSorted(0, 'status', 'ASC'),
+                    'areaOfActivity' => 0,
+                    'sortBy' => 'status',
+                    'direction' => 'ASC'
+                ]
+            )
+        );
+
+        $this->view->assignMultiple($event->getFluidVariables());
+    }
+
     /**
      * @param int $areaOfActivity
      * @param string $sortBy
@@ -47,13 +70,23 @@ class ProjectController extends ActionController
      * @Extbase\Validate("RegularExpression", options={"regularExpression": "/title|status|start_date|area_of_activity/"}, param="sortBy")
      * @Extbase\Validate("RegularExpression", options={"regularExpression": "/ASC|DESC/"}, param="direction")
      */
-    public function listAction(int $areaOfActivity = 0, string $sortBy = 'status', string $direction = 'ASC'): void
+    public function searchAction(int $areaOfActivity = 0, string $sortBy = 'status', string $direction = 'ASC'): void
     {
-        $projects = $this->projectRepository->findAllSorted($areaOfActivity, $sortBy, $direction);
-        $this->view->assign('projects', $projects);
-        $this->view->assign('areaOfActivity', $areaOfActivity);
-        $this->view->assign('sortBy', $sortBy);
-        $this->view->assign('direction', $direction);
+        /** @var PostProcessFluidVariablesEvent $event */
+        $event = $this->eventDispatcher->dispatch(
+            new PostProcessFluidVariablesEvent(
+                $this->request,
+                $this->settings,
+                [
+                    'projects' => $this->projectRepository->findAllSorted($areaOfActivity, $sortBy, $direction),
+                    'areaOfActivity' => $areaOfActivity,
+                    'sortBy' => $sortBy,
+                    'direction' => $direction
+                ]
+            )
+        );
+
+        $this->view->assignMultiple($event->getFluidVariables());
     }
 
     public function showAction(int $project): void
