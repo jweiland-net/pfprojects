@@ -7,10 +7,12 @@ if (!defined('TYPO3_MODE')) {
     'Pfprojects',
     'Pfprojects',
     [
-        \JWeiland\Pfprojects\Controller\ProjectController::class => 'list, show'
+        \JWeiland\Pfprojects\Controller\ProjectController::class => 'list, search, show'
     ],
     // non-cacheable actions
-    []
+    [
+        \JWeiland\Pfprojects\Controller\ProjectController::class => 'search'
+    ]
 );
 
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['pfProjectsCategoryIcon']
