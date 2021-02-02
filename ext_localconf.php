@@ -4,16 +4,13 @@ if (!defined('TYPO3_MODE')) {
 }
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'JWeiland.pfprojects',
+    'Pfprojects',
     'Pfprojects',
     [
-        'Project' => 'list, show',
-        'Location' => 'show'
+        \JWeiland\Pfprojects\Controller\ProjectController::class => 'list, show'
     ],
     // non-cacheable actions
-    [
-        'Project' => '',
-    ]
+    []
 );
 
 $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['pfProjectsCategoryIcon']
