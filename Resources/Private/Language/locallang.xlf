@@ -40,7 +40,7 @@
 				</source>
 			</trans-unit>
 			<trans-unit id="tx_pfprojects_domain_model_project.organisationseinheit">
-				<source>Organisationseinheit</source>
+				<source>Organizational Unit</source>
 			</trans-unit>
 			<trans-unit id="tx_pfprojects_domain_model_project.office_manuell">
 				<source>Insert your own organizer.</source>
