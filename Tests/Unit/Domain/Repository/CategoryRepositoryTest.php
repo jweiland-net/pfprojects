@@ -48,8 +48,13 @@ class CategoryRepositoryTest extends UnitTestCase
             ->shouldBeCalled()
             ->willReturn($query);
 
-        $psrContainer = new FailsafeContainer();
-        $objectManager = new ObjectManager($psrContainer, new Container($psrContainer));
+        if (class_exists(FailsafeContainer::class)) {
+            $psrContainer = new FailsafeContainer();
+            $objectManager = new ObjectManager($psrContainer, new Container($psrContainer));
+        } else {
+            $objectManager = new ObjectManager();
+        }
+
         $this->subject = new CategoryRepository($objectManager);
         $this->subject->injectPersistenceManager($this->persistenceManagerProphecy->reveal());
     }
