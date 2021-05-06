@@ -5,7 +5,7 @@ CREATE TABLE tx_pfprojects_domain_model_project
 (
   title                varchar(255)        DEFAULT ''           NOT NULL,
   path_segment         varchar(2048)       DEFAULT ''           NOT NULL,
-  start_date           date                DEFAULT '1000-01-01' NOT NULL,
+  start_date           date                DEFAULT '1000-01-01',
   status               varchar(10)         DEFAULT ''           NOT NULL,
   contact_person       varchar(255)        DEFAULT ''           NOT NULL,
   telephone            varchar(255)        DEFAULT ''           NOT NULL,

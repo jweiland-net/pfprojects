@@ -177,6 +177,7 @@ return [
             'config' => [
                 'type' => 'input',
                 'renderType' => 'inputDateTime',
+                'default' => 0,
                 'dbType' => 'date',
                 'size' => 10,
                 'eval' => 'date'
