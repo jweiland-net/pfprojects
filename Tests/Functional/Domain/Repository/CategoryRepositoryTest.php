@@ -35,6 +35,12 @@ class CategoryRepositoryTest extends FunctionalTestCase
         $this->categoryRepository = GeneralUtility::makeInstance(ObjectManager::class)->get(CategoryRepository::class);
     }
 
+    protected function tearDown()
+    {
+        parent::tearDown();
+        unset($this->categoryRepository);
+    }
+
     /**
      * @test
      */
