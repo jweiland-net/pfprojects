@@ -11,6 +11,8 @@ declare(strict_types=1);
 
 namespace JWeiland\Pfprojects\Domain\Repository;
 
+use TYPO3\CMS\Extbase\Domain\Model\Category;
+use TYPO3\CMS\Extbase\Object\ObjectManagerInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 
 /**
@@ -24,4 +26,10 @@ class CategoryRepository extends \TYPO3\CMS\Extbase\Domain\Repository\CategoryRe
     protected $defaultOrderings = [
         'title' => QueryInterface::ORDER_ASCENDING
     ];
+
+    public function __construct(ObjectManagerInterface $objectManager)
+    {
+        parent::__construct($objectManager);
+        $this->objectType = Category::class;
+    }
 }
