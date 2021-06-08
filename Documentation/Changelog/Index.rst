@@ -6,6 +6,10 @@
 ChangeLog
 =========
 
+**Version 5.0.4**
+
+- Remove sys_category icon UpgradeWizard
+
 **Version 5.0.3**
 
 - Move SlugHelper from constructor argument into getSlugHelper()
