@@ -32,13 +32,18 @@ class CategoryRepositoryTest extends FunctionalTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->categoryRepository = GeneralUtility::makeInstance(ObjectManager::class)->get(CategoryRepository::class);
+
+        $this->categoryRepository = GeneralUtility::makeInstance(ObjectManager::class)
+            ->get(CategoryRepository::class);
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
+        unset(
+            $this->categoryRepository
+        );
+
         parent::tearDown();
-        unset($this->categoryRepository);
     }
 
     /**
