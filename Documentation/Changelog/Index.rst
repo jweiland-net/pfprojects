@@ -6,6 +6,10 @@
 ChangeLog
 =========
 
+**Version 5.0.5**
+
+- Update dependency for service_bw2 to 5.0
+
 **Version 5.0.4**
 
 - Remove sys_category icon UpgradeWizard
