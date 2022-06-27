@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the package jweiland/pfprojects.
  *
@@ -22,18 +24,12 @@ class LinkTest extends UnitTestCase
      */
     protected $subject;
 
-    /**
-     * set up class
-     */
-    public function setUp()
+    protected function setUp(): void
     {
         $this->subject = new Link();
     }
 
-    /**
-     * tear down class
-     */
-    public function tearDown()
+    protected function tearDown(): void
     {
         unset($this->subject);
     }
@@ -41,7 +37,7 @@ class LinkTest extends UnitTestCase
     /**
      * @test
      */
-    public function getLinkInitiallyReturnsVideo()
+    public function getLinkInitiallyReturnsVideo(): void
     {
         self::assertSame(
             '',
@@ -52,7 +48,7 @@ class LinkTest extends UnitTestCase
     /**
      * @test
      */
-    public function setLinkSetsLink()
+    public function setLinkSetsLink(): void
     {
         $this->subject->setLink('foo bar');
 
@@ -65,25 +61,7 @@ class LinkTest extends UnitTestCase
     /**
      * @test
      */
-    public function setLinkWithIntegerResultsInString()
-    {
-        $this->subject->setLink(123);
-        self::assertSame('123', $this->subject->getLink());
-    }
-
-    /**
-     * @test
-     */
-    public function setLinkWithBooleanResultsInString()
-    {
-        $this->subject->setLink(true);
-        self::assertSame('1', $this->subject->getLink());
-    }
-
-    /**
-     * @test
-     */
-    public function getTitleInitiallyReturnsEmptyString()
+    public function getTitleInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
             'Video',
@@ -94,7 +72,7 @@ class LinkTest extends UnitTestCase
     /**
      * @test
      */
-    public function setTitleSetsTitle()
+    public function setTitleSetsTitle(): void
     {
         $this->subject->setTitle('foo bar');
 
@@ -102,23 +80,5 @@ class LinkTest extends UnitTestCase
             'foo bar',
             $this->subject->getTitle()
         );
-    }
-
-    /**
-     * @test
-     */
-    public function setTitleWithIntegerResultsInString()
-    {
-        $this->subject->setTitle(123);
-        self::assertSame('123', $this->subject->getTitle());
-    }
-
-    /**
-     * @test
-     */
-    public function setTitleWithBooleanResultsInString()
-    {
-        $this->subject->setTitle(true);
-        self::assertSame('1', $this->subject->getTitle());
     }
 }
