@@ -1,0 +1,13 @@
+mod.wizards.newContentElement.wizardItems.plugins {
+  elements {
+    pfprojects {
+      iconIdentifier = ext-pfprojects-wizard-icon
+      title = LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:plugin.pfprojects.title
+      description = LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:plugin.pfprojects.description
+      tt_content_defValues {
+        CType = list
+        list_type = pfprojects_pfprojects
+      }
+    }
+  }
+}
