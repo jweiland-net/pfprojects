@@ -17,7 +17,7 @@ return [
             'endtime' => 'endtime',
         ],
         'searchFields' => 'title',
-        'iconfile' => 'EXT:pfprojects/Resources/Public/Icons/tx_pfprojects_domain_model_project.svg'
+        'iconfile' => 'EXT:pfprojects/Resources/Public/Icons/tx_pfprojects_domain_model_link.svg'
     ],
     'interface' => [
         'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, link',
