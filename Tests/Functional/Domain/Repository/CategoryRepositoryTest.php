@@ -22,25 +22,26 @@ use TYPO3\CMS\Extbase\Persistence\QueryInterface;
  */
 class CategoryRepositoryTest extends FunctionalTestCase
 {
-    protected $testExtensionsToLoad = ['typo3conf/ext/pfprojects'];
-
     /**
-     * @var CategoryRepository
+     * @var string[]
      */
-    protected $categoryRepository;
+    protected $testExtensionsToLoad = [
+        'typo3conf/ext/pfprojects'
+    ];
+
+    protected CategoryRepository $subject;
 
     protected function setUp(): void
     {
         parent::setUp();
 
-        $this->categoryRepository = GeneralUtility::makeInstance(ObjectManager::class)
-            ->get(CategoryRepository::class);
+        $this->subject = GeneralUtility::makeInstance(CategoryRepository::class);
     }
 
     protected function tearDown(): void
     {
         unset(
-            $this->categoryRepository
+            $this->subject
         );
 
         parent::tearDown();
@@ -49,14 +50,25 @@ class CategoryRepositoryTest extends FunctionalTestCase
     /**
      * @test
      */
-    public function categoriesAreSortedByTitleAsDefault()
+    public function categoriesAreSortedByTitleAsDefault(): void
     {
         $expectedResult = [
             'title' => QueryInterface::ORDER_ASCENDING
         ];
+
         self::assertSame(
             $expectedResult,
-            $this->categoryRepository->createQuery()->getOrderings()
+            $this->subject->createQuery()->getOrderings()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function respectStoragePageIsDisabled(): void
+    {
+        self::assertFalse(
+            $this->subject->createQuery()->getQuerySettings()->getRespectStoragePage()
         );
     }
 }
