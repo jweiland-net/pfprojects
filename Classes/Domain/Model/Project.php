@@ -13,6 +13,7 @@ namespace JWeiland\Pfprojects\Domain\Model;
 
 use JWeiland\Maps2\Domain\Model\PoiCollection;
 use JWeiland\ServiceBw2\Utility\ModelUtility;
+use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
@@ -22,9 +23,12 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  */
 class Project extends AbstractEntity
 {
+    /**
+     * @Extbase\Validate("NotEmpty")
+     */
     protected string $title = '';
 
-    protected ?\DateTime $startDate;
+    protected ?\DateTime $startDate = null;
 
     protected string $status = '';
 

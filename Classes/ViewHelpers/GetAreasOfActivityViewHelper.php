@@ -12,8 +12,8 @@ declare(strict_types=1);
 namespace JWeiland\Pfprojects\ViewHelpers;
 
 use JWeiland\Pfprojects\Configuration\ExtConf;
+use JWeiland\Pfprojects\Domain\Model\Category;
 use JWeiland\Pfprojects\Domain\Repository\CategoryRepository;
-use TYPO3\CMS\Extbase\Domain\Model\Category;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
