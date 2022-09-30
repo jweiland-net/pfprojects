@@ -51,8 +51,6 @@ class Project extends AbstractEntity
 
     protected string $description = '';
 
-    protected PoiCollection $txMaps2Uid;
-
     /**
      * @var ObjectStorage<FileReference>
      */
@@ -67,6 +65,8 @@ class Project extends AbstractEntity
      * @var ObjectStorage<Category>
      */
     protected ObjectStorage $areaOfActivity;
+
+    protected ?PoiCollection $txMaps2Uid = null;
 
     public function __construct()
     {
@@ -232,16 +232,6 @@ class Project extends AbstractEntity
         $this->description = $description;
     }
 
-    public function getTxMaps2Uid(): ?PoiCollection
-    {
-        return $this->txMaps2Uid;
-    }
-
-    public function setTxMaps2Uid(PoiCollection $txMaps2Uid): void
-    {
-        $this->txMaps2Uid = $txMaps2Uid;
-    }
-
     public function getFiles(): ObjectStorage
     {
         return $this->files;
@@ -300,5 +290,15 @@ class Project extends AbstractEntity
     public function removeAreaOfActivity(Category $areaOfActivity): void
     {
         $this->areaOfActivity->detach($areaOfActivity);
+    }
+
+    public function getTxMaps2Uid(): ?PoiCollection
+    {
+        return $this->txMaps2Uid;
+    }
+
+    public function setTxMaps2Uid(PoiCollection $txMaps2Uid): void
+    {
+        $this->txMaps2Uid = $txMaps2Uid;
     }
 }
