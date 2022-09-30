@@ -8,7 +8,9 @@
 		<div class="marginbottom scroll-item clearfix">
 			<div class="thumbnail grid_2 floatleft">
 				<figure class="gridrightstd">
-					<f:image src="{f:uri.resource(path: 'Icons/{project.status}.png')}" width="64" title="{f:translate(key: 'tx_pfprojects_domain_model_project.status.{project.status}')}" />
+					<f:image src="{f:uri.resource(path: 'Icons/{project.status}.png')}"
+									 width="64"
+									 title="{f:translate(key: 'tx_pfprojects_domain_model_project.status.{project.status}')}" />
 				</figure>
 			</div>
 			<div class="grid_10 floatleft rulerafter">
@@ -18,12 +20,11 @@
 					</f:link.action>
 				</h2>
 				<dl class="nomargin">
-					<dd>
-						<f:translate key="tx_pfprojects_domain_model_project.start_date" />: {project.startDate -> f:format.date(format: 'd.m.Y')}
+					<dd>{f:translate(key: 'tx_pfprojects_domain_model_project.start_date')}: {project.startDate -> f:format.date(format: 'd.m.Y')}
 					</dd>
 					<dd>
 						<f:if condition="{project.areaOfActivity}">
-							<f:translate key="tx_pfprojects_domain_model_project.area_of_activity" />:
+							{f:translate(key: 'tx_pfprojects_domain_model_project.area_of_activity')}:
 							<f:for each="{pp:getAreasOfActivity(areasOfActivity: project.areaOfActivity)}" as="activity">
 								<br>{activity.title}
 							</f:for>
@@ -33,6 +34,7 @@
 			</div>
 		</div>
 	</f:for>
+
 	<f:render partial="Component/Pagination" arguments="{pagination: pagination, pages: pages, paginator: paginator}" />
 </div>
 </html>
