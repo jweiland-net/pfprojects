@@ -25,31 +25,17 @@ use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
  */
 class SlugUpdateWizard implements UpgradeWizardInterface
 {
-    /**
-     * @var string
-     */
-    protected $tableName = 'tx_pfprojects_domain_model_project';
+    protected string $tableName = 'tx_pfprojects_domain_model_project';
 
-    /**
-     * @var string
-     */
-    protected $fieldName = 'path_segment';
+    protected string $fieldName = 'path_segment';
 
-    /**
-     * @var SlugHelper
-     */
-    protected $slugHelper;
+    protected ?SlugHelper $slugHelper = null;
 
-    /**
-     * @var array
-     */
-    protected $slugCache = [];
+    protected array $slugCache = [];
 
     /**
      * Return the identifier for this wizard
      * This should be the same string as used in the ext_localconf class registration
-     *
-     * @return string
      */
     public function getIdentifier(): string
     {
@@ -92,11 +78,6 @@ class SlugUpdateWizard implements UpgradeWizardInterface
         return (bool)$amountOfRecordsWithEmptySlug;
     }
 
-    /**
-     * Performs the accordant updates.
-     *
-     * @return bool Whether everything went smoothly or not
-     */
     public function executeUpdate(): bool
     {
         $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable($this->tableName);
@@ -141,11 +122,6 @@ class SlugUpdateWizard implements UpgradeWizardInterface
         return true;
     }
 
-    /**
-     * @param int $uid
-     * @param string $slug
-     * @return string
-     */
     protected function getUniqueValue(int $uid, string $slug): string
     {
         $statement = $this->getUniqueSlugStatement($uid, $slug);

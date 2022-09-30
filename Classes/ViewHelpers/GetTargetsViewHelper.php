@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace JWeiland\Pfprojects\ViewHelpers;
 
-use TYPO3\CMS\Extbase\Domain\Model\Category;
+use JWeiland\Pfprojects\Domain\Model\Category;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
@@ -20,9 +20,6 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
  */
 class GetTargetsViewHelper extends AbstractViewHelper
 {
-    /**
-     * Initialize all VH arguments
-     */
     public function initializeArguments(): void
     {
         $this->registerArgument(
@@ -31,6 +28,7 @@ class GetTargetsViewHelper extends AbstractViewHelper
             'Set the parent category to get the direct children from',
             true
         );
+
         $this->registerArgument(
             'areasOfActivity',
             'array',
@@ -42,22 +40,25 @@ class GetTargetsViewHelper extends AbstractViewHelper
 
     /**
      * Get direct child categories of defined root category in extConf
-     *
-     * @return array
      */
     public function render(): array
     {
         $categories = [];
-        if (!empty($this->arguments['areasOfActivity'])) {
+        if ($this->arguments['areasOfActivity'] !== []) {
             /** @var Category $areaOfActivity */
             foreach ($this->arguments['areasOfActivity'] as $areaOfActivity) {
                 $parentCategory = $areaOfActivity->getParent();
-                if ($parentCategory !== null && $parentCategory->getUid() === $this->arguments['parent']) {
+                if (
+                    $parentCategory instanceof Category
+                    && $parentCategory->getUid() === $this->arguments['parent']
+                ) {
                     $categories[] = $areaOfActivity;
                 }
             }
         }
+
         usort($categories, ['self', 'sortTargetsByTitle']);
+
         return $categories;
     }
 

@@ -20,16 +20,13 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
  */
 class ExtConf implements SingletonInterface
 {
-    /**
-     * @var int
-     */
-    protected $rootCategory = 0;
+    protected int $rootCategory = 0;
 
     public function __construct()
     {
         // get global configuration
         $extConf = GeneralUtility::makeInstance(ExtensionConfiguration::class)->get('pfprojects');
-        if (is_array($extConf) && count($extConf)) {
+        if (is_array($extConf)) {
             // call setter method foreach configuration entry
             foreach ($extConf as $key => $value) {
                 $methodName = 'set' . ucfirst($key);

@@ -1,6 +1,8 @@
 <?php
-call_user_func(function () {
-    $extConf = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\JWeiland\Pfprojects\Configuration\ExtConf::class);
+call_user_func(static function (): void {
+    $extConf = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+        \JWeiland\Pfprojects\Configuration\ExtConf::class
+    );
 
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::makeCategorizable(
         'pfprojects',

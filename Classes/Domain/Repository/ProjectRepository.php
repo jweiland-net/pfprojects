@@ -28,14 +28,6 @@ class ProjectRepository extends Repository
         'status' => QueryInterface::ORDER_ASCENDING
     ];
 
-    /**
-     * Find all records sorted by given parameters
-     *
-     * @param int $areaOfActivity
-     * @param string $sortBy
-     * @param string $direction
-     * @return QueryResultInterface
-     */
     public function findAllSorted(int $areaOfActivity, string $sortBy, string $direction): QueryResultInterface
     {
         $query = $this->createQuery();
@@ -52,9 +44,11 @@ class ProjectRepository extends Repository
                 $sortBy => strtoupper($direction)
             ]);
         }
-        if (empty($constraint)) {
+
+        if ($constraint === []) {
             return $query->execute();
         }
+
         return $query->matching($query->logicalAnd($constraint))->execute();
     }
 }

@@ -21,12 +21,9 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  */
 class ProjectController extends ActionController
 {
-    /**
-     * @var ProjectRepository
-     */
-    protected $projectRepository;
+    protected ProjectRepository $projectRepository;
 
-    public function __construct(ProjectRepository $projectRepository)
+    public function injectProjectRepository(ProjectRepository $projectRepository): void
     {
         $this->projectRepository = $projectRepository;
     }
@@ -48,7 +45,11 @@ class ProjectController extends ActionController
                 $this->request,
                 $this->settings,
                 [
-                    'projects' => $this->projectRepository->findAllSorted(0, 'status', 'ASC'),
+                    'projects' => $this->projectRepository->findAllSorted(
+                        0,
+                        'status',
+                        'ASC'
+                    ),
                     'areaOfActivity' => 0,
                     'sortBy' => 'status',
                     'direction' => 'ASC'
@@ -88,7 +89,9 @@ class ProjectController extends ActionController
 
     public function showAction(int $project): void
     {
-        $project = $this->projectRepository->findByIdentifier($project);
-        $this->view->assign('project', $project);
+        $this->view->assign(
+            'project',
+            $this->projectRepository->findByIdentifier($project)
+        );
     }
 }

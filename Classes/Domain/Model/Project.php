@@ -13,6 +13,7 @@ namespace JWeiland\Pfprojects\Domain\Model;
 
 use JWeiland\Maps2\Domain\Model\PoiCollection;
 use JWeiland\ServiceBw2\Utility\ModelUtility;
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -21,83 +22,47 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  */
 class Project extends AbstractEntity
 {
-    /**
-     * @var string
-     */
-    protected $title = '';
+    protected string $title = '';
+
+    protected ?\DateTime $startDate;
+
+    protected string $status = '';
+
+    protected string $contactPerson = '';
+
+    protected string $telephone = '';
+
+    protected string $email = '';
+
+    protected bool $officeType = false;
+
+    protected int $organisationseinheit = 0;
+
+    protected string $officeManuell = '';
 
     /**
-     * @var \DateTime
+     * @var ObjectStorage<FileReference>
      */
-    protected $startDate;
+    protected ObjectStorage $images;
+
+    protected string $description = '';
+
+    protected PoiCollection $txMaps2Uid;
 
     /**
-     * @var string
+     * @var ObjectStorage<FileReference>
      */
-    protected $status = '';
+    protected ObjectStorage $files;
 
     /**
-     * @var string
+     * @var ObjectStorage<Link>
      */
-    protected $contactPerson = '';
+    protected ObjectStorage $links;
 
     /**
-     * @var string
+     * @var ObjectStorage<Category>
      */
-    protected $telephone = '';
-
-    /**
-     * @var string
-     */
-    protected $email = '';
-
-    /**
-     * @var bool
-     */
-    protected $officeType = false;
-
-    /**
-     * Organisationseinheit from ext:service_bw2
-     * Will be an array after first getter call!
-     *
-     * @var int
-     */
-    protected $organisationseinheit = 0;
-
-    /**
-     * @var string
-     */
-    protected $officeManuell = '';
-
-    /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
-     */
-    protected $images;
-
-    /**
-     * @var string
-     */
-    protected $description = '';
-
-    /**
-     * @var \JWeiland\Maps2\Domain\Model\PoiCollection
-     */
-    protected $txMaps2Uid;
-
-    /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
-     */
-    protected $files;
-
-    /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JWeiland\Pfprojects\Domain\Model\Link>
-     */
-    protected $links;
-
-    /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category>
-     */
-    protected $areaOfActivity;
+    protected ObjectStorage $areaOfActivity;
 
     public function __construct()
     {
@@ -127,7 +92,7 @@ class Project extends AbstractEntity
         return $this->startDate;
     }
 
-    public function setStartDate(\DateTime $startDate = null): void
+    public function setStartDate(\DateTime $startDate): void
     {
         $this->startDate = $startDate;
     }
@@ -184,10 +149,19 @@ class Project extends AbstractEntity
 
     public function getOrganisationseinheit(): array
     {
-        return $this->organisationseinheit = ModelUtility::getOrganisationseinheiten($this->organisationseinheit);
+        try {
+            return ModelUtility::getOrganisationseinheiten($this->organisationseinheit);
+        } catch (\JsonException $jsonException) {
+            return [];
+        }
     }
 
-    public function setOrganisationseinheit(array $organisationseinheit): void
+    public function getOrigOrganisationseinheit(): int
+    {
+        return $this->organisationseinheit;
+    }
+
+    public function setOrganisationseinheit(int $organisationseinheit): void
     {
         $this->organisationseinheit = $organisationseinheit;
     }
@@ -206,8 +180,6 @@ class Project extends AbstractEntity
      * Get Office
      * It can handle both kinds of offices
      * Useful for Fluid Templates
-     *
-     * @return string
      */
     public function getOffice(): string
     {
@@ -236,6 +208,16 @@ class Project extends AbstractEntity
         $this->images = $images;
     }
 
+    public function addImage(FileReference $image): void
+    {
+        $this->images->attach($image);
+    }
+
+    public function removeImage(FileReference $fileReference): void
+    {
+        $this->images->detach($fileReference);
+    }
+
     public function getDescription(): string
     {
         return $this->description;
@@ -251,7 +233,7 @@ class Project extends AbstractEntity
         return $this->txMaps2Uid;
     }
 
-    public function setTxMaps2Uid(PoiCollection $txMaps2Uid = null): void
+    public function setTxMaps2Uid(PoiCollection $txMaps2Uid): void
     {
         $this->txMaps2Uid = $txMaps2Uid;
     }
@@ -266,6 +248,16 @@ class Project extends AbstractEntity
         $this->files = $files;
     }
 
+    public function addFile(FileReference $file): void
+    {
+        $this->files->attach($file);
+    }
+
+    public function removeFile(FileReference $file): void
+    {
+        $this->files->detach($file);
+    }
+
     public function getLinks(): ObjectStorage
     {
         return $this->links;
@@ -276,6 +268,16 @@ class Project extends AbstractEntity
         $this->links = $links;
     }
 
+    public function addLink(Link $link): void
+    {
+        $this->links->attach($link);
+    }
+
+    public function removeLink(Link $link): void
+    {
+        $this->links->detach($link);
+    }
+
     public function getAreaOfActivity(): ObjectStorage
     {
         return $this->areaOfActivity;
@@ -284,5 +286,15 @@ class Project extends AbstractEntity
     public function setAreaOfActivity(ObjectStorage $areaOfActivity): void
     {
         $this->areaOfActivity = $areaOfActivity;
+    }
+
+    public function addAreaOfActivity(Category $areaOfActivity): void
+    {
+        $this->areaOfActivity->attach($areaOfActivity);
+    }
+
+    public function removeAreaOfActivity(Category $areaOfActivity): void
+    {
+        $this->areaOfActivity->detach($areaOfActivity);
     }
 }
