@@ -18,7 +18,7 @@ use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 
 /**
- * Test case for class \JWeiland\Pfprojects\Domain\Repository\CategoryRepository.
+ * Test case.
  */
 class CategoryRepositoryTest extends FunctionalTestCase
 {
