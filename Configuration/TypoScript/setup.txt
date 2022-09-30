@@ -11,6 +11,14 @@ plugin.tx_pfprojects {
     pidOfMaps2Plugin = {$plugin.tx_pfprojects.settings.pidOfMaps2Plugin}
     pidOfDetailPage = {$plugin.tx_pfprojects.settings.pidOfDetailPage}
     pidOfServiceBw2Page = {$plugin.tx_pfprojects.settings.pidOfServiceBw2Page}
+
+    show {
+      image {
+        width = 200c
+        height = 150c
+      }
+    }
+
     pageBrowser {
       itemsPerPage = {$plugin.tx_pfprojects.settings.pageBrowser.itemsPerPage}
       insertAbove = {$plugin.tx_pfprojects.settings.pageBrowser.insertAbove}
