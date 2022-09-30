@@ -1,10 +1,16 @@
-.. include:: ../Includes.txt
+.. include:: /Includes.rst.txt
+
 
 .. _changelog:
 
 =========
 ChangeLog
 =========
+
+**Version 6.0.0**
+
+- Add TYPO3 11 compatibility
+- Restructure TCA
 
 **Version 5.0.5**
 
