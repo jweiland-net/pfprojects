@@ -1,7 +1,8 @@
 <?php
+
 return [
     'ctrl' => [
-        'title'	=> 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project',
+        'title' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project',
         'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
@@ -18,25 +19,31 @@ return [
             'endtime' => 'endtime',
         ],
         'searchFields' => 'title,contact_person,description',
-        'iconfile' => 'EXT:pfprojects/Resources/Public/Icons/tx_pfprojects_domain_model_project.gif'
-    ],
-    'interface' => [
-        'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, title, path_segment, start_date, status, contact_person, telephone, email, office_type, organisationseinheit, office_manuell, images, description, files, links',
+        'iconfile' => 'EXT:pfprojects/Resources/Public/Icons/tx_pfprojects_domain_model_project.gif',
     ],
     'types' => [
         '1' => [
-            'showitem' => '--palette--;;languageHidden, title, path_segment, start_date,
-            status, contact_person, telephone, email, office_type, organisationseinheit, office_manuell, images,
-            description, files, links,
+            'showitem' => '--palette--;;language, --palette--;;titleHidden, path_segment,
+            --palette--;LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:palette.contact;contact,
+            --div--;LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tab.project,
+            --palette--;LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:palette.projectData;projectData,
+            --palette--;LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:palette.organizer;organizer,
+            area_of_activity, links,
+            --div--;LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tab.media,
+            images, files,
             --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access, 
-            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.access;access'
+            --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.access;access',
         ],
     ],
     'palettes' => [
-        'languageHidden' => ['showitem' => 'sys_language_uid, l10n_parent, hidden'],
+        'language' => ['showitem' => 'sys_language_uid, l10n_parent'],
+        'titleHidden' => ['showitem' => 'title, hidden'],
+        'contact' => ['showitem' => 'contact_person, --linebreak--, telephone, email'],
+        'projectData' => ['showitem' => 'start_date, status, --linebreak--, description'],
+        'organizer' => ['showitem' => 'office_type, --linebreak--, organisationseinheit, office_manuell'],
         'access' => [
             'showitem' => 'starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel',
-        ]
+        ],
     ],
     'columns' => [
         'sys_language_uid' => [
@@ -50,11 +57,11 @@ return [
                     [
                         'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages',
                         -1,
-                        'flags-multiple'
+                        'flags-multiple',
                     ],
                 ],
                 'default' => 0,
-            ]
+            ],
         ],
         'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
@@ -74,45 +81,45 @@ return [
                     ],
                 ],
                 'default' => 0,
-            ]
+            ],
         ],
         'l10n_diffsource' => [
             'config' => [
                 'type' => 'passthrough',
-                'default' => ''
-            ]
+                'default' => '',
+            ],
         ],
         'hidden' => [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
             'config' => [
                 'type' => 'check',
-                'default' => 0
-            ]
+                'default' => 0,
+            ],
         ],
         'cruser_id' => [
             'label' => 'cruser_id',
             'config' => [
-                'type' => 'passthrough'
-            ]
+                'type' => 'passthrough',
+            ],
         ],
         'pid' => [
             'label' => 'pid',
             'config' => [
-                'type' => 'passthrough'
-            ]
+                'type' => 'passthrough',
+            ],
         ],
         'crdate' => [
             'label' => 'crdate',
             'config' => [
                 'type' => 'passthrough',
-            ]
+            ],
         ],
         'tstamp' => [
             'label' => 'tstamp',
             'config' => [
                 'type' => 'passthrough',
-            ]
+            ],
         ],
         'starttime' => [
             'exclude' => true,
@@ -126,7 +133,7 @@ return [
                 'behaviour' => [
                     'allowLanguageSynchronization' => true,
                 ],
-            ]
+            ],
         ],
         'endtime' => [
             'exclude' => true,
@@ -140,7 +147,7 @@ return [
                 'behaviour' => [
                     'allowLanguageSynchronization' => true,
                 ],
-            ]
+            ],
         ],
         'title' => [
             'exclude' => true,
@@ -148,7 +155,7 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
+                'eval' => 'trim',
             ],
         ],
         'path_segment' => [
@@ -163,13 +170,13 @@ return [
                     'prefixParentPageSlug' => false,
                     'fieldSeparator' => '-',
                     'replacements' => [
-                        '/' => '-'
+                        '/' => '-',
                     ],
                 ],
                 'fallbackCharacter' => '-',
                 'eval' => 'unique',
-                'default' => ''
-            ]
+                'default' => '',
+            ],
         ],
         'start_date' => [
             'exclude' => true,
@@ -180,7 +187,7 @@ return [
                 'default' => 0,
                 'dbType' => 'date',
                 'size' => 10,
-                'eval' => 'date'
+                'eval' => 'date',
             ],
         ],
         'status' => [
@@ -195,17 +202,22 @@ return [
                     [
                         'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.status.1green',
                         '1green',
-                        'EXT:pfprojects/Resources/Public/Icons/light_1green.png'
+                        'EXT:pfprojects/Resources/Public/Icons/light_1green.png',
                     ],
                     [
                         'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.status.2yellow',
                         '2yellow',
-                        'EXT:pfprojects/Resources/Public/Icons/light_2yellow.png'
+                        'EXT:pfprojects/Resources/Public/Icons/light_2yellow.png',
                     ],
                     [
                         'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.status.3red',
                         '3red',
-                        'EXT:pfprojects/Resources/Public/Icons/light_3red.png'
+                        'EXT:pfprojects/Resources/Public/Icons/light_3red.png',
+                    ],
+                ],
+                'fieldWizard' => [
+                    'selectIcons' => [
+                        'disabled' => false,
                     ],
                 ],
             ],
@@ -216,7 +228,7 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
+                'eval' => 'trim',
             ],
         ],
         'telephone' => [
@@ -225,7 +237,7 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
+                'eval' => 'trim',
             ],
         ],
         'email' => [
@@ -234,12 +246,13 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
+                'eval' => 'trim',
             ],
         ],
         'office_type' => [
             'exclude' => true,
             'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.office_type',
+            'description' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.office_type.description',
             'config' => [
                 'type' => 'check',
                 'default' => 0,
@@ -249,7 +262,9 @@ return [
             'displayCond' => 'FIELD:office_type:=:0',
             'exclude' => true,
             'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.organisationseinheit',
-            'config' => \JWeiland\ServiceBw2\Utility\TCAUtility::getOrganisationseinheitenFieldTCAConfig(['maxitems' => 1])
+            'config' => \JWeiland\ServiceBw2\Utility\TCAUtility::getOrganisationseinheitenFieldTCAConfig(
+                ['maxitems' => 1]
+            ),
         ],
         'office_manuell' => [
             'displayCond' => 'FIELD:office_type:=:1',
@@ -258,7 +273,34 @@ return [
             'config' => [
                 'type' => 'input',
                 'size' => 30,
-                'eval' => 'trim'
+                'eval' => 'trim',
+            ],
+        ],
+        'area_of_activity' => [
+            'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.area_of_activity',
+            'exclude' => true,
+            'config' => [
+                'type' => 'select',
+                'renderType' => 'selectTree',
+                'foreign_table' => 'sys_category',
+                'foreign_table_where' => 'AND {#sys_category}.{#sys_language_uid} IN (-1, 0)',
+                'MM' => 'sys_category_record_mm',
+                'MM_match_fields' => [
+                    'fieldname' => 'area_of_activity',
+                    'tablenames' => 'tx_pfprojects_domain_model_project',
+                ],
+                'MM_opposite_field' => 'items',
+                'maxitems' => '9999',
+                'size' => '20',
+                'treeConfig' => [
+                    'appearance' => [
+                        'expandAll' => 1,
+                        'maxLevels' => 99,
+                        'showHeader' => true,
+                    ],
+                    'parentField' => 'parent',
+                    'rootUid' => 0,
+                ],
             ],
         ],
         'images' => [
@@ -266,7 +308,49 @@ return [
             'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.images',
             'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
                 'images',
-                ['maxitems' => 5],
+                [
+                    'appearance' => [
+                        'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference',
+                        'showPossibleLocalizationRecords' => true,
+                    ],
+                    'maxitems' => 5,
+                    // custom configuration for displaying fields in the overlay/reference table
+                    // to use the imageoverlayPalette instead of the basicoverlayPalette
+                    'overrideChildTca' => [
+                        'types' => [
+                            '0' => [
+                                'showitem' => '
+                                    --palette--;;imageoverlayPalette,
+                                    --palette--;;filePalette',
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_TEXT => [
+                                'showitem' => '
+                                    --palette--;;imageoverlayPalette,
+                                    --palette--;;filePalette',
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_IMAGE => [
+                                'showitem' => '
+                                    --palette--;;imageoverlayPalette,
+                                    --palette--;;filePalette',
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_AUDIO => [
+                                'showitem' => '
+                                    --palette--;;audioOverlayPalette,
+                                    --palette--;;filePalette',
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_VIDEO => [
+                                'showitem' => '
+                                    --palette--;;videoOverlayPalette,
+                                    --palette--;;filePalette',
+                            ],
+                            \TYPO3\CMS\Core\Resource\File::FILETYPE_APPLICATION => [
+                                'showitem' => '
+                                    --palette--;;imageoverlayPalette,
+                                    --palette--;;filePalette',
+                            ],
+                        ],
+                    ],
+                ],
                 $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
             ),
         ],
@@ -284,12 +368,17 @@ return [
         'files' => [
             'exclude' => true,
             'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.files',
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-                'files',
-                ['maxitems' => 5],
+            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('media', [
+                'appearance' => [
+                    'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:media.addFileReference',
+                    'showPossibleLocalizationRecords' => true,
+                ],
+                [
+                    'maxitems' => 5,
+                ],
                 '',
-                'php,exe'
-            ),
+                'php,exe',
+            ]),
         ],
         'links' => [
             'exclude' => true,
@@ -299,7 +388,7 @@ return [
                 'foreign_table' => 'tx_pfprojects_domain_model_link',
                 'foreign_field' => 'project',
                 'foreign_label' => 'title',
-            ]
-        ]
-    ]
+            ],
+        ],
+    ],
 ];
