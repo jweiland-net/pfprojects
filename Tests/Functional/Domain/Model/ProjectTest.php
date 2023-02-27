@@ -21,14 +21,17 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  */
 class ProjectTest extends FunctionalTestCase
 {
-    protected Project $subject;
+    /**
+     * @var Project
+     */
+    protected $subject;
 
     /**
      * @var array
      */
     protected $testExtensionsToLoad = [
         'typo3conf/ext/maps2',
-        'typo3conf/ext/pfprojects'
+        'typo3conf/ext/pfprojects',
     ];
 
     protected function setUp(): void

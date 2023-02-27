@@ -25,10 +25,13 @@ class CategoryRepositoryTest extends FunctionalTestCase
      * @var string[]
      */
     protected $testExtensionsToLoad = [
-        'typo3conf/ext/pfprojects'
+        'typo3conf/ext/pfprojects',
     ];
 
-    protected CategoryRepository $subject;
+    /**
+     * @var CategoryRepository
+     */
+    protected $subject;
 
     protected function setUp(): void
     {
@@ -52,7 +55,7 @@ class CategoryRepositoryTest extends FunctionalTestCase
     public function categoriesAreSortedByTitleAsDefault(): void
     {
         $expectedResult = [
-            'title' => QueryInterface::ORDER_ASCENDING
+            'title' => QueryInterface::ORDER_ASCENDING,
         ];
 
         self::assertSame(
