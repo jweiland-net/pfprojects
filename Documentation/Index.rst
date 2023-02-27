@@ -1,65 +1,55 @@
-.. every .rst file should include Includes.txt
-.. use correct path!
+..  include:: /Includes.rst.txt
 
-.. include:: Includes.txt
 
-.. Every manual should have a start label for cross-referencing to
-.. start page. Do not remove this!
-
-.. _start:
-
-=============================================================
+==========
 pfprojects
-=============================================================
+==========
+
+:Extension key:
+    pfprojects
+
+:Package name:
+    PF Projects
 
 :Version:
-   |release|
+    |release|
 
 :Language:
-   en
+    en
 
-:Authors:
-   Pascal Rinker
-
-:Email:
-   projects@jweiland.net
+:Author:
+    Stefan Froemken
 
 :License:
-   This extension documentation is published under the
-   `CC BY-NC-SA 4.0 <https://creativecommons.org/licenses/by-nc-sa/4.0/>`__ (Creative Commons)
-   license
+    This document is published under the
+    `Creative Commons BY 4.0 <https://creativecommons.org/licenses/by/4.0/>`__
+    license.
+
+:Rendered:
+    |today|
+
+----
 
 This extension shows a list of projects and can be connected with service_bw2.
 
-**TYPO3**
+----
 
-The content of this document is related to TYPO3 CMS,
-a GNU/GPL CMS/Framework available from `typo3.org <https://typo3.org/>`_ .
+**Table of Contents:**
 
-**Community Documentation**
+..  toctree::
+    :maxdepth: 2
+    :titlesonly:
 
-This documentation is community documentation for the TYPO3 extension {extension.name}
+    Introduction/Index
+    Editor/Index
+    Installation/Index
+    Configuration/Index
+    Changelog/Index
 
-It is maintained as part of this third party extension.
+..  Meta Menu
 
-If you find an error or something is missing, please:
-`Report a Problem <https://github.com/TYPO3-Documentation/TYPO3CMS-Example-ExtensionManual/issues/new>`__
+..  toctree::
+    :hidden:
 
-**Extension Manual**
-
-This documentation is for the TYPO3 extension <extkey>.
-
-**For Contributors**
-
-You are welcome to help improve this guide.
-Just click on "Edit me on GitHub" on the top right to submit your change request.
-
-.. toctree::
-   :maxdepth: 3
-
-   Introduction/Index
-   Editor/Index
-   Installation/Index
-   Configuration/Index
-   Changelog/Index
-   Sitemap
+    Sitemap
+    genindex

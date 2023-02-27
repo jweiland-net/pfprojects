@@ -40,15 +40,12 @@ class AddPaginatorEventListener
         if ($event->getRequest()->hasArgument('currentPage')) {
             $currentPage = $event->getRequest()->getArgument('currentPage');
         }
+
         return (int)$currentPage;
     }
 
     protected function getItemsPerPage(PostProcessFluidVariablesEvent $event): int
     {
-        $itemsPerPage = $this->itemsPerPage;
-        if (isset($event->getSettings()['pageBrowser']['itemsPerPage'])) {
-            $itemsPerPage = $event->getSettings()['pageBrowser']['itemsPerPage'];
-        }
-        return (int)$itemsPerPage;
+        return (int)($event->getSettings()['pageBrowser']['itemsPerPage'] ?? $this->itemsPerPage);
     }
 }

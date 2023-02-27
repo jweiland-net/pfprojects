@@ -13,6 +13,8 @@ namespace JWeiland\Pfprojects\Domain\Model;
 
 use JWeiland\Maps2\Domain\Model\PoiCollection;
 use JWeiland\ServiceBw2\Utility\ModelUtility;
+use TYPO3\CMS\Extbase\Annotation as Extbase;
+use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
@@ -23,11 +25,13 @@ class Project extends AbstractEntity
 {
     /**
      * @var string
+     *
+     * @Extbase\Validate("NotEmpty")
      */
     protected $title = '';
 
     /**
-     * @var \DateTime
+     * @var \DateTime|null
      */
     protected $startDate;
 
@@ -57,9 +61,6 @@ class Project extends AbstractEntity
     protected $officeType = false;
 
     /**
-     * Organisationseinheit from ext:service_bw2
-     * Will be an array after first getter call!
-     *
      * @var int
      */
     protected $organisationseinheit = 0;
@@ -70,7 +71,7 @@ class Project extends AbstractEntity
     protected $officeManuell = '';
 
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
+     * @var ObjectStorage<FileReference>
      */
     protected $images;
 
@@ -80,36 +81,42 @@ class Project extends AbstractEntity
     protected $description = '';
 
     /**
-     * @var \JWeiland\Maps2\Domain\Model\PoiCollection
-     */
-    protected $txMaps2Uid;
-
-    /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
+     * @var ObjectStorage<FileReference>
      */
     protected $files;
 
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\JWeiland\Pfprojects\Domain\Model\Link>
+     * @var ObjectStorage<Link>
      */
     protected $links;
 
     /**
-     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\Category>
+     * @var ObjectStorage<Category>
      */
     protected $areaOfActivity;
 
-    public function __construct()
-    {
-        $this->initStorageObjects();
-    }
+    /**
+     * @var PoiCollection|null
+     */
+    protected $txMaps2Uid;
 
-    protected function initStorageObjects(): void
+    public function __construct()
     {
         $this->images = new ObjectStorage();
         $this->files = new ObjectStorage();
         $this->links = new ObjectStorage();
         $this->areaOfActivity = new ObjectStorage();
+    }
+
+    /**
+     * Called again with initialize object, as fetching an entity from the DB does not use the constructor
+     */
+    public function initializeObject(): void
+    {
+        $this->images = $this->images ?? new ObjectStorage();
+        $this->files = $this->files ?? new ObjectStorage();
+        $this->links = $this->links ?? new ObjectStorage();
+        $this->areaOfActivity = $this->areaOfActivity ?? new ObjectStorage();
     }
 
     public function getTitle(): string
@@ -127,7 +134,7 @@ class Project extends AbstractEntity
         return $this->startDate;
     }
 
-    public function setStartDate(\DateTime $startDate = null): void
+    public function setStartDate(\DateTime $startDate): void
     {
         $this->startDate = $startDate;
     }
@@ -184,10 +191,19 @@ class Project extends AbstractEntity
 
     public function getOrganisationseinheit(): array
     {
-        return $this->organisationseinheit = ModelUtility::getOrganisationseinheiten($this->organisationseinheit);
+        try {
+            return ModelUtility::getOrganisationseinheiten($this->organisationseinheit);
+        } catch (\JsonException $jsonException) {
+            return [];
+        }
     }
 
-    public function setOrganisationseinheit(array $organisationseinheit): void
+    public function getOrigOrganisationseinheit(): int
+    {
+        return $this->organisationseinheit;
+    }
+
+    public function setOrganisationseinheit(int $organisationseinheit): void
     {
         $this->organisationseinheit = $organisationseinheit;
     }
@@ -206,8 +222,6 @@ class Project extends AbstractEntity
      * Get Office
      * It can handle both kinds of offices
      * Useful for Fluid Templates
-     *
-     * @return string
      */
     public function getOffice(): string
     {
@@ -236,6 +250,16 @@ class Project extends AbstractEntity
         $this->images = $images;
     }
 
+    public function addImage(FileReference $image): void
+    {
+        $this->images->attach($image);
+    }
+
+    public function removeImage(FileReference $fileReference): void
+    {
+        $this->images->detach($fileReference);
+    }
+
     public function getDescription(): string
     {
         return $this->description;
@@ -244,16 +268,6 @@ class Project extends AbstractEntity
     public function setDescription(string $description): void
     {
         $this->description = $description;
-    }
-
-    public function getTxMaps2Uid(): ?PoiCollection
-    {
-        return $this->txMaps2Uid;
-    }
-
-    public function setTxMaps2Uid(PoiCollection $txMaps2Uid = null): void
-    {
-        $this->txMaps2Uid = $txMaps2Uid;
     }
 
     public function getFiles(): ObjectStorage
@@ -266,6 +280,16 @@ class Project extends AbstractEntity
         $this->files = $files;
     }
 
+    public function addFile(FileReference $file): void
+    {
+        $this->files->attach($file);
+    }
+
+    public function removeFile(FileReference $file): void
+    {
+        $this->files->detach($file);
+    }
+
     public function getLinks(): ObjectStorage
     {
         return $this->links;
@@ -276,6 +300,16 @@ class Project extends AbstractEntity
         $this->links = $links;
     }
 
+    public function addLink(Link $link): void
+    {
+        $this->links->attach($link);
+    }
+
+    public function removeLink(Link $link): void
+    {
+        $this->links->detach($link);
+    }
+
     public function getAreaOfActivity(): ObjectStorage
     {
         return $this->areaOfActivity;
@@ -284,5 +318,25 @@ class Project extends AbstractEntity
     public function setAreaOfActivity(ObjectStorage $areaOfActivity): void
     {
         $this->areaOfActivity = $areaOfActivity;
+    }
+
+    public function addAreaOfActivity(Category $areaOfActivity): void
+    {
+        $this->areaOfActivity->attach($areaOfActivity);
+    }
+
+    public function removeAreaOfActivity(Category $areaOfActivity): void
+    {
+        $this->areaOfActivity->detach($areaOfActivity);
+    }
+
+    public function getTxMaps2Uid(): ?PoiCollection
+    {
+        return $this->txMaps2Uid;
+    }
+
+    public function setTxMaps2Uid(PoiCollection $txMaps2Uid): void
+    {
+        $this->txMaps2Uid = $txMaps2Uid;
     }
 }

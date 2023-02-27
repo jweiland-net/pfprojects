@@ -3,6 +3,30 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2016-01-05T15:40:45Z" product-name="pfprojects">
 		<header/>
 		<body>
+			<trans-unit id="plugin.pfprojects.title">
+				<source>Pforzheim Projects</source>
+			</trans-unit>
+			<trans-unit id="plugin.pfprojects.description">
+				<source>This plugin displays the current projects of the city of Pforzheim. Thanks to traffic light icons you can quickly see the project status.</source>
+			</trans-unit>
+
+			<trans-unit id="tab.project">
+				<source>Project</source>
+			</trans-unit>
+			<trans-unit id="tab.media">
+				<source>Media</source>
+			</trans-unit>
+
+			<trans-unit id="palette.contact">
+				<source>Contact</source>
+			</trans-unit>
+			<trans-unit id="palette.projectData">
+				<source>Project data</source>
+			</trans-unit>
+			<trans-unit id="palette.organizer">
+				<source>Organizer</source>
+			</trans-unit>
+
 			<trans-unit id="tx_pfprojects_domain_model_project">
 				<source>Project</source>
 			</trans-unit>
@@ -37,15 +61,19 @@
 				<source>Email</source>
 			</trans-unit>
 			<trans-unit id="tx_pfprojects_domain_model_project.office_type">
-				<source>Default: Choose organizer by a record of service_bw2. If checked: You can insert your own organizer with
-					help of a text field. Each click reloads the current form.
+				<source>Enter organizer yourself</source>
+			</trans-unit>
+			<trans-unit id="tx_pfprojects_domain_model_project.office_type.description">
+				<source>
+					Disabled: Select organizer from a given list of organizers.
+					Activated: You can enter the organizer yourself via a text field.
 				</source>
 			</trans-unit>
 			<trans-unit id="tx_pfprojects_domain_model_project.organisationseinheit">
-				<source>Choose an organizer record of service_bw2.</source>
+				<source>Select an organizer from the list.</source>
 			</trans-unit>
 			<trans-unit id="tx_pfprojects_domain_model_project.office_manuell">
-				<source>Insert your own organizer.</source>
+				<source>Enter the organizer.</source>
 			</trans-unit>
 			<trans-unit id="tx_pfprojects_domain_model_project.images">
 				<source>Images</source>
@@ -65,6 +93,7 @@
 			<trans-unit id="tx_pfprojects_domain_model_project.area_of_activity">
 				<source>Area of Activity</source>
 			</trans-unit>
+
 			<trans-unit id="tx_pfprojects_domain_model_link">
 				<source>Link</source>
 			</trans-unit>
@@ -74,7 +103,6 @@
 			<trans-unit id="tx_pfprojects_domain_model_link.link">
 				<source>Link</source>
 			</trans-unit>
-
 		</body>
 	</file>
 </xliff>

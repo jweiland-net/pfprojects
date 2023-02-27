@@ -11,25 +11,30 @@ declare(strict_types=1);
 
 namespace JWeiland\Pfprojects\Domain\Repository;
 
-use TYPO3\CMS\Extbase\Domain\Model\Category;
-use TYPO3\CMS\Extbase\Object\ObjectManagerInterface;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Persistence\Generic\Typo3QuerySettings;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
+use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
+use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
  * Our own Repository for Categories (sys_category) because we need another sorting
+ *
+ * @method QueryResultInterface findByParent(int $rootCategory)
  */
-class CategoryRepository extends \TYPO3\CMS\Extbase\Domain\Repository\CategoryRepository
+class CategoryRepository extends Repository
 {
     /**
      * @var array
      */
     protected $defaultOrderings = [
-        'title' => QueryInterface::ORDER_ASCENDING
+        'title' => QueryInterface::ORDER_ASCENDING,
     ];
 
-    public function __construct(ObjectManagerInterface $objectManager)
+    public function initializeObject(): void
     {
-        parent::__construct($objectManager);
-        $this->objectType = Category::class;
+        $querySettings = GeneralUtility::makeInstance(Typo3QuerySettings::class);
+        $querySettings->setRespectStoragePage(false);
+        $this->setDefaultQuerySettings($querySettings);
     }
 }

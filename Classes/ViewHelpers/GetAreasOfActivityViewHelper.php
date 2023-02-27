@@ -12,9 +12,8 @@ declare(strict_types=1);
 namespace JWeiland\Pfprojects\ViewHelpers;
 
 use JWeiland\Pfprojects\Configuration\ExtConf;
+use JWeiland\Pfprojects\Domain\Model\Category;
 use JWeiland\Pfprojects\Domain\Repository\CategoryRepository;
-use TYPO3\CMS\Extbase\Domain\Model\Category;
-use TYPO3\CMS\Extbase\Persistence\Generic\QueryResult;
 use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
 
 /**
@@ -53,9 +52,6 @@ class GetAreasOfActivityViewHelper extends AbstractViewHelper
 
     /**
      * Get direct child categories of defined root category in extConf
-     *
-     * @return array
-     * @noinspection PhpUndefinedMethodInspection
      */
     public function render(): array
     {
@@ -71,12 +67,13 @@ class GetAreasOfActivityViewHelper extends AbstractViewHelper
                 }
             }
         } else {
-            /** @var QueryResult $categoryResult */
             $categoryResult = $this->categoryRepository->findByParent($rootCategory);
             // we need an Array as collection for usort and not an ObjectStorage
             $categories = $categoryResult->toArray();
         }
+
         usort($categories, ['self', 'sortCategoriesByTitle']);
+
         return $categories;
     }
 
@@ -88,6 +85,7 @@ class GetAreasOfActivityViewHelper extends AbstractViewHelper
         if ($categoryA->getTitle() > $categoryB->getTitle()) {
             return 1;
         }
+
         return -1;
     }
 }

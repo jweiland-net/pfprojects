@@ -36,7 +36,7 @@ class SlugUpdateWizard implements UpgradeWizardInterface
     protected $fieldName = 'path_segment';
 
     /**
-     * @var SlugHelper
+     * @var SlugHelper|null
      */
     protected $slugHelper;
 
@@ -48,8 +48,6 @@ class SlugUpdateWizard implements UpgradeWizardInterface
     /**
      * Return the identifier for this wizard
      * This should be the same string as used in the ext_localconf class registration
-     *
-     * @return string
      */
     public function getIdentifier(): string
     {
@@ -87,16 +85,11 @@ class SlugUpdateWizard implements UpgradeWizardInterface
                 )
             )
             ->execute()
-            ->fetchColumn(0);
+            ->fetchColumn();
 
         return (bool)$amountOfRecordsWithEmptySlug;
     }
 
-    /**
-     * Performs the accordant updates.
-     *
-     * @return bool Whether everything went smoothly or not
-     */
     public function executeUpdate(): bool
     {
         $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable($this->tableName);
@@ -129,10 +122,10 @@ class SlugUpdateWizard implements UpgradeWizardInterface
                         $this->fieldName => $this->getUniqueValue(
                             (int)$recordToUpdate['uid'],
                             $slug
-                        )
+                        ),
                     ],
                     [
-                        'uid' => (int)$recordToUpdate['uid']
+                        'uid' => (int)$recordToUpdate['uid'],
                     ]
                 );
             }
@@ -141,11 +134,6 @@ class SlugUpdateWizard implements UpgradeWizardInterface
         return true;
     }
 
-    /**
-     * @param int $uid
-     * @param string $slug
-     * @return string
-     */
     protected function getUniqueValue(int $uid, string $slug): string
     {
         $statement = $this->getUniqueSlugStatement($uid, $slug);
@@ -207,7 +195,7 @@ class SlugUpdateWizard implements UpgradeWizardInterface
     public function getPrerequisites(): array
     {
         return [
-            DatabaseUpdatedPrerequisite::class
+            DatabaseUpdatedPrerequisite::class,
         ];
     }
 

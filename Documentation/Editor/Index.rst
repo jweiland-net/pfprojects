@@ -1,6 +1,7 @@
-.. include:: ../Includes.txt
+..  include:: /Includes.rst.txt
 
-.. _for-editors:
+
+..  _for-editors:
 
 ===========
 For Editors

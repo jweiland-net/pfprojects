@@ -1,0 +1,25 @@
+<html lang="en"
+			xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+			data-namespace-typo3-fluid="true">
+
+<table class="table">
+	<thead>
+	<tr>
+		<th>Config</th>
+		<th>Value</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td><strong>Title</strong></td>
+		<td>{header}</td>
+	</tr>
+	<f:if condition="{pages}">
+		<tr>
+			<td><strong>Pages</strong></td>
+			<td>{pages}</td>
+		</tr>
+	</f:if>
+	</tbody>
+</table>
+</html>

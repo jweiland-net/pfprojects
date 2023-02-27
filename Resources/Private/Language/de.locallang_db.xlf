@@ -3,6 +3,37 @@
 	<file source-language="en" datatype="plaintext" original="messages" date="2016-01-05T15:40:45Z" product-name="pfprojects">
 		<header/>
 		<body>
+			<trans-unit id="plugin.pfprojects.title">
+				<source>Pforzheim Projects</source>
+				<target>Pforzheim Projekte</target>
+			</trans-unit>
+			<trans-unit id="plugin.pfprojects.description">
+				<source>This plugin displays the current projects of the city of Pforzheim. Thanks to traffic light icons you can quickly see the project status.</source>
+				<target>Dieses Plugin zeigt die derzeitigen Projekte der Stadt Pforzheim an. Dank Ampel Symbolen kann man den Projektstatus schnell erkennen.</target>
+			</trans-unit>
+
+			<trans-unit id="tab.project">
+				<source>Project</source>
+				<target>Projekt</target>
+			</trans-unit>
+			<trans-unit id="tab.media">
+				<source>Media</source>
+				<target>Medien</target>
+			</trans-unit>
+
+			<trans-unit id="palette.contact">
+				<source>Contact</source>
+				<target>Kontakt</target>
+			</trans-unit>
+			<trans-unit id="palette.projectData">
+				<source>Project data</source>
+				<target>Projektdaten</target>
+			</trans-unit>
+			<trans-unit id="palette.organizer">
+				<source>Organizer</source>
+				<target>Veranstalter</target>
+			</trans-unit>
+
 			<trans-unit id="tx_pfprojects_domain_model_project">
 				<source>Project</source>
 				<target>Projekt</target>
@@ -48,19 +79,25 @@
 				<target>E-Mail</target>
 			</trans-unit>
 			<trans-unit id="tx_pfprojects_domain_model_project.office_type">
-				<source>Default: Choose organizer by a record of service_bw2. If checked: You can insert your own organizer with
-					help of a text field. Each click reloads the current form.
+				<source>Enter organizer yourself</source>
+				<target>Veranstalter selbst eintragen</target>
+			</trans-unit>
+			<trans-unit id="tx_pfprojects_domain_model_project.office_type.description">
+				<source>
+					Disabled: Select organizer from a given list of organizers.
+					Activated: You can enter the organizer yourself via a text field.
 				</source>
-				<target>Standard: Wählen Sie einen Veranstalter der service_bw2-Extension. Markiert: Sie erhalten eine Textbox,
-					um den Veranstalter manuell einzutragen.
+				<target>
+					Deaktiviert: Veranstalter aus einer vorgegebenen Liste mit Veranstaltern auswählen.
+					Aktiviert: Sie können über ein Textfeld den Veranstalter selbst eintragen.
 				</target>
 			</trans-unit>
 			<trans-unit id="tx_pfprojects_domain_model_project.organisationseinheit">
-				<source>Choose an organizer record of service_bw2.</source>
-				<target>Wählen Sie einen Veranstalter der service_bw2-Extension.</target>
+				<source>Select an organizer from the list.</source>
+				<target>Wählen Sie einen Veranstalter aus der Liste.</target>
 			</trans-unit>
 			<trans-unit id="tx_pfprojects_domain_model_project.office_manuell">
-				<source>Insert your own organizer.</source>
+				<source>Enter the organizer.</source>
 				<target>Tragen Sie den Veranstalter ein.</target>
 			</trans-unit>
 			<trans-unit id="tx_pfprojects_domain_model_project.images">
@@ -100,7 +137,6 @@
 				<source>Link</source>
 				<target>Link</target>
 			</trans-unit>
-
 		</body>
 	</file>
 </xliff>

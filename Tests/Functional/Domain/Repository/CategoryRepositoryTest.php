@@ -14,33 +14,36 @@ namespace JWeiland\Pfprojects\Tests\Functional\Domain\Repository;
 use JWeiland\Pfprojects\Domain\Repository\CategoryRepository;
 use Nimut\TestingFramework\TestCase\FunctionalTestCase;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Object\ObjectManager;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 
 /**
- * Test case for class \JWeiland\Pfprojects\Domain\Repository\CategoryRepository.
+ * Test case.
  */
 class CategoryRepositoryTest extends FunctionalTestCase
 {
-    protected $testExtensionsToLoad = ['typo3conf/ext/pfprojects'];
+    /**
+     * @var string[]
+     */
+    protected $testExtensionsToLoad = [
+        'typo3conf/ext/pfprojects',
+    ];
 
     /**
      * @var CategoryRepository
      */
-    protected $categoryRepository;
+    protected $subject;
 
     protected function setUp(): void
     {
         parent::setUp();
 
-        $this->categoryRepository = GeneralUtility::makeInstance(ObjectManager::class)
-            ->get(CategoryRepository::class);
+        $this->subject = GeneralUtility::makeInstance(CategoryRepository::class);
     }
 
     protected function tearDown(): void
     {
         unset(
-            $this->categoryRepository
+            $this->subject
         );
 
         parent::tearDown();
@@ -49,14 +52,25 @@ class CategoryRepositoryTest extends FunctionalTestCase
     /**
      * @test
      */
-    public function categoriesAreSortedByTitleAsDefault()
+    public function categoriesAreSortedByTitleAsDefault(): void
     {
         $expectedResult = [
-            'title' => QueryInterface::ORDER_ASCENDING
+            'title' => QueryInterface::ORDER_ASCENDING,
         ];
+
         self::assertSame(
             $expectedResult,
-            $this->categoryRepository->createQuery()->getOrderings()
+            $this->subject->createQuery()->getOrderings()
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function respectStoragePageIsDisabled(): void
+    {
+        self::assertFalse(
+            $this->subject->createQuery()->getQuerySettings()->getRespectStoragePage()
         );
     }
 }

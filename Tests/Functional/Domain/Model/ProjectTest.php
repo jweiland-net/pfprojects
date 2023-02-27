@@ -13,27 +13,41 @@ namespace JWeiland\Pfprojects\Tests\Unit\Domain\Model;
 
 use JWeiland\Maps2\Domain\Model\PoiCollection;
 use JWeiland\Pfprojects\Domain\Model\Project;
-use Nimut\TestingFramework\TestCase\UnitTestCase;
+use Nimut\TestingFramework\TestCase\FunctionalTestCase;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
- * Test case for class \JWeiland\Pfprojects\Domain\Model\Project.
+ * Test case.
  */
-class ProjectTest extends UnitTestCase
+class ProjectTest extends FunctionalTestCase
 {
     /**
      * @var Project
      */
     protected $subject;
 
+    /**
+     * @var array
+     */
+    protected $testExtensionsToLoad = [
+        'typo3conf/ext/maps2',
+        'typo3conf/ext/pfprojects',
+    ];
+
     protected function setUp(): void
     {
+        parent::setUp();
+
         $this->subject = new Project();
     }
 
     protected function tearDown(): void
     {
-        unset($this->subject);
+        unset(
+            $this->subject
+        );
+
+        parent::tearDown();
     }
 
     /**

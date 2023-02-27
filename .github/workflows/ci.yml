@@ -4,7 +4,7 @@ name: CI
 on:
   pull_request:
     branches:
-    - master
+    - main
 
 jobs:
   build:
@@ -13,8 +13,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        typo3: [^10.4]
+        typo3: [^10.4, ^11.5]
         php: ['7.4']
+        include:
+        - typo3: ^11.5
+          php: '8.0'
+        - typo3: ^11.5
+          php: '8.1'
 
     services:
       mysql:
@@ -57,7 +62,7 @@ jobs:
       - name: Install dependencies with typo3/cms-core:${{ matrix.typo3 }}
         run: |
           composer require typo3/cms-core:${{ matrix.typo3 }} --no-progress
-          composer require jweiland/maps2:^9.3 --no-progress
+          composer require jweiland/maps2 >=9.3.0 --no-progress
           git checkout composer.json
 
       - name: php-cs-fixer

@@ -3,7 +3,7 @@
 			xmlns:pp="http://typo3.org/ns/JWeiland/Pfprojects/ViewHelpers"
 			data-namespace-typo3-fluid="true">
 
-<h1>{project.title}</h1>
+<h2>{project.title}</h2>
 
 <div class="grid_12 clearer clearfix">
 	<div class="grid_8 floatleft">
@@ -11,33 +11,13 @@
 			<f:if condition="{project.images}">
 				<f:render partial="Project/Images" arguments="{images: project.images}"/>
 			</f:if>
+
 			<f:format.html>{project.description}</f:format.html>
-			<f:alias map="{activities: '{pp:getAreasOfActivity(areasOfActivity: \'{project.areaOfActivity}\')}'}">
-				<f:if condition="{activities}">
-					<h2>
-						<f:translate key="tx_pfprojects_domain_model_project.area_of_activity"/>:
-					</h2>
-					<f:for each="{activities}" as="activity">
-						<h3>{activity.title}</h3>
-						<f:alias map="{targets: '{pp:getTargets(parent: \'{activity.uid}\', areasOfActivity: \'{project.areaOfActivity}\')}'}">
-							<f:if condition="{targets}">
-								<dl class="extdl">
-									<dt>
-										<f:translate key="targets"/>:
-									</dt>
-									<f:for each="{targets}" as="target">
-										<dd>{target.title}</dd>
-									</f:for>
-								</dl>
-							</f:if>
-						</f:alias>
-					</f:for>
-				</f:if>
-			</f:alias>
+
+			<f:render section="renderAreaOfActivity" arguments="{project: project}"/>
+
 			<f:if condition="{project.files}">
-				<h3>
-					<f:translate key="tx_pfprojects_domain_model_project.files"/>
-				</h3>
+				<h3>{f:translate(key: 'tx_pfprojects_domain_model_project.files')}</h3>
 				<ul class="extul">
 					<f:for each="{project.files}" as="file">
 						<li>
@@ -46,10 +26,9 @@
 					</f:for>
 				</ul>
 			</f:if>
+
 			<f:if condition="{project.links}">
-				<h3>
-					<f:translate key="tx_pfprojects_domain_model_project.links"/>
-				</h3>
+				<h3>{f:translate(key: 'tx_pfprojects_domain_model_project.links')}</h3>
 				<ul class="extul">
 					<f:for each="{project.links}" as="link">
 						<li>
@@ -61,26 +40,24 @@
 			</f:if>
 		</div>
 	</div>
+
 	<aside class="grid_4 floatleft">
 		<div class="gridleft clearfix rulerbefore4">
-
 			<dl class="extdl nomargin clearfix">
 				<dt class="floatleft">
 					<f:image src="{f:uri.resource(path: 'Icons/{project.status}.png')}" width="64" title="{f:translate(key: 'tx_pfprojects_domain_model_project.status.{project.status}')}"/>
 				</dt>
 				<dd>{f:translate(key: 'tx_pfprojects_domain_model_project.status.{project.status}')}</dd>
 			</dl>
+
 			<dl class="extdl marginbottom2">
-				<dt class="floatleft">
-					<f:translate key="tx_pfprojects_domain_model_project.start_date"/>:
-				</dt>
+				<dt class="floatleft">{f:translate(key: 'tx_pfprojects_domain_model_project.start_date')}:</dt>
 				<dd>{project.startDate -> f:format.date(format: 'd.m.Y')}</dd>
 			</dl>
+
 			<f:if condition="{project.contactPerson}">
 				<dl class="extdl clearfix">
-					<dt>
-						<f:translate key="tx_pfprojects_domain_model_project.contact_person"/>:
-					</dt>
+					<dt>{f:translate(key: 'tx_pfprojects_domain_model_project.contact_person')}:</dt>
 					<dd>
 						{project.contactPerson}
 						<f:if condition="{project.telephone}">
@@ -95,40 +72,49 @@
 					</dd>
 				</dl>
 			</f:if>
+
 			<dl class="extdl clearfix rulerafter">
 				<f:if condition="{project.officeType}">
 					<f:then>
 						<f:if condition="{project.officeManuell}">
-							<dt>
-								<f:translate key="tx_pfprojects_domain_model_project.office_manuell"/>:
-							</dt>
+							<dt>{f:translate(key: 'tx_pfprojects_domain_model_project.office_manuell')}:</dt>
 							<dd class="grid_8 floatleft noborder">{project.officeManuell}</dd>
 						</f:if>
 					</f:then>
 					<f:else>
 						<f:if condition="{project.organisationseinheit}">
 							<f:then>
-								<dt>
-									<f:translate key="tx_pfprojects_domain_model_project.organisationseinheit"/>:
-								</dt>
+								<dt>{f:translate(key: 'tx_pfprojects_domain_model_project.organisationseinheit')}:</dt>
 								<dd class="grid_8 floatleft noborder">
 									<f:for each="{project.organisationseinheit}" as="organisationseinheit">
-										<f:link.action pageUid="{settings.pidOfServiceBw2Page}" action="show" controller="Organisationseinheiten" pluginName="servicebw" extensionName="serviceBw2" arguments="{id: organisationseinheit.id}">
+										<f:link.action pageUid="{settings.pidOfServiceBw2Page}"
+																	 action="show"
+																	 controller="Organisationseinheiten"
+																	 pluginName="servicebw"
+																	 extensionName="serviceBw2"
+																	 arguments="{id: organisationseinheit.id}">
 											{organisationseinheit.name}
 										</f:link.action>
 									</f:for>
 								</dd>
 							</f:then>
-
 						</f:if>
 					</f:else>
-
 				</f:if>
+
 				<f:if condition="{project.txMaps2Uid}">
 					<dd class="grid_4 floatleft noborder">
 						<figure>
-							<f:link.action title="Map" action="show" controller="PoiCollection" extensionName="maps2" pluginName="maps2" pageUid="{settings.pidOfMaps2Plugin}" arguments="{poiCollection: project.txMaps2Uid}">
-								<f:image class="floatright" src="EXT:pfprojects/Resources/Public/Icons/thumbmaps.png" alt="{f:translate(key: 'altTextMapImg')}"/>
+							<f:link.action title="Map"
+														 action="show"
+														 controller="PoiCollection"
+														 extensionName="maps2"
+														 pluginName="maps2"
+														 pageUid="{settings.pidOfMaps2Plugin}"
+														 arguments="{poiCollection: project.txMaps2Uid}">
+								<f:image class="floatright"
+												 src="EXT:pfprojects/Resources/Public/Icons/thumbmaps.png"
+												 alt="{f:translate(key: 'altTextMapImg')}"/>
 							</f:link.action>
 						</figure>
 					</dd>
@@ -137,4 +123,26 @@
 		</div>
 	</aside>
 </div>
+
+<f:section name="renderAreaOfActivity">
+	<f:variable name="activities">{pp:getAreasOfActivity(areasOfActivity: '{project.areaOfActivity}')}</f:variable>
+
+	<f:if condition="{activities}">
+		<h3>{f:translate(key: 'tx_pfprojects_domain_model_project.area_of_activity')}:</h3>
+		<f:for each="{activities}" as="activity">
+			<h4>{activity.title}</h4>
+
+			<f:variable name="targets">{pp:getTargets(parent: '{activity.uid}', areasOfActivity: '{project.areaOfActivity}')}</f:variable>
+
+			<f:if condition="{targets}">
+				<dl class="extdl">
+					<dt>{f:translate(key: 'targets')}:</dt>
+					<f:for each="{targets}" as="target">
+						<dd>{target.title}</dd>
+					</f:for>
+				</dl>
+			</f:if>
+		</f:for>
+	</f:if>
+</f:section>
 </html>

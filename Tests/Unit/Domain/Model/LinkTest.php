@@ -15,7 +15,7 @@ use JWeiland\Pfprojects\Domain\Model\Link;
 use Nimut\TestingFramework\TestCase\UnitTestCase;
 
 /**
- * Test case for class \JWeiland\Pfprojects\Domain\Model\Category.
+ * Test case.
  */
 class LinkTest extends UnitTestCase
 {
