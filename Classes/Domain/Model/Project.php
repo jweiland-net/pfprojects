@@ -24,61 +24,99 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 class Project extends AbstractEntity
 {
     /**
+     * @var string
+     *
      * @Extbase\Validate("NotEmpty")
      */
-    protected string $title = '';
+    protected $title = '';
 
-    protected ?\DateTime $startDate = null;
+    /**
+     * @var \DateTime|null
+     */
+    protected $startDate;
 
-    protected string $status = '';
+    /**
+     * @var string
+     */
+    protected $status = '';
 
-    protected string $contactPerson = '';
+    /**
+     * @var string
+     */
+    protected $contactPerson = '';
 
-    protected string $telephone = '';
+    /**
+     * @var string
+     */
+    protected $telephone = '';
 
-    protected string $email = '';
+    /**
+     * @var string
+     */
+    protected $email = '';
 
-    protected bool $officeType = false;
+    /**
+     * @var bool
+     */
+    protected $officeType = false;
 
-    protected int $organisationseinheit = 0;
+    /**
+     * @var int
+     */
+    protected $organisationseinheit = 0;
 
-    protected string $officeManuell = '';
+    /**
+     * @var string
+     */
+    protected $officeManuell = '';
 
     /**
      * @var ObjectStorage<FileReference>
      */
-    protected ObjectStorage $images;
+    protected $images;
 
-    protected string $description = '';
+    /**
+     * @var string
+     */
+    protected $description = '';
 
     /**
      * @var ObjectStorage<FileReference>
      */
-    protected ObjectStorage $files;
+    protected $files;
 
     /**
      * @var ObjectStorage<Link>
      */
-    protected ObjectStorage $links;
+    protected $links;
 
     /**
      * @var ObjectStorage<Category>
      */
-    protected ObjectStorage $areaOfActivity;
+    protected $areaOfActivity;
 
-    protected ?PoiCollection $txMaps2Uid = null;
+    /**
+     * @var PoiCollection|null
+     */
+    protected $txMaps2Uid;
 
     public function __construct()
-    {
-        $this->initStorageObjects();
-    }
-
-    protected function initStorageObjects(): void
     {
         $this->images = new ObjectStorage();
         $this->files = new ObjectStorage();
         $this->links = new ObjectStorage();
         $this->areaOfActivity = new ObjectStorage();
+    }
+
+    /**
+     * Called again with initialize object, as fetching an entity from the DB does not use the constructor
+     */
+    public function initializeObject(): void
+    {
+        $this->images = $this->images ?? new ObjectStorage();
+        $this->files = $this->files ?? new ObjectStorage();
+        $this->links = $this->links ?? new ObjectStorage();
+        $this->areaOfActivity = $this->areaOfActivity ?? new ObjectStorage();
     }
 
     public function getTitle(): string

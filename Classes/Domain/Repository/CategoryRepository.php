@@ -28,7 +28,7 @@ class CategoryRepository extends Repository
      * @var array
      */
     protected $defaultOrderings = [
-        'title' => QueryInterface::ORDER_ASCENDING
+        'title' => QueryInterface::ORDER_ASCENDING,
     ];
 
     public function initializeObject(): void

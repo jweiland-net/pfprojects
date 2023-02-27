@@ -18,9 +18,15 @@ use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
  */
 class Link extends AbstractEntity
 {
-    protected string $link = '';
+    /**
+     * @var string
+     */
+    protected $link = '';
 
-    protected string $title = 'Video';
+    /**
+     * @var string
+     */
+    protected $title = 'Video';
 
     public function getLink(): string
     {

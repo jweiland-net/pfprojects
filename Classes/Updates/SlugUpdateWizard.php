@@ -25,13 +25,25 @@ use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
  */
 class SlugUpdateWizard implements UpgradeWizardInterface
 {
-    protected string $tableName = 'tx_pfprojects_domain_model_project';
+    /**
+     * @var string
+     */
+    protected $tableName = 'tx_pfprojects_domain_model_project';
 
-    protected string $fieldName = 'path_segment';
+    /**
+     * @var string
+     */
+    protected $fieldName = 'path_segment';
 
-    protected ?SlugHelper $slugHelper = null;
+    /**
+     * @var SlugHelper|null
+     */
+    protected $slugHelper = null;
 
-    protected array $slugCache = [];
+    /**
+     * @var array
+     */
+    protected $slugCache = [];
 
     /**
      * Return the identifier for this wizard
@@ -73,7 +85,7 @@ class SlugUpdateWizard implements UpgradeWizardInterface
                 )
             )
             ->execute()
-            ->fetchColumn(0);
+            ->fetchColumn();
 
         return (bool)$amountOfRecordsWithEmptySlug;
     }
@@ -110,10 +122,10 @@ class SlugUpdateWizard implements UpgradeWizardInterface
                         $this->fieldName => $this->getUniqueValue(
                             (int)$recordToUpdate['uid'],
                             $slug
-                        )
+                        ),
                     ],
                     [
-                        'uid' => (int)$recordToUpdate['uid']
+                        'uid' => (int)$recordToUpdate['uid'],
                     ]
                 );
             }
@@ -183,7 +195,7 @@ class SlugUpdateWizard implements UpgradeWizardInterface
     public function getPrerequisites(): array
     {
         return [
-            DatabaseUpdatedPrerequisite::class
+            DatabaseUpdatedPrerequisite::class,
         ];
     }
 

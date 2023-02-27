@@ -17,11 +17,20 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class ProjectPagination implements PaginationInterface
 {
-    protected string $pluginNamespace = 'tx_pfprojects_pfprojects';
+    /**
+     * @var string
+     */
+    protected $pluginNamespace = 'tx_pfprojects_pfprojects';
 
-    protected PaginatorInterface $paginator;
+    /**
+     * @var PaginatorInterface
+     */
+    protected $paginator;
 
-    protected array $arguments = [];
+    /**
+     * @var array
+     */
+    protected $arguments = [];
 
     public function __construct(PaginatorInterface $paginator)
     {

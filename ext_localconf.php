@@ -8,11 +8,11 @@ call_user_func(static function (): void {
         'Pfprojects',
         'Pfprojects',
         [
-            \JWeiland\Pfprojects\Controller\ProjectController::class => 'list, search, show'
+            \JWeiland\Pfprojects\Controller\ProjectController::class => 'list, search, show',
         ],
         // non-cacheable actions
         [
-            \JWeiland\Pfprojects\Controller\ProjectController::class => 'search'
+            \JWeiland\Pfprojects\Controller\ProjectController::class => 'search',
         ]
     );
 

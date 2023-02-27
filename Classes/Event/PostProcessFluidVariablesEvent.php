@@ -15,11 +15,20 @@ use TYPO3\CMS\Extbase\Mvc\Request;
 
 class PostProcessFluidVariablesEvent
 {
-    protected Request $request;
+    /**
+     * @var Request
+     */
+    protected $request;
 
-    protected array $settings = [];
+    /**
+     * @var array
+     */
+    protected $settings = [];
 
-    protected array $fluidVariables = [];
+    /**
+     * @var array
+     */
+    protected $fluidVariables = [];
 
     public function __construct(
         Request $request,

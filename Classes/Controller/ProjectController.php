@@ -21,7 +21,10 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  */
 class ProjectController extends ActionController
 {
-    protected ProjectRepository $projectRepository;
+    /**
+     * @var ProjectRepository
+     */
+    protected $projectRepository;
 
     public function injectProjectRepository(ProjectRepository $projectRepository): void
     {
@@ -52,7 +55,7 @@ class ProjectController extends ActionController
                     ),
                     'areaOfActivity' => 0,
                     'sortBy' => 'status',
-                    'direction' => 'ASC'
+                    'direction' => 'ASC',
                 ]
             )
         );
@@ -79,7 +82,7 @@ class ProjectController extends ActionController
                     'projects' => $this->projectRepository->findAllSorted($areaOfActivity, $sortBy, $direction),
                     'areaOfActivity' => $areaOfActivity,
                     'sortBy' => $sortBy,
-                    'direction' => $direction
+                    'direction' => $direction,
                 ]
             )
         );

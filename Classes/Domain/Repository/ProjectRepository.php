@@ -25,7 +25,7 @@ class ProjectRepository extends Repository
      * @var array
      */
     protected $defaultOrderings = [
-        'status' => QueryInterface::ORDER_ASCENDING
+        'status' => QueryInterface::ORDER_ASCENDING,
     ];
 
     public function findAllSorted(int $areaOfActivity, string $sortBy, string $direction): QueryResultInterface
@@ -41,7 +41,7 @@ class ProjectRepository extends Repository
             GeneralUtility::inList('ASC,DESC', strtoupper($direction))
         ) {
             $query->setOrderings([
-                $sortBy => strtoupper($direction)
+                $sortBy => strtoupper($direction),
             ]);
         }
 
