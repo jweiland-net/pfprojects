@@ -38,7 +38,7 @@ class SlugUpdateWizard implements UpgradeWizardInterface
     /**
      * @var SlugHelper|null
      */
-    protected $slugHelper = null;
+    protected $slugHelper;
 
     /**
      * @var array
