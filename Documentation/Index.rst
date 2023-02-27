@@ -1,4 +1,4 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
 
 ==========
@@ -6,27 +6,27 @@ pfprojects
 ==========
 
 :Extension key:
-   pfprojects
+    pfprojects
 
 :Package name:
-   PF Projects
+    PF Projects
 
 :Version:
-   |release|
+    |release|
 
 :Language:
-   en
+    en
 
 :Author:
-   Stefan Froemken
+    Stefan Froemken
 
 :License:
-   This document is published under the
-   `Creative Commons BY 4.0 <https://creativecommons.org/licenses/by/4.0/>`__
-   license.
+    This document is published under the
+    `Creative Commons BY 4.0 <https://creativecommons.org/licenses/by/4.0/>`__
+    license.
 
 :Rendered:
-   |today|
+    |today|
 
 ----
 
@@ -36,20 +36,20 @@ This extension shows a list of projects and can be connected with service_bw2.
 
 **Table of Contents:**
 
-.. toctree::
-   :maxdepth: 2
-   :titlesonly:
+..  toctree::
+    :maxdepth: 2
+    :titlesonly:
 
-   Introduction/Index
-   Editor/Index
-   Installation/Index
-   Configuration/Index
-   Changelog/Index
+    Introduction/Index
+    Editor/Index
+    Installation/Index
+    Configuration/Index
+    Changelog/Index
 
-.. Meta Menu
+..  Meta Menu
 
-.. toctree::
-   :hidden:
+..  toctree::
+    :hidden:
 
-   Sitemap
-   genindex
+    Sitemap
+    genindex

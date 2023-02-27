@@ -1,18 +1,18 @@
-.. include:: /Includes.rst.txt
+..  include:: /Includes.rst.txt
 
 
-.. _configuration:
+..  _configuration:
 
 =============
 Configuration
 =============
 
-.. tip::
+..  tip::
 
-   You must configure the extensions service_bw2 and maps2 to run this extension correctly.
+    You must configure the extensions service_bw2 and maps2 to run this extension correctly.
 
-   `Service BW2 Documentation <https://docs.typo3.org/p/jweiland/service-bw2/master/en-us/>`_
-   `Maps2 Documentation <https://docs.typo3.org/p/jweiland/maps2/master/en-us/>`_
+    `Service BW2 Documentation <https://docs.typo3.org/p/jweiland/service-bw2/master/en-us/>`_
+    `Maps2 Documentation <https://docs.typo3.org/p/jweiland/maps2/master/en-us/>`_
 
 Extension configuration
 =======================
