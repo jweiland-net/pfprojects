@@ -5,7 +5,8 @@ call_user_func(static function (): void {
         \JWeiland\Pfprojects\Configuration\ExtConf::class
     );
 
-    if (version_compare(\JWeiland\Avalex\Utility\Typo3Utility::getTypo3Version(), '11.4', '>')) {
+    $typo3Version = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Information\Typo3Version::class);
+    if (version_compare($typo3Version->getBranch(), '11.4', '>')) {
         unset($GLOBALS['TCA']['tx_pfprojects_domain_model_project']['columns']['area_of_activity']['config']['treeConfig']['rootUid']);
         $GLOBALS['TCA']['tx_pfprojects_domain_model_project']['columns']['area_of_activity']['config']['treeConfig']['startingPoints']
             = $extConf->getRootCategory();
