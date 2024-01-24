@@ -7,6 +7,16 @@
 ChangeLog
 =========
 
+Version 6.0.1
+=============
+
+*   Add status badges to README.md
+*   Add missing column area_of_activity to ext_tables.sql
+*   Add .crowdin.yml to .gitattributes
+*   Remove tests for out-dated TYPO3 10
+*   Remove security advisory package because of out-dated TYPO3 10
+*   Update .editorconfig
+
 Version 6.0.0
 =============
 

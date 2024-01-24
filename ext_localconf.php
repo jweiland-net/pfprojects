@@ -19,7 +19,10 @@ call_user_func(static function (): void {
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['pfProjectUpdateSlug']
         = \JWeiland\Pfprojects\Updates\SlugUpdateWizard::class;
 
-    $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Imaging\IconRegistry::class);
+    // ToDo: Migrate to Icons.php while removing TYPO3 10 compatibility
+    $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+        \TYPO3\CMS\Core\Imaging\IconRegistry::class
+    );
     $iconRegistry->registerIcon(
         'ext-pfprojects-wizard-icon',
         \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
