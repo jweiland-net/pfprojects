@@ -15,6 +15,7 @@ Version 6.0.1
 *   Add .crowdin.yml to .gitattributes
 *   Remove tests for out-dated TYPO3 10
 *   Remove security advisory package because of out-dated TYPO3 10
+*   Update .editorconfig
 
 Version 6.0.0
 =============
