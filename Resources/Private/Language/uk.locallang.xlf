@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2016-01-05T15:53:45Z" product-name="pfproducts" target-language="uk">
+    <header/>
+    <body>
+      <trans-unit id="tx_pfprojects_domain_model_project">
+        <source>Project</source>
+        <target state="needs-translation">Project</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.title">
+        <source>Title</source>
+        <target state="needs-translation">Title</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.start_date">
+        <source>Project Start</source>
+        <target state="needs-translation">Project Start</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.status">
+        <source>Project Status</source>
+        <target state="needs-translation">Project Status</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.status.1green">
+        <source>Finished</source>
+        <target state="needs-translation">Finished</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.status.2yellow">
+        <source>In Progress</source>
+        <target state="needs-translation">In Progress</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.status.3red">
+        <source>Planned</source>
+        <target state="needs-translation">Planned</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.contact_person">
+        <source>Contact Person</source>
+        <target state="needs-translation">Contact Person</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.telephone">
+        <source>Telephone</source>
+        <target state="needs-translation">Telephone</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.email">
+        <source>Email</source>
+        <target state="needs-translation">Email</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.office_type">
+        <source>Default: Choose organizer by a record of service_bw2. If checked: You can insert your own organizer with
+					help of a text field. Each click reloads the current form.
+				</source>
+        <target state="needs-translation">Default: Choose organizer by a record of service_bw2. If checked: You can insert your own organizer with
+					help of a text field. Each click reloads the current form.
+				</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.organisationseinheit">
+        <source>Organizational Unit</source>
+        <target state="needs-translation">Organizational Unit</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.office_manuell">
+        <source>Insert your own organizer.</source>
+        <target state="needs-translation">Insert your own organizer.</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.images">
+        <source>Images</source>
+        <target state="needs-translation">Images</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.description">
+        <source>Description</source>
+        <target state="needs-translation">Description</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.tx_maps2_uid">
+        <source>Map</source>
+        <target state="needs-translation">Map</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.files">
+        <source>Files</source>
+        <target state="needs-translation">Files</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.links">
+        <source>Links</source>
+        <target state="needs-translation">Links</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.area_of_activity">
+        <source>Area of Activity</source>
+        <target state="needs-translation">Area of Activity</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_link">
+        <source>Link</source>
+        <target state="needs-translation">Link</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_link.title">
+        <source>Title</source>
+        <target state="needs-translation">Title</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_link.link">
+        <source>Link</source>
+        <target state="needs-translation">Link</target>
+      </trans-unit>
+      <trans-unit id="backToList">
+        <source>Back to list</source>
+        <target state="needs-translation">Back to list</target>
+      </trans-unit>
+      <trans-unit id="backToDetails">
+        <source>Back to detail view</source>
+        <target state="needs-translation">Back to detail view</target>
+      </trans-unit>
+      <trans-unit id="targets">
+        <source>Targets</source>
+        <target state="needs-translation">Targets</target>
+      </trans-unit>
+      <trans-unit id="noResults">
+        <source>No results</source>
+        <target state="needs-translation">No results</target>
+      </trans-unit>
+      <trans-unit id="asc">
+        <source>Ascending</source>
+        <target state="needs-translation">Ascending</target>
+      </trans-unit>
+      <trans-unit id="desc">
+        <source>Descending</source>
+        <target state="needs-translation">Descending</target>
+      </trans-unit>
+      <trans-unit id="sortBy">
+        <source>Sort by</source>
+        <target state="needs-translation">Sort by</target>
+      </trans-unit>
+      <trans-unit id="ordering">
+        <source>Ordering</source>
+        <target state="needs-translation">Ordering</target>
+      </trans-unit>
+      <trans-unit id="pageBrowser.first">
+        <source>First</source>
+        <target state="needs-translation">First</target>
+      </trans-unit>
+      <trans-unit id="pageBrowser.previous">
+        <source>Previous</source>
+        <target state="needs-translation">Previous</target>
+      </trans-unit>
+      <trans-unit id="pageBrowser.next">
+        <source>Next</source>
+        <target state="needs-translation">Next</target>
+      </trans-unit>
+      <trans-unit id="pageBrowser.last">
+        <source>Last</source>
+        <target state="needs-translation">Last</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

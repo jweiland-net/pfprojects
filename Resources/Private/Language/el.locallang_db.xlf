@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<xliff version="1.0">
+  <file source-language="en" datatype="plaintext" original="messages" date="2016-01-05T15:40:45Z" product-name="pfprojects" target-language="el">
+    <header/>
+    <body>
+      <trans-unit id="plugin.pfprojects.title">
+        <source>Pforzheim Projects</source>
+        <target state="needs-translation">Pforzheim Projects</target>
+      </trans-unit>
+      <trans-unit id="plugin.pfprojects.description">
+        <source>This plugin displays the current projects of the city of Pforzheim. Thanks to traffic light icons you can quickly see the project status.</source>
+        <target state="needs-translation">This plugin displays the current projects of the city of Pforzheim. Thanks to traffic light icons you can quickly see the project status.</target>
+      </trans-unit>
+      <trans-unit id="tab.project">
+        <source>Project</source>
+        <target state="needs-translation">Project</target>
+      </trans-unit>
+      <trans-unit id="tab.media">
+        <source>Media</source>
+        <target state="needs-translation">Media</target>
+      </trans-unit>
+      <trans-unit id="palette.contact">
+        <source>Contact</source>
+        <target state="needs-translation">Contact</target>
+      </trans-unit>
+      <trans-unit id="palette.projectData">
+        <source>Project data</source>
+        <target state="needs-translation">Project data</target>
+      </trans-unit>
+      <trans-unit id="palette.organizer">
+        <source>Organizer</source>
+        <target state="needs-translation">Organizer</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project">
+        <source>Project</source>
+        <target state="needs-translation">Project</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.title">
+        <source>Title</source>
+        <target state="needs-translation">Title</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.path_segment">
+        <source>Segment for URL</source>
+        <target state="needs-translation">Segment for URL</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.start_date">
+        <source>Project Start</source>
+        <target state="needs-translation">Project Start</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.status">
+        <source>Project Status</source>
+        <target state="needs-translation">Project Status</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.status.1green">
+        <source>Finished</source>
+        <target state="needs-translation">Finished</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.status.2yellow">
+        <source>In Progress</source>
+        <target state="needs-translation">In Progress</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.status.3red">
+        <source>Planned</source>
+        <target state="needs-translation">Planned</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.contact_person">
+        <source>Contact Person</source>
+        <target state="needs-translation">Contact Person</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.telephone">
+        <source>Telephone</source>
+        <target state="needs-translation">Telephone</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.email">
+        <source>Email</source>
+        <target state="needs-translation">Email</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.office_type">
+        <source>Enter organizer yourself</source>
+        <target state="needs-translation">Enter organizer yourself</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.office_type.description">
+        <source>
+					Disabled: Select organizer from a given list of organizers.
+					Activated: You can enter the organizer yourself via a text field.
+				</source>
+        <target state="needs-translation">
+					Disabled: Select organizer from a given list of organizers.
+					Activated: You can enter the organizer yourself via a text field.
+				</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.organisationseinheit">
+        <source>Select an organizer from the list.</source>
+        <target state="needs-translation">Select an organizer from the list.</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.office_manuell">
+        <source>Enter the organizer.</source>
+        <target state="needs-translation">Enter the organizer.</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.images">
+        <source>Images</source>
+        <target state="needs-translation">Images</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.description">
+        <source>Description</source>
+        <target state="needs-translation">Description</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.tx_maps2_uid">
+        <source>Map</source>
+        <target state="needs-translation">Map</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.files">
+        <source>Files</source>
+        <target state="needs-translation">Files</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.links">
+        <source>Links</source>
+        <target state="needs-translation">Links</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.area_of_activity">
+        <source>Area of Activity</source>
+        <target state="needs-translation">Area of Activity</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_link">
+        <source>Link</source>
+        <target state="needs-translation">Link</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_link.title">
+        <source>Title</source>
+        <target state="needs-translation">Title</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_link.link">
+        <source>Link</source>
+        <target state="needs-translation">Link</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

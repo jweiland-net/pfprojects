@@ -1,152 +1,146 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <xliff version="1.0">
-	<file source-language="en" datatype="plaintext" original="messages" date="2016-01-05T15:52:45Z"
-				product-name="pfprojects">
-		<header/>
-		<body>
-			<trans-unit id="tx_pfprojects_domain_model_project">
-				<source>Project</source>
-				<target>Projekt</target>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.title">
-				<source>Title</source>
-				<target>Projekttitel</target>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.start_date">
-				<source>Project Start</source>
-				<target>Projektstart</target>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.status">
-				<source>Project Status</source>
-				<target>Projektstatus</target>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.status.1green">
-				<source>Finished</source>
-				<target>Erledigt</target>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.status.2yellow">
-				<source>In Progress</source>
-				<target>In Bearbeitung</target>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.status.3red">
-				<source>Planned</source>
-				<target>Geplant</target>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.contact_person">
-				<source>Contact Person</source>
-				<target>Ansprechpartner/in</target>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.telephone">
-				<source>Telephone</source>
-				<target>Telefonkontakt</target>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.email">
-				<source>Email</source>
-				<target>Email</target>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.office_type">
-				<source>Default: Choose organizer by a record of service_bw2. If checked: You can insert your own organizer with
+  <file source-language="en" datatype="plaintext" original="messages" date="2016-01-05T15:53:45Z" product-name="pfproducts" target-language="de">
+    <header/>
+    <body>
+      <trans-unit id="tx_pfprojects_domain_model_project" approved="yes">
+        <source>Project</source>
+        <target state="final">Projekt</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.title" approved="yes">
+        <source>Title</source>
+        <target state="final">Projekttitel</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.start_date" approved="yes">
+        <source>Project Start</source>
+        <target state="final">Projektstart</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.status" approved="yes">
+        <source>Project Status</source>
+        <target state="final">Projektstatus</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.status.1green" approved="yes">
+        <source>Finished</source>
+        <target state="final">Erledigt</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.status.2yellow" approved="yes">
+        <source>In Progress</source>
+        <target state="final">In Bearbeitung</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.status.3red" approved="yes">
+        <source>Planned</source>
+        <target state="final">Geplant</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.contact_person" approved="yes">
+        <source>Contact Person</source>
+        <target state="final">Ansprechpartner/in</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.telephone" approved="yes">
+        <source>Telephone</source>
+        <target state="final">Telefonkontakt</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.email" approved="yes">
+        <source>Email</source>
+        <target state="final">E-Mail</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.office_type" approved="yes">
+        <source>Default: Choose organizer by a record of service_bw2. If checked: You can insert your own organizer with
 					help of a text field. Each click reloads the current form.
 				</source>
-				<target>Standard: Wählen Sie einen Veranstalter der service_bw2-Extension. Markiert: Sie erhalten eine Textbox,
-					um den Veranstalter manuell einzutragen.
-				</target>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.organisationseinheit">
-				<source>Organisationseinheit</source>
-				<target>Veranstalter</target>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.office_manuell">
-				<source>Organizer</source>
-				<target>Veranstalter</target>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.images">
-				<source>Images</source>
-				<target>Bilder</target>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.description">
-				<source>Description</source>
-				<target>Beschreibung</target>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.tx_maps2_uid">
-				<source>Map</source>
-				<target>Kartenausschnitt</target>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.files">
-				<source>Files</source>
-				<target>Datei(en)</target>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.links">
-				<source>Links</source>
-				<target>Links</target>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.area_of_activity">
-				<source>Area of Activity</source>
-				<target>Handlungsfeld(er)</target>
-			</trans-unit>
-
-			<trans-unit id="tx_pfprojects_domain_model_link">
-				<source>Link</source>
-				<target>Link</target>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_link.title">
-				<source>Title</source>
-				<target>Titel</target>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_link.link">
-				<source>Link</source>
-				<target>Link</target>
-			</trans-unit>
-
-			<trans-unit id="backToList">
-				<source>Back to list</source>
-				<target>Zurück zur Listenansicht</target>
-			</trans-unit>
-			<trans-unit id="backToDetails">
-				<source>Back to detail view</source>
-				<target>Zurück zur Detailansicht</target>
-			</trans-unit>
-			<trans-unit id="targets">
-				<source>Targets</source>
-				<target>Ziele</target>
-			</trans-unit>
-			<trans-unit id="noResults">
-				<source>No results</source>
-				<target>Keine Ergebnisse gefunden</target>
-			</trans-unit>
-			<trans-unit id="asc">
-				<source>Ascending</source>
-				<target>Aufsteigend</target>
-			</trans-unit>
-			<trans-unit id="desc">
-				<source>Descending</source>
-				<target>Absteigend</target>
-			</trans-unit>
-			<trans-unit id="sortBy">
-				<source>Sort by</source>
-				<target>Filtern nach</target>
-			</trans-unit>
-			<trans-unit id="ordering">
-				<source>Ordering</source>
-				<target>Sortieren nach</target>
-			</trans-unit>
-
-			<trans-unit id="pageBrowser.first">
-				<source>First</source>
-				<target>Erste</target>
-			</trans-unit>
-			<trans-unit id="pageBrowser.previous">
-				<source>Previous</source>
-				<target>Vorherige</target>
-			</trans-unit>
-			<trans-unit id="pageBrowser.next">
-				<source>Next</source>
-				<target>Nächste</target>
-			</trans-unit>
-			<trans-unit id="pageBrowser.last">
-				<source>Last</source>
-				<target>Letzte</target>
-			</trans-unit>
-		</body>
-	</file>
+        <target state="final">Standard: Wählen Sie einen Veranstalter der service_bw2-Extension. Markiert: Sie erhalten eine Textbox,	um den Veranstalter manuell einzutragen.</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.organisationseinheit" approved="yes">
+        <source>Organizational Unit</source>
+        <target state="final">Organisationseinheit</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.office_manuell" approved="yes">
+        <source>Insert your own organizer.</source>
+        <target state="final">Tragen Sie den Veranstalter ein.</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.images" approved="yes">
+        <source>Images</source>
+        <target state="final">Bilder</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.description" approved="yes">
+        <source>Description</source>
+        <target state="final">Beschreibung</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.tx_maps2_uid" approved="yes">
+        <source>Map</source>
+        <target state="final">Kartenausschnitt</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.files" approved="yes">
+        <source>Files</source>
+        <target state="final">Datei(en)</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.links" approved="yes">
+        <source>Links</source>
+        <target state="final">Links</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.area_of_activity" approved="yes">
+        <source>Area of Activity</source>
+        <target state="final">Handlungsfeld(er)</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_link" approved="yes">
+        <source>Link</source>
+        <target state="final">Link</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_link.title" approved="yes">
+        <source>Title</source>
+        <target state="final">Titel</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_link.link" approved="yes">
+        <source>Link</source>
+        <target state="final">Link</target>
+      </trans-unit>
+      <trans-unit id="backToList" approved="yes">
+        <source>Back to list</source>
+        <target state="final">Zurück zur Listenansicht</target>
+      </trans-unit>
+      <trans-unit id="backToDetails" approved="yes">
+        <source>Back to detail view</source>
+        <target state="final">Zurück zur Detailansicht</target>
+      </trans-unit>
+      <trans-unit id="targets" approved="yes">
+        <source>Targets</source>
+        <target state="final">Ziele</target>
+      </trans-unit>
+      <trans-unit id="noResults" approved="yes">
+        <source>No results</source>
+        <target state="final">Keine Ergebnisse gefunden</target>
+      </trans-unit>
+      <trans-unit id="asc" approved="yes">
+        <source>Ascending</source>
+        <target state="final">Aufsteigend</target>
+      </trans-unit>
+      <trans-unit id="desc" approved="yes">
+        <source>Descending</source>
+        <target state="final">Absteigend</target>
+      </trans-unit>
+      <trans-unit id="sortBy" approved="yes">
+        <source>Sort by</source>
+        <target state="final">Filtern nach</target>
+      </trans-unit>
+      <trans-unit id="ordering" approved="yes">
+        <source>Ordering</source>
+        <target state="final">Sortieren nach</target>
+      </trans-unit>
+      <trans-unit id="pageBrowser.first" approved="yes">
+        <source>First</source>
+        <target state="final">Erste</target>
+      </trans-unit>
+      <trans-unit id="pageBrowser.previous" approved="yes">
+        <source>Previous</source>
+        <target state="final">Vorherige</target>
+      </trans-unit>
+      <trans-unit id="pageBrowser.next" approved="yes">
+        <source>Next</source>
+        <target state="final">Nächste</target>
+      </trans-unit>
+      <trans-unit id="pageBrowser.last" approved="yes">
+        <source>Last</source>
+        <target state="final">Letzte</target>
+      </trans-unit>
+    </body>
+  </file>
 </xliff>
