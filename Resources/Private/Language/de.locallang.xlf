@@ -3,145 +3,143 @@
   <file source-language="en" datatype="plaintext" original="messages" date="2016-01-05T15:53:45Z" product-name="pfproducts" target-language="de">
     <header/>
     <body>
-      <trans-unit id="tx_pfprojects_domain_model_project">
+      <trans-unit id="tx_pfprojects_domain_model_project" approved="yes">
         <source>Project</source>
-        <target state="needs-translation">Project</target>
+        <target state="final">Projekt</target>
       </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_project.title">
+      <trans-unit id="tx_pfprojects_domain_model_project.title" approved="yes">
         <source>Title</source>
-        <target state="needs-translation">Title</target>
+        <target state="final">Projekttitel</target>
       </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_project.start_date">
+      <trans-unit id="tx_pfprojects_domain_model_project.start_date" approved="yes">
         <source>Project Start</source>
-        <target state="needs-translation">Project Start</target>
+        <target state="final">Projektstart</target>
       </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_project.status">
+      <trans-unit id="tx_pfprojects_domain_model_project.status" approved="yes">
         <source>Project Status</source>
-        <target state="needs-translation">Project Status</target>
+        <target state="final">Projektstatus</target>
       </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_project.status.1green">
+      <trans-unit id="tx_pfprojects_domain_model_project.status.1green" approved="yes">
         <source>Finished</source>
-        <target state="needs-translation">Finished</target>
+        <target state="final">Erledigt</target>
       </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_project.status.2yellow">
+      <trans-unit id="tx_pfprojects_domain_model_project.status.2yellow" approved="yes">
         <source>In Progress</source>
-        <target state="needs-translation">In Progress</target>
+        <target state="final">In Bearbeitung</target>
       </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_project.status.3red">
+      <trans-unit id="tx_pfprojects_domain_model_project.status.3red" approved="yes">
         <source>Planned</source>
-        <target state="needs-translation">Planned</target>
+        <target state="final">Geplant</target>
       </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_project.contact_person">
+      <trans-unit id="tx_pfprojects_domain_model_project.contact_person" approved="yes">
         <source>Contact Person</source>
-        <target state="needs-translation">Contact Person</target>
+        <target state="final">Ansprechpartner/in</target>
       </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_project.telephone">
+      <trans-unit id="tx_pfprojects_domain_model_project.telephone" approved="yes">
         <source>Telephone</source>
-        <target state="needs-translation">Telephone</target>
+        <target state="final">Telefonkontakt</target>
       </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_project.email">
+      <trans-unit id="tx_pfprojects_domain_model_project.email" approved="yes">
         <source>Email</source>
-        <target state="needs-translation">Email</target>
+        <target state="final">E-Mail</target>
       </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_project.office_type">
+      <trans-unit id="tx_pfprojects_domain_model_project.office_type" approved="yes">
         <source>Default: Choose organizer by a record of service_bw2. If checked: You can insert your own organizer with
 					help of a text field. Each click reloads the current form.
 				</source>
-        <target state="needs-translation">Default: Choose organizer by a record of service_bw2. If checked: You can insert your own organizer with
-					help of a text field. Each click reloads the current form.
-				</target>
+        <target state="final">Standard: Wählen Sie einen Veranstalter der service_bw2-Extension. Markiert: Sie erhalten eine Textbox,	um den Veranstalter manuell einzutragen.</target>
       </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_project.organisationseinheit">
+      <trans-unit id="tx_pfprojects_domain_model_project.organisationseinheit" approved="yes">
         <source>Organizational Unit</source>
-        <target state="needs-translation">Organizational Unit</target>
+        <target state="final">Organisationseinheit</target>
       </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_project.office_manuell">
+      <trans-unit id="tx_pfprojects_domain_model_project.office_manuell" approved="yes">
         <source>Insert your own organizer.</source>
-        <target state="needs-translation">Insert your own organizer.</target>
+        <target state="final">Tragen Sie den Veranstalter ein.</target>
       </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_project.images">
+      <trans-unit id="tx_pfprojects_domain_model_project.images" approved="yes">
         <source>Images</source>
-        <target state="needs-translation">Images</target>
+        <target state="final">Bilder</target>
       </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_project.description">
+      <trans-unit id="tx_pfprojects_domain_model_project.description" approved="yes">
         <source>Description</source>
-        <target state="needs-translation">Description</target>
+        <target state="final">Beschreibung</target>
       </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_project.tx_maps2_uid">
+      <trans-unit id="tx_pfprojects_domain_model_project.tx_maps2_uid" approved="yes">
         <source>Map</source>
-        <target state="needs-translation">Map</target>
+        <target state="final">Kartenausschnitt</target>
       </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_project.files">
+      <trans-unit id="tx_pfprojects_domain_model_project.files" approved="yes">
         <source>Files</source>
-        <target state="needs-translation">Files</target>
+        <target state="final">Datei(en)</target>
       </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_project.links">
+      <trans-unit id="tx_pfprojects_domain_model_project.links" approved="yes">
         <source>Links</source>
-        <target state="needs-translation">Links</target>
+        <target state="final">Links</target>
       </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_project.area_of_activity">
+      <trans-unit id="tx_pfprojects_domain_model_project.area_of_activity" approved="yes">
         <source>Area of Activity</source>
-        <target state="needs-translation">Area of Activity</target>
+        <target state="final">Handlungsfeld(er)</target>
       </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_link">
+      <trans-unit id="tx_pfprojects_domain_model_link" approved="yes">
         <source>Link</source>
-        <target state="needs-translation">Link</target>
+        <target state="final">Link</target>
       </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_link.title">
+      <trans-unit id="tx_pfprojects_domain_model_link.title" approved="yes">
         <source>Title</source>
-        <target state="needs-translation">Title</target>
+        <target state="final">Titel</target>
       </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_link.link">
+      <trans-unit id="tx_pfprojects_domain_model_link.link" approved="yes">
         <source>Link</source>
-        <target state="needs-translation">Link</target>
+        <target state="final">Link</target>
       </trans-unit>
-      <trans-unit id="backToList">
+      <trans-unit id="backToList" approved="yes">
         <source>Back to list</source>
-        <target state="needs-translation">Back to list</target>
+        <target state="final">Zurück zur Listenansicht</target>
       </trans-unit>
-      <trans-unit id="backToDetails">
+      <trans-unit id="backToDetails" approved="yes">
         <source>Back to detail view</source>
-        <target state="needs-translation">Back to detail view</target>
+        <target state="final">Zurück zur Detailansicht</target>
       </trans-unit>
-      <trans-unit id="targets">
+      <trans-unit id="targets" approved="yes">
         <source>Targets</source>
-        <target state="needs-translation">Targets</target>
+        <target state="final">Ziele</target>
       </trans-unit>
-      <trans-unit id="noResults">
+      <trans-unit id="noResults" approved="yes">
         <source>No results</source>
-        <target state="needs-translation">No results</target>
+        <target state="final">Keine Ergebnisse gefunden</target>
       </trans-unit>
-      <trans-unit id="asc">
+      <trans-unit id="asc" approved="yes">
         <source>Ascending</source>
-        <target state="needs-translation">Ascending</target>
+        <target state="final">Aufsteigend</target>
       </trans-unit>
-      <trans-unit id="desc">
+      <trans-unit id="desc" approved="yes">
         <source>Descending</source>
-        <target state="needs-translation">Descending</target>
+        <target state="final">Absteigend</target>
       </trans-unit>
-      <trans-unit id="sortBy">
+      <trans-unit id="sortBy" approved="yes">
         <source>Sort by</source>
-        <target state="needs-translation">Sort by</target>
+        <target state="final">Filtern nach</target>
       </trans-unit>
-      <trans-unit id="ordering">
+      <trans-unit id="ordering" approved="yes">
         <source>Ordering</source>
-        <target state="needs-translation">Ordering</target>
+        <target state="final">Sortieren nach</target>
       </trans-unit>
-      <trans-unit id="pageBrowser.first">
+      <trans-unit id="pageBrowser.first" approved="yes">
         <source>First</source>
-        <target state="needs-translation">First</target>
+        <target state="final">Erste</target>
       </trans-unit>
-      <trans-unit id="pageBrowser.previous">
+      <trans-unit id="pageBrowser.previous" approved="yes">
         <source>Previous</source>
-        <target state="needs-translation">Previous</target>
+        <target state="final">Vorherige</target>
       </trans-unit>
-      <trans-unit id="pageBrowser.next">
+      <trans-unit id="pageBrowser.next" approved="yes">
         <source>Next</source>
-        <target state="needs-translation">Next</target>
+        <target state="final">Nächste</target>
       </trans-unit>
-      <trans-unit id="pageBrowser.last">
+      <trans-unit id="pageBrowser.last" approved="yes">
         <source>Last</source>
-        <target state="needs-translation">Last</target>
+        <target state="final">Letzte</target>
       </trans-unit>
     </body>
   </file>
