@@ -3,7 +3,6 @@
 [![Latest Stable Version](https://poser.pugx.org/jweiland/pfprojects/v/stable.svg)](https://packagist.org/packages/jweiland/pfprojects)
 [![TYPO3 10.4](https://img.shields.io/badge/TYPO3-10.4-green.svg)](https://get.typo3.org/version/10)
 [![TYPO3 11.5](https://img.shields.io/badge/TYPO3-11.5-green.svg)](https://get.typo3.org/version/11)
-[![License](http://poser.pugx.org/jweiland/pfprojects/license)](https://packagist.org/packages/jweiland/pfprojects)
 [![Total Downloads](https://poser.pugx.org/jweiland/pfprojects/downloads.svg)](https://packagist.org/packages/jweiland/pfprojects)
 [![Monthly Downloads](https://poser.pugx.org/jweiland/pfprojects/d/monthly)](https://packagist.org/packages/jweiland/pfprojects)
 ![Build Status](https://github.com/jweiland-net/pfprojects/actions/workflows/ci.yml/badge.svg)
