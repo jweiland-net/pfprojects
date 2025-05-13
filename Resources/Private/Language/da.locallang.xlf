@@ -1,47 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <xliff version="1.0">
-  <file source-language="en" datatype="plaintext" original="messages" date="2016-01-05T15:40:45Z" product-name="pfprojects" target-language="de">
+  <file source-language="en" datatype="plaintext" original="messages" date="2016-01-05T15:53:45Z" product-name="pfproducts" target-language="da">
     <header/>
     <body>
-      <trans-unit id="plugin.pfprojects.title" approved="yes">
-        <source>Pforzheim Projects</source>
-        <target state="final">Pforzheim Projekte</target>
-      </trans-unit>
-      <trans-unit id="plugin.pfprojects.description" approved="yes">
-        <source>This plugin displays the current projects of the city of Pforzheim. Thanks to traffic light icons you can quickly see the project status.</source>
-        <target state="final">Dieses Plugin zeigt die aktuellen Projekte der Stadt Pforzheim an.</target>
-      </trans-unit>
-      <trans-unit id="tab.project" approved="yes">
-        <source>Project</source>
-        <target state="final">Projekt</target>
-      </trans-unit>
-      <trans-unit id="tab.media" approved="yes">
-        <source>Media</source>
-        <target state="final">Medien</target>
-      </trans-unit>
-      <trans-unit id="palette.contact" approved="yes">
-        <source>Contact</source>
-        <target state="final">Kontakt</target>
-      </trans-unit>
-      <trans-unit id="palette.projectData" approved="yes">
-        <source>Project data</source>
-        <target state="final">Projektstatus</target>
-      </trans-unit>
-      <trans-unit id="palette.organizer" approved="yes">
-        <source>Organizer</source>
-        <target state="final">Organisator</target>
-      </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project" approved="yes">
         <source>Project</source>
         <target state="final">Projekt</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.title" approved="yes">
         <source>Title</source>
-        <target state="final">Projekttitel</target>
-      </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_project.path_segment" approved="yes">
-        <source>Segment for URL</source>
-        <target state="final">Segment für URL</target>
+        <target state="final">Titel</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.start_date" approved="yes">
         <source>Project Start</source>
@@ -53,65 +21,58 @@
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.status.1green" approved="yes">
         <source>Finished</source>
-        <target state="final">Erledigt</target>
+        <target state="final">Færdige</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.status.2yellow" approved="yes">
         <source>In Progress</source>
-        <target state="final">In Bearbeitung</target>
+        <target state="final">I gang</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.status.3red" approved="yes">
         <source>Planned</source>
-        <target state="final">Geplant</target>
+        <target state="final">Planlagt</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.contact_person" approved="yes">
         <source>Contact Person</source>
-        <target state="final">Ansprechpartner/in</target>
+        <target state="final">Kontaktperson</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.telephone" approved="yes">
         <source>Telephone</source>
-        <target state="final">Telefonkontakt</target>
+        <target state="final">Telefon</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.email" approved="yes">
         <source>Email</source>
-        <target state="final">E-Mail</target>
+        <target state="final">E-mail</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.office_type" approved="yes">
-        <source>Enter organizer yourself</source>
-        <target state="final">Organisator selbst eingeben</target>
-      </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_project.office_type.description" approved="yes">
-        <source>
-					Disabled: Select organizer from a given list of organizers.
-					Activated: You can enter the organizer yourself via a text field.
+        <source>Default: Choose organizer by a record of service_bw2. If checked: You can insert your own organizer with
+					help of a text field. Each click reloads the current form.
 				</source>
-        <target state="final">
-					Deaktiviert: Organisator aus der angegebenen Liste der Organisatoren auswählen.
-					Aktiviert: Sie können den Organisator selbst über ein Textfeld eingeben.
+        <target state="final">Standard: Vælg arrangør via et element fra service_bw2. Hvis valgt: Du kan indsætte din egen arrangør ved hjælp af et felt. Hvert klik genindlæser den aktuelle formular.
 				</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.organisationseinheit" approved="yes">
-        <source>Select an organizer from the list.</source>
-        <target state="final">Wählen Sie einen Organisator aus der Liste.</target>
+        <source>Organizational Unit</source>
+        <target state="final">Organisatorisk enhed</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.office_manuell" approved="yes">
-        <source>Enter the organizer.</source>
-        <target state="final">Geben Sie den Organisator ein.</target>
+        <source>Insert your own organizer.</source>
+        <target state="final">Indsæt din egen arrangør.</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.images" approved="yes">
         <source>Images</source>
-        <target state="final">Bilder</target>
+        <target state="final">Billeder</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.description" approved="yes">
         <source>Description</source>
-        <target state="final">Beschreibung</target>
+        <target state="final">Beskrivelse</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.tx_maps2_uid" approved="yes">
         <source>Map</source>
-        <target state="final">Kartenausschnitt</target>
+        <target state="final">Kort</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.files" approved="yes">
         <source>Files</source>
-        <target state="final">Datei(en)</target>
+        <target state="final">Filer</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.links" approved="yes">
         <source>Links</source>
@@ -119,7 +80,7 @@
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.area_of_activity" approved="yes">
         <source>Area of Activity</source>
-        <target state="final">Handlungsfeld(er)</target>
+        <target state="final">Aktivitetsareal</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_link" approved="yes">
         <source>Link</source>
@@ -132,6 +93,54 @@
       <trans-unit id="tx_pfprojects_domain_model_link.link" approved="yes">
         <source>Link</source>
         <target state="final">Link</target>
+      </trans-unit>
+      <trans-unit id="backToList" approved="yes">
+        <source>Back to list</source>
+        <target state="final">Tilbage til liste</target>
+      </trans-unit>
+      <trans-unit id="backToDetails" approved="yes">
+        <source>Back to detail view</source>
+        <target state="final">Tilbage til detaljevisning</target>
+      </trans-unit>
+      <trans-unit id="targets" approved="yes">
+        <source>Targets</source>
+        <target state="final">Mål</target>
+      </trans-unit>
+      <trans-unit id="noResults" approved="yes">
+        <source>No results</source>
+        <target state="final">Ingen resultater</target>
+      </trans-unit>
+      <trans-unit id="asc" approved="yes">
+        <source>Ascending</source>
+        <target state="final">Stigende</target>
+      </trans-unit>
+      <trans-unit id="desc" approved="yes">
+        <source>Descending</source>
+        <target state="final">Faldende</target>
+      </trans-unit>
+      <trans-unit id="sortBy" approved="yes">
+        <source>Sort by</source>
+        <target state="final">Sortér efter</target>
+      </trans-unit>
+      <trans-unit id="ordering" approved="yes">
+        <source>Ordering</source>
+        <target state="final">Sortering</target>
+      </trans-unit>
+      <trans-unit id="pageBrowser.first" approved="yes">
+        <source>First</source>
+        <target state="final">Første</target>
+      </trans-unit>
+      <trans-unit id="pageBrowser.previous" approved="yes">
+        <source>Previous</source>
+        <target state="final">Forrige</target>
+      </trans-unit>
+      <trans-unit id="pageBrowser.next" approved="yes">
+        <source>Next</source>
+        <target state="final">Næste</target>
+      </trans-unit>
+      <trans-unit id="pageBrowser.last" approved="yes">
+        <source>Last</source>
+        <target state="final">Sidste</target>
       </trans-unit>
     </body>
   </file>
