@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace JWeiland\Pfprojects\Domain\Model;
 
+use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
@@ -22,9 +23,8 @@ class Category extends AbstractEntity
 {
     /**
      * @var string
-     *
-     * @Extbase\Validate("NotEmpty")
      */
+    #[Extbase\Validate(['validator' => 'NotEmpty'])]
     protected $title = '';
 
     /**
@@ -37,8 +37,8 @@ class Category extends AbstractEntity
      * ToDo: Use multi types (PHP 8.1)
      *
      * @var Category|null
-     * @Extbase\ORM\Lazy
      */
+    #[Lazy]
     protected $parent;
 
     public function getTitle(): string

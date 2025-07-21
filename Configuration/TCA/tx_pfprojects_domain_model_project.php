@@ -6,7 +6,6 @@ return [
         'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'type' => 'office_type',
         'versioningWS' => true,
         'languageField' => 'sys_language_uid',
@@ -49,19 +48,7 @@ return [
         'sys_language_uid' => [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'special' => 'languages',
-                'items' => [
-                    [
-                        'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages',
-                        -1,
-                        'flags-multiple',
-                    ],
-                ],
-                'default' => 0,
-            ],
+            'config' => ['type' => 'language'],
         ],
         'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
@@ -70,7 +57,7 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    ['', 0],
+                    ['label' => '', 'value' => 0],
                 ],
                 'foreign_table' => 'tx_pfprojects_domain_model_project',
                 'foreign_table_where' => 'AND tx_pfprojects_domain_model_project.pid=###CURRENT_PID### AND tx_pfprojects_domain_model_project.sys_language_uid IN (-1,0)',
@@ -199,19 +186,19 @@ return [
                 'items' => [
                     // I need the numbers in front, because of sorting
                     [
-                        'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.status.1green',
-                        '1green',
-                        'EXT:pfprojects/Resources/Public/Icons/light_1green.png',
+                        'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.status.1green',
+                        'value' => '1green',
+                        'icon' => 'EXT:pfprojects/Resources/Public/Icons/light_1green.png',
                     ],
                     [
-                        'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.status.2yellow',
-                        '2yellow',
-                        'EXT:pfprojects/Resources/Public/Icons/light_2yellow.png',
+                        'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.status.2yellow',
+                        'value' => '2yellow',
+                        'icon' => 'EXT:pfprojects/Resources/Public/Icons/light_2yellow.png',
                     ],
                     [
-                        'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.status.3red',
-                        '3red',
-                        'EXT:pfprojects/Resources/Public/Icons/light_3red.png',
+                        'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.status.3red',
+                        'value' => '3red',
+                        'icon' => 'EXT:pfprojects/Resources/Public/Icons/light_3red.png',
                     ],
                 ],
                 'fieldWizard' => [

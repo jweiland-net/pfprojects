@@ -11,8 +11,8 @@ declare(strict_types=1);
 
 namespace JWeiland\Pfprojects\Tests\Unit\Domain\Model;
 
+use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 use JWeiland\Pfprojects\Domain\Model\Link;
-use Nimut\TestingFramework\TestCase\UnitTestCase;
 
 /**
  * Test case.

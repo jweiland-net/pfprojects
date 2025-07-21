@@ -7,7 +7,6 @@ $EM_CONF[$_EXTKEY] = [
     'author' => 'Stefan Froemken, Hoja Mustaffa Abdul Latheef',
     'author_email' => 'projects@jweiland.net',
     'state' => 'stable',
-    'clearCacheOnLoad' => 0,
     'version' => '7.0.0',
     'constraints' => [
         'depends' => [

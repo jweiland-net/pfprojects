@@ -11,8 +11,8 @@ declare(strict_types=1);
 
 namespace JWeiland\Pfprojects\Tests\Functional\Domain\Repository;
 
+use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 use JWeiland\Pfprojects\Domain\Repository\CategoryRepository;
-use Nimut\TestingFramework\TestCase\FunctionalTestCase;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 

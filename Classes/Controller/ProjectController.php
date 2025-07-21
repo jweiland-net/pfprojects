@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace JWeiland\Pfprojects\Controller;
 
+use Psr\Http\Message\ResponseInterface;
 use JWeiland\Pfprojects\Domain\Repository\ProjectRepository;
 use JWeiland\Pfprojects\Event\PostProcessFluidVariablesEvent;
 use TYPO3\CMS\Extbase\Annotation as Extbase;
@@ -40,7 +41,7 @@ class ProjectController extends ActionController
         }
     }
 
-    public function listAction(): void
+    public function listAction(): ResponseInterface
     {
         /** @var PostProcessFluidVariablesEvent $event */
         $event = $this->eventDispatcher->dispatch(
@@ -61,17 +62,17 @@ class ProjectController extends ActionController
         );
 
         $this->view->assignMultiple($event->getFluidVariables());
+        return $this->htmlResponse();
     }
 
     /**
      * @param int $areaOfActivity
      * @param string $sortBy
      * @param string $direction
-     *
-     * @Extbase\Validate("RegularExpression", options={"regularExpression": "/title|status|start_date|area_of_activity/"}, param="sortBy")
-     * @Extbase\Validate("RegularExpression", options={"regularExpression": "/ASC|DESC/"}, param="direction")
      */
-    public function searchAction(int $areaOfActivity = 0, string $sortBy = 'status', string $direction = 'ASC'): void
+    #[Extbase\Validate(['validator' => 'RegularExpression', 'options' => ['regularExpression' => '/title|status|start_date|area_of_activity/'], 'param' => 'sortBy'])]
+    #[Extbase\Validate(['validator' => 'RegularExpression', 'options' => ['regularExpression' => '/ASC|DESC/'], 'param' => 'direction'])]
+    public function searchAction(int $areaOfActivity = 0, string $sortBy = 'status', string $direction = 'ASC'): ResponseInterface
     {
         /** @var PostProcessFluidVariablesEvent $event */
         $event = $this->eventDispatcher->dispatch(
@@ -88,13 +89,15 @@ class ProjectController extends ActionController
         );
 
         $this->view->assignMultiple($event->getFluidVariables());
+        return $this->htmlResponse();
     }
 
-    public function showAction(int $project): void
+    public function showAction(int $project): ResponseInterface
     {
         $this->view->assign(
             'project',
             $this->projectRepository->findByIdentifier($project)
         );
+        return $this->htmlResponse();
     }
 }

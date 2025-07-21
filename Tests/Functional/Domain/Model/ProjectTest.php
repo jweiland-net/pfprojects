@@ -11,9 +11,9 @@ declare(strict_types=1);
 
 namespace JWeiland\Pfprojects\Tests\Unit\Domain\Model;
 
+use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 use JWeiland\Maps2\Domain\Model\PoiCollection;
 use JWeiland\Pfprojects\Domain\Model\Project;
-use Nimut\TestingFramework\TestCase\FunctionalTestCase;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 
 /**
