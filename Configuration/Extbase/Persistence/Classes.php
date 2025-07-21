@@ -1,6 +1,9 @@
 <?php
+
+use JWeiland\Pfprojects\Domain\Model\Category;
+
 return [
-    \JWeiland\Pfprojects\Domain\Model\Category::class => [
+    Category::class => [
         'tableName' => 'sys_category',
     ],
 ];

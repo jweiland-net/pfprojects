@@ -1,18 +1,21 @@
 <?php
-if (!defined('TYPO3_MODE')) {
+if (!defined('TYPO3')) {
     die('Access denied.');
 }
+
+use JWeiland\Pfprojects\Controller\ProjectController;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 call_user_func(static function (): void {
     \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
         'Pfprojects',
         'Pfprojects',
         [
-            \JWeiland\Pfprojects\Controller\ProjectController::class => 'list, search, show',
+            ProjectController::class => 'list, search, show',
         ],
         // non-cacheable actions
         [
-            \JWeiland\Pfprojects\Controller\ProjectController::class => 'search',
+            ProjectController::class => 'search',
         ]
     );
 
@@ -20,7 +23,7 @@ call_user_func(static function (): void {
         = \JWeiland\Pfprojects\Updates\SlugUpdateWizard::class;
 
     // ToDo: Migrate to Icons.php while removing TYPO3 10 compatibility
-    $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+    $iconRegistry = GeneralUtility::makeInstance(
         \TYPO3\CMS\Core\Imaging\IconRegistry::class
     );
     $iconRegistry->registerIcon(

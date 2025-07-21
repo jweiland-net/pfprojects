@@ -56,7 +56,7 @@
 	},
 	"extra": {
 		"typo3/cms": {
-			"extension-key": "pforum",
+			"extension-key": "pfprojects",
 			"app-dir": ".Build",
 			"web-dir": ".Build/public"
 		}
