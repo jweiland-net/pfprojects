@@ -11,8 +11,8 @@ declare(strict_types=1);
 
 namespace JWeiland\Pfprojects\Tests\Unit\Domain\Model;
 
-use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 use JWeiland\Pfprojects\Domain\Model\Link;
+use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 /**
  * Test case.
@@ -41,7 +41,7 @@ class LinkTest extends UnitTestCase
     {
         self::assertSame(
             '',
-            $this->subject->getLink()
+            $this->subject->getLink(),
         );
     }
 
@@ -54,7 +54,7 @@ class LinkTest extends UnitTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getLink()
+            $this->subject->getLink(),
         );
     }
 
@@ -65,7 +65,7 @@ class LinkTest extends UnitTestCase
     {
         self::assertSame(
             'Video',
-            $this->subject->getTitle()
+            $this->subject->getTitle(),
         );
     }
 
@@ -78,7 +78,7 @@ class LinkTest extends UnitTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getTitle()
+            $this->subject->getTitle(),
         );
     }
 }

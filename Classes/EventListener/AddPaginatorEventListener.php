@@ -27,7 +27,7 @@ class AddPaginatorEventListener
         $paginator = new QueryResultPaginator(
             $event->getFluidVariables()['projects'],
             $this->getCurrentPage($event),
-            $this->getItemsPerPage($event)
+            $this->getItemsPerPage($event),
         );
 
         $event->addFluidVariable('paginator', $paginator);

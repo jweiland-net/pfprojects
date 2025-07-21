@@ -11,10 +11,10 @@ declare(strict_types=1);
 
 namespace JWeiland\Pfprojects\Tests\Unit\Domain\Model;
 
-use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 use JWeiland\Maps2\Domain\Model\PoiCollection;
 use JWeiland\Pfprojects\Domain\Model\Project;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
+use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
 /**
  * Test case.
@@ -44,7 +44,7 @@ class ProjectTest extends FunctionalTestCase
     protected function tearDown(): void
     {
         unset(
-            $this->subject
+            $this->subject,
         );
 
         parent::tearDown();
@@ -57,7 +57,7 @@ class ProjectTest extends FunctionalTestCase
     {
         self::assertSame(
             '',
-            $this->subject->getTitle()
+            $this->subject->getTitle(),
         );
     }
 
@@ -70,7 +70,7 @@ class ProjectTest extends FunctionalTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getTitle()
+            $this->subject->getTitle(),
         );
     }
 
@@ -80,7 +80,7 @@ class ProjectTest extends FunctionalTestCase
     public function getStartDateInitiallyReturnsNull(): void
     {
         self::assertNull(
-            $this->subject->getStartDate()
+            $this->subject->getStartDate(),
         );
     }
 
@@ -94,7 +94,7 @@ class ProjectTest extends FunctionalTestCase
 
         self::assertSame(
             $date,
-            $this->subject->getStartDate()
+            $this->subject->getStartDate(),
         );
     }
 
@@ -105,7 +105,7 @@ class ProjectTest extends FunctionalTestCase
     {
         self::assertSame(
             '',
-            $this->subject->getStatus()
+            $this->subject->getStatus(),
         );
     }
 
@@ -118,7 +118,7 @@ class ProjectTest extends FunctionalTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getStatus()
+            $this->subject->getStatus(),
         );
     }
 
@@ -129,7 +129,7 @@ class ProjectTest extends FunctionalTestCase
     {
         self::assertSame(
             '',
-            $this->subject->getContactPerson()
+            $this->subject->getContactPerson(),
         );
     }
 
@@ -142,7 +142,7 @@ class ProjectTest extends FunctionalTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getContactPerson()
+            $this->subject->getContactPerson(),
         );
     }
 
@@ -153,7 +153,7 @@ class ProjectTest extends FunctionalTestCase
     {
         self::assertSame(
             '',
-            $this->subject->getTelephone()
+            $this->subject->getTelephone(),
         );
     }
 
@@ -166,7 +166,7 @@ class ProjectTest extends FunctionalTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getTelephone()
+            $this->subject->getTelephone(),
         );
     }
 
@@ -177,7 +177,7 @@ class ProjectTest extends FunctionalTestCase
     {
         self::assertSame(
             '',
-            $this->subject->getEmail()
+            $this->subject->getEmail(),
         );
     }
 
@@ -190,7 +190,7 @@ class ProjectTest extends FunctionalTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getEmail()
+            $this->subject->getEmail(),
         );
     }
 
@@ -200,7 +200,7 @@ class ProjectTest extends FunctionalTestCase
     public function getOfficeTypeInitiallyReturnsFalse(): void
     {
         self::assertFalse(
-            $this->subject->getOfficeType()
+            $this->subject->getOfficeType(),
         );
     }
 
@@ -211,7 +211,7 @@ class ProjectTest extends FunctionalTestCase
     {
         $this->subject->setOfficeType(true);
         self::assertTrue(
-            $this->subject->getOfficeType()
+            $this->subject->getOfficeType(),
         );
     }
 
@@ -222,7 +222,7 @@ class ProjectTest extends FunctionalTestCase
     {
         self::assertSame(
             '',
-            $this->subject->getOfficeManuell()
+            $this->subject->getOfficeManuell(),
         );
     }
 
@@ -235,7 +235,7 @@ class ProjectTest extends FunctionalTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getOfficeManuell()
+            $this->subject->getOfficeManuell(),
         );
     }
 
@@ -246,7 +246,7 @@ class ProjectTest extends FunctionalTestCase
     {
         self::assertEquals(
             new ObjectStorage(),
-            $this->subject->getImages()
+            $this->subject->getImages(),
         );
     }
 
@@ -260,7 +260,7 @@ class ProjectTest extends FunctionalTestCase
 
         self::assertSame(
             $instance,
-            $this->subject->getImages()
+            $this->subject->getImages(),
         );
     }
 
@@ -271,7 +271,7 @@ class ProjectTest extends FunctionalTestCase
     {
         self::assertSame(
             '',
-            $this->subject->getDescription()
+            $this->subject->getDescription(),
         );
     }
 
@@ -284,7 +284,7 @@ class ProjectTest extends FunctionalTestCase
 
         self::assertSame(
             'foo bar',
-            $this->subject->getDescription()
+            $this->subject->getDescription(),
         );
     }
 
@@ -306,7 +306,7 @@ class ProjectTest extends FunctionalTestCase
 
         self::assertSame(
             $instance,
-            $this->subject->getTxMaps2Uid()
+            $this->subject->getTxMaps2Uid(),
         );
     }
 
@@ -317,7 +317,7 @@ class ProjectTest extends FunctionalTestCase
     {
         self::assertEquals(
             new ObjectStorage(),
-            $this->subject->getFiles()
+            $this->subject->getFiles(),
         );
     }
 
@@ -331,7 +331,7 @@ class ProjectTest extends FunctionalTestCase
 
         self::assertSame(
             $instance,
-            $this->subject->getFiles()
+            $this->subject->getFiles(),
         );
     }
 
@@ -342,7 +342,7 @@ class ProjectTest extends FunctionalTestCase
     {
         self::assertEquals(
             new ObjectStorage(),
-            $this->subject->getLinks()
+            $this->subject->getLinks(),
         );
     }
 
@@ -356,7 +356,7 @@ class ProjectTest extends FunctionalTestCase
 
         self::assertSame(
             $instance,
-            $this->subject->getLinks()
+            $this->subject->getLinks(),
         );
     }
 }

@@ -11,10 +11,10 @@ declare(strict_types=1);
 
 namespace JWeiland\Pfprojects\Tests\Functional\Domain\Repository;
 
-use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 use JWeiland\Pfprojects\Domain\Repository\CategoryRepository;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
+use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
 /**
  * Test case.
@@ -43,7 +43,7 @@ class CategoryRepositoryTest extends FunctionalTestCase
     protected function tearDown(): void
     {
         unset(
-            $this->subject
+            $this->subject,
         );
 
         parent::tearDown();
@@ -60,7 +60,7 @@ class CategoryRepositoryTest extends FunctionalTestCase
 
         self::assertSame(
             $expectedResult,
-            $this->subject->createQuery()->getOrderings()
+            $this->subject->createQuery()->getOrderings(),
         );
     }
 
@@ -70,7 +70,7 @@ class CategoryRepositoryTest extends FunctionalTestCase
     public function respectStoragePageIsDisabled(): void
     {
         self::assertFalse(
-            $this->subject->createQuery()->getQuerySettings()->getRespectStoragePage()
+            $this->subject->createQuery()->getQuerySettings()->getRespectStoragePage(),
         );
     }
 }

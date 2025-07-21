@@ -11,9 +11,9 @@ declare(strict_types=1);
 
 namespace JWeiland\Pfprojects\Controller;
 
-use Psr\Http\Message\ResponseInterface;
 use JWeiland\Pfprojects\Domain\Repository\ProjectRepository;
 use JWeiland\Pfprojects\Event\PostProcessFluidVariablesEvent;
+use Psr\Http\Message\ResponseInterface;
 use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
 
@@ -52,13 +52,13 @@ class ProjectController extends ActionController
                     'projects' => $this->projectRepository->findAllSorted(
                         0,
                         'status',
-                        'ASC'
+                        'ASC',
                     ),
                     'areaOfActivity' => 0,
                     'sortBy' => 'status',
                     'direction' => 'ASC',
-                ]
-            )
+                ],
+            ),
         );
 
         $this->view->assignMultiple($event->getFluidVariables());
@@ -84,8 +84,8 @@ class ProjectController extends ActionController
                     'areaOfActivity' => $areaOfActivity,
                     'sortBy' => $sortBy,
                     'direction' => $direction,
-                ]
-            )
+                ],
+            ),
         );
 
         $this->view->assignMultiple($event->getFluidVariables());
@@ -96,7 +96,7 @@ class ProjectController extends ActionController
     {
         $this->view->assign(
             'project',
-            $this->projectRepository->findByIdentifier($project)
+            $this->projectRepository->findByIdentifier($project),
         );
         return $this->htmlResponse();
     }

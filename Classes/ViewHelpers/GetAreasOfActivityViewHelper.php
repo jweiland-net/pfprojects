@@ -46,7 +46,7 @@ class GetAreasOfActivityViewHelper extends AbstractViewHelper
             'array',
             'Predefined list of available categories to filter for',
             false,
-            []
+            [],
         );
     }
 
