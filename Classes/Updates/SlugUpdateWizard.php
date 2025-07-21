@@ -74,7 +74,7 @@ class SlugUpdateWizard implements UpgradeWizardInterface
             ->count('*')
             ->from($this->tableName)
             ->where(
-                $queryBuilder->expr()->orX(
+                $queryBuilder->expr()->or(
                     $queryBuilder->expr()->eq(
                         $this->fieldName,
                         $queryBuilder->createNamedParameter('', Connection::PARAM_STR)
@@ -100,7 +100,7 @@ class SlugUpdateWizard implements UpgradeWizardInterface
             ->select('uid', 'pid', 'title')
             ->from($this->tableName)
             ->where(
-                $queryBuilder->expr()->orX(
+                $queryBuilder->expr()->or(
                     $queryBuilder->expr()->eq(
                         $this->fieldName,
                         $queryBuilder->createNamedParameter('', Connection::PARAM_STR)
