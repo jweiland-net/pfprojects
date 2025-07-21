@@ -24,8 +24,8 @@ class CategoryRepositoryTest extends FunctionalTestCase
     /**
      * @var string[]
      */
-    protected $testExtensionsToLoad = [
-        'typo3conf/ext/pfprojects',
+    protected array $testExtensionsToLoad = [
+        'jweiland/ext/pfprojects',
     ];
 
     /**

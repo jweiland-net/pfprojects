@@ -29,9 +29,9 @@ class ProjectTest extends FunctionalTestCase
     /**
      * @var array
      */
-    protected $testExtensionsToLoad = [
-        'typo3conf/ext/maps2',
-        'typo3conf/ext/pfprojects',
+    protected array $testExtensionsToLoad = [
+        'jweiland/maps2',
+        'jweiland/pfprojects',
     ];
 
     protected function setUp(): void
