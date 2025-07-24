@@ -28,9 +28,9 @@ class ProjectPagination implements PaginationInterface
     protected $paginator;
 
     /**
-     * @var array
+     * @var array<string, mixed>
      */
-    protected $arguments = [];
+    protected array $arguments = [];
 
     public function __construct(PaginatorInterface $paginator)
     {

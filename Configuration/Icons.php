@@ -7,10 +7,11 @@
  * LICENSE file that was distributed with this source code.
  */
 
-use JWeiland\Pfprojects\Domain\Model\Category;
+use TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider;
 
 return [
-    Category::class => [
-        'tableName' => 'sys_category',
+    'ext-pfprojects-wizard-icon' => [
+        'provider' => SvgIconProvider::class,
+        'source' => 'EXT:pforum/Resources/Public/Icons/Extension.svg',
     ],
 ];

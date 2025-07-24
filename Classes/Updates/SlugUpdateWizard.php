@@ -17,12 +17,14 @@ use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
 use TYPO3\CMS\Core\DataHandling\SlugHelper;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Install\Attribute\UpgradeWizard;
 use TYPO3\CMS\Install\Updates\DatabaseUpdatedPrerequisite;
 use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 
 /**
  * Updater to fill empty slug columns of project records
  */
+#[UpgradeWizard('pfProjectUpdateSlug')]
 class SlugUpdateWizard implements UpgradeWizardInterface
 {
     /**
@@ -72,19 +74,15 @@ class SlugUpdateWizard implements UpgradeWizardInterface
 
         $amountOfRecordsWithEmptySlug = $queryBuilder
             ->count('*')
-            ->from($this->tableName)
-            ->where(
-                $queryBuilder->expr()->orX(
-                    $queryBuilder->expr()->eq(
-                        $this->fieldName,
-                        $queryBuilder->createNamedParameter('', Connection::PARAM_STR)
-                    ),
-                    $queryBuilder->expr()->isNull(
-                        $this->fieldName
-                    )
-                )
-            )
-            ->execute()
+            ->from($this->tableName)->where($queryBuilder->expr()->or(
+                $queryBuilder->expr()->eq(
+                    $this->fieldName,
+                    $queryBuilder->createNamedParameter('', Connection::PARAM_STR),
+                ),
+                $queryBuilder->expr()->isNull(
+                    $this->fieldName,
+                ),
+            ))->executeQuery()
             ->fetchColumn();
 
         return (bool)$amountOfRecordsWithEmptySlug;
@@ -98,19 +96,15 @@ class SlugUpdateWizard implements UpgradeWizardInterface
 
         $statement = $queryBuilder
             ->select('uid', 'pid', 'title')
-            ->from($this->tableName)
-            ->where(
-                $queryBuilder->expr()->orX(
-                    $queryBuilder->expr()->eq(
-                        $this->fieldName,
-                        $queryBuilder->createNamedParameter('', Connection::PARAM_STR)
-                    ),
-                    $queryBuilder->expr()->isNull(
-                        $this->fieldName
-                    )
-                )
-            )
-            ->execute();
+            ->from($this->tableName)->where($queryBuilder->expr()->or(
+                $queryBuilder->expr()->eq(
+                    $this->fieldName,
+                    $queryBuilder->createNamedParameter('', Connection::PARAM_STR),
+                ),
+                $queryBuilder->expr()->isNull(
+                    $this->fieldName,
+                ),
+            ))->executeQuery();
 
         $connection = $this->getConnectionPool()->getConnectionForTable($this->tableName);
         while ($recordToUpdate = $statement->fetch()) {
@@ -121,12 +115,12 @@ class SlugUpdateWizard implements UpgradeWizardInterface
                     [
                         $this->fieldName => $this->getUniqueValue(
                             (int)$recordToUpdate['uid'],
-                            $slug
+                            $slug,
                         ),
                     ],
                     [
                         'uid' => (int)$recordToUpdate['uid'],
-                    ]
+                    ],
                 );
             }
         }
@@ -161,18 +155,13 @@ class SlugUpdateWizard implements UpgradeWizardInterface
 
         return $queryBuilder
             ->select('uid')
-            ->from($this->tableName)
-            ->where(
-                $queryBuilder->expr()->eq(
-                    $this->fieldName,
-                    $queryBuilder->createPositionalParameter($slug, Connection::PARAM_STR)
-                ),
-                $queryBuilder->expr()->neq(
-                    'uid',
-                    $queryBuilder->createPositionalParameter($uid, Connection::PARAM_INT)
-                )
-            )
-            ->execute();
+            ->from($this->tableName)->where($queryBuilder->expr()->eq(
+                $this->fieldName,
+                $queryBuilder->createPositionalParameter($slug, Connection::PARAM_STR),
+            ), $queryBuilder->expr()->neq(
+                'uid',
+                $queryBuilder->createPositionalParameter($uid, Connection::PARAM_INT),
+            ))->executeQuery();
     }
 
     protected function getSlugHelper(): SlugHelper
@@ -182,7 +171,7 @@ class SlugUpdateWizard implements UpgradeWizardInterface
                 SlugHelper::class,
                 $this->tableName,
                 $this->fieldName,
-                $GLOBALS['TCA'][$this->tableName]['columns']['path_segment']['config']
+                $GLOBALS['TCA'][$this->tableName]['columns']['path_segment']['config'],
             );
         }
 

@@ -26,7 +26,7 @@ class GetTargetsViewHelper extends AbstractViewHelper
             'parent',
             'int',
             'Set the parent category to get the direct children from',
-            true
+            true,
         );
 
         $this->registerArgument(
@@ -34,7 +34,7 @@ class GetTargetsViewHelper extends AbstractViewHelper
             'array',
             'Pre defined categories which should be filtered by parent category',
             false,
-            []
+            [],
         );
     }
 

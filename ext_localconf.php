@@ -1,36 +1,29 @@
 <?php
-if (!defined('TYPO3_MODE')) {
+
+/*
+ * This file is part of the package jweiland/pfprojects.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
+if (!defined('TYPO3')) {
     die('Access denied.');
 }
 
+use JWeiland\Pfprojects\Controller\ProjectController;
+use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
+
 call_user_func(static function (): void {
-    \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    ExtensionUtility::configurePlugin(
         'Pfprojects',
         'Pfprojects',
         [
-            \JWeiland\Pfprojects\Controller\ProjectController::class => 'list, search, show',
+            ProjectController::class => 'list, search, show',
         ],
         // non-cacheable actions
         [
-            \JWeiland\Pfprojects\Controller\ProjectController::class => 'search',
-        ]
-    );
-
-    $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['ext/install']['update']['pfProjectUpdateSlug']
-        = \JWeiland\Pfprojects\Updates\SlugUpdateWizard::class;
-
-    // ToDo: Migrate to Icons.php while removing TYPO3 10 compatibility
-    $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-        \TYPO3\CMS\Core\Imaging\IconRegistry::class
-    );
-    $iconRegistry->registerIcon(
-        'ext-pfprojects-wizard-icon',
-        \TYPO3\CMS\Core\Imaging\IconProvider\SvgIconProvider::class,
-        ['source' => 'EXT:pfprojects/Resources/Public/Icons/Extension.svg']
-    );
-
-    // Add pfprojects plugin to new element wizard
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig(
-        '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:pfprojects/Configuration/TSconfig/ContentElementWizard.tsconfig">'
+            ProjectController::class => 'search',
+        ],
     );
 });

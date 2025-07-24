@@ -1,12 +1,18 @@
 <?php
 
+/*
+ * This file is part of the package jweiland/pfprojects.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE file that was distributed with this source code.
+ */
+
 return [
     'ctrl' => [
         'title' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project',
         'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'cruser_id' => 'cruser_id',
         'type' => 'office_type',
         'versioningWS' => true,
         'languageField' => 'sys_language_uid',
@@ -31,7 +37,7 @@ return [
             area_of_activity, links,
             --div--;LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tab.media,
             images, files,
-            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access, 
+            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access,
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.access;access',
         ],
     ],
@@ -49,19 +55,7 @@ return [
         'sys_language_uid' => [
             'exclude' => true,
             'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'special' => 'languages',
-                'items' => [
-                    [
-                        'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages',
-                        -1,
-                        'flags-multiple',
-                    ],
-                ],
-                'default' => 0,
-            ],
+            'config' => ['type' => 'language'],
         ],
         'l10n_parent' => [
             'displayCond' => 'FIELD:sys_language_uid:>:0',
@@ -70,7 +64,7 @@ return [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'items' => [
-                    ['', 0],
+                    ['label' => '', 'value' => 0],
                 ],
                 'foreign_table' => 'tx_pfprojects_domain_model_project',
                 'foreign_table_where' => 'AND tx_pfprojects_domain_model_project.pid=###CURRENT_PID### AND tx_pfprojects_domain_model_project.sys_language_uid IN (-1,0)',
@@ -199,19 +193,19 @@ return [
                 'items' => [
                     // I need the numbers in front, because of sorting
                     [
-                        'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.status.1green',
-                        '1green',
-                        'EXT:pfprojects/Resources/Public/Icons/light_1green.png',
+                        'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.status.1green',
+                        'value' => '1green',
+                        'icon' => 'EXT:pfprojects/Resources/Public/Icons/light_1green.png',
                     ],
                     [
-                        'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.status.2yellow',
-                        '2yellow',
-                        'EXT:pfprojects/Resources/Public/Icons/light_2yellow.png',
+                        'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.status.2yellow',
+                        'value' => '2yellow',
+                        'icon' => 'EXT:pfprojects/Resources/Public/Icons/light_2yellow.png',
                     ],
                     [
-                        'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.status.3red',
-                        '3red',
-                        'EXT:pfprojects/Resources/Public/Icons/light_3red.png',
+                        'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.status.3red',
+                        'value' => '3red',
+                        'icon' => 'EXT:pfprojects/Resources/Public/Icons/light_3red.png',
                     ],
                 ],
                 'fieldWizard' => [
@@ -261,9 +255,10 @@ return [
             'displayCond' => 'FIELD:office_type:=:0',
             'exclude' => true,
             'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.organisationseinheit',
-            'config' => \JWeiland\ServiceBw2\Utility\TCAUtility::getOrganisationseinheitenFieldTCAConfig(
-                ['maxitems' => 1]
-            ),
+            'config' => [
+                'type' => 'file',
+                'maxitems' => '1',
+            ],
         ],
         'office_manuell' => [
             'displayCond' => 'FIELD:office_type:=:1',
@@ -305,53 +300,10 @@ return [
         'images' => [
             'exclude' => true,
             'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.images',
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-                'images',
-                [
-                    'appearance' => [
-                        'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:images.addFileReference',
-                        'showPossibleLocalizationRecords' => true,
-                    ],
-                    'maxitems' => 5,
-                    // custom configuration for displaying fields in the overlay/reference table
-                    // to use the imageoverlayPalette instead of the basicoverlayPalette
-                    'overrideChildTca' => [
-                        'types' => [
-                            '0' => [
-                                'showitem' => '
-                                    --palette--;;imageoverlayPalette,
-                                    --palette--;;filePalette',
-                            ],
-                            \TYPO3\CMS\Core\Resource\AbstractFile::FILETYPE_TEXT => [
-                                'showitem' => '
-                                    --palette--;;imageoverlayPalette,
-                                    --palette--;;filePalette',
-                            ],
-                            \TYPO3\CMS\Core\Resource\AbstractFile::FILETYPE_IMAGE => [
-                                'showitem' => '
-                                    --palette--;;imageoverlayPalette,
-                                    --palette--;;filePalette',
-                            ],
-                            \TYPO3\CMS\Core\Resource\AbstractFile::FILETYPE_AUDIO => [
-                                'showitem' => '
-                                    --palette--;;audioOverlayPalette,
-                                    --palette--;;filePalette',
-                            ],
-                            \TYPO3\CMS\Core\Resource\AbstractFile::FILETYPE_VIDEO => [
-                                'showitem' => '
-                                    --palette--;;videoOverlayPalette,
-                                    --palette--;;filePalette',
-                            ],
-                            \TYPO3\CMS\Core\Resource\AbstractFile::FILETYPE_APPLICATION => [
-                                'showitem' => '
-                                    --palette--;;imageoverlayPalette,
-                                    --palette--;;filePalette',
-                            ],
-                        ],
-                    ],
-                ],
-                $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext']
-            ),
+            'config' => [
+                'type' => 'file',
+                'maxitems' => 5,
+            ],
         ],
         'description' => [
             'exclude' => true,
@@ -367,17 +319,10 @@ return [
         'files' => [
             'exclude' => true,
             'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.files',
-            'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig('media', [
-                'appearance' => [
-                    'createNewRelationLinkTitle' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:media.addFileReference',
-                    'showPossibleLocalizationRecords' => true,
-                ],
-                [
-                    'maxitems' => 5,
-                ],
-                '',
-                'php,exe',
-            ]),
+            'config' => [
+                'type' => 'file',
+                'maxitems' => 5,
+            ],
         ],
         'links' => [
             'exclude' => true,

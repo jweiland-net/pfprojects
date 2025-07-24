@@ -7,6 +7,14 @@
 ChangeLog
 =========
 
+Version 7.0.0
+=============
+
+*   Add TYPO3 12 Compatibility
+*   Removed compatibility for old versions
+*   Updated Testing Framework to TYPO3 and removed Nimut Testing Framework
+*   Replaced old deprecated codes and replaced with latest standards.
+
 Version 6.0.1
 =============
 

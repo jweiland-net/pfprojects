@@ -1,11 +1,13 @@
 # TYPO3 Extension `pfprojects`
 
-[![Latest Stable Version](https://poser.pugx.org/jweiland/pfprojects/v/stable.svg)](https://packagist.org/packages/jweiland/pfprojects)
-[![TYPO3 10.4](https://img.shields.io/badge/TYPO3-10.4-green.svg)](https://get.typo3.org/version/10)
-[![TYPO3 11.5](https://img.shields.io/badge/TYPO3-11.5-green.svg)](https://get.typo3.org/version/11)
-[![Total Downloads](https://poser.pugx.org/jweiland/pfprojects/downloads.svg)](https://packagist.org/packages/jweiland/pfprojects)
-[![Monthly Downloads](https://poser.pugx.org/jweiland/pfprojects/d/monthly)](https://packagist.org/packages/jweiland/pfprojects)
-![Build Status](https://github.com/jweiland-net/pfprojects/actions/workflows/ci.yml/badge.svg)
+[![Packagist][packagist-logo-stable]][extension-packagist-url]
+[![Latest Stable Version][extension-build-shield]][extension-ter-url]
+[![License][LICENSE_BADGE]][extension-packagist-url]
+[![Total Downloads][extension-downloads-badge]][extension-packagist-url]
+[![Monthly Downloads][extension-monthly-downloads]][extension-packagist-url]
+[![TYPO3 12.4][TYPO3-shield]][TYPO3-12-url]
+
+![Build Status][extension-ci-shield]
 
 Pfprojects is an extension for TYPO3 CMS. It shows you a list of projects.
 Useful extension for example city/town websites
@@ -38,3 +40,25 @@ Download and install `pfprojects` with the extension manager module.
 1) Include the static TypoScript of the extension.
 2) Create project records on a sysfolder.
 3) Create a plugin on a page and select at least the sysfolder as startingpoint.
+
+<!-- MARKDOWN LINKS & IMAGES -->
+
+[extension-build-shield]: https://poser.pugx.org/jweiland/pfprojects/v/stable.svg?style=for-the-badge
+
+[extension-ci-shield]: https://github.com/jweiland-net/pfprojects/actions/workflows/ci.yml/badge.svg
+
+[extension-downloads-badge]: https://poser.pugx.org/jweiland/pfprojects/d/total.svg?style=for-the-badge
+
+[extension-monthly-downloads]: https://poser.pugx.org/jweiland/pfprojects/d/monthly?style=for-the-badge
+
+[extension-ter-url]: https://extensions.typo3.org/extension/pfprojects/
+
+[extension-packagist-url]: https://packagist.org/packages/jweiland/pfprojects/
+
+[packagist-logo-stable]: https://img.shields.io/badge/--grey.svg?style=for-the-badge&logo=packagist&logoColor=white
+
+[TYPO3-12-url]: https://get.typo3.org/version/12
+
+[TYPO3-shield]: https://img.shields.io/badge/TYPO3-12.4-green.svg?style=for-the-badge&logo=typo3
+
+[LICENSE_BADGE]: https://img.shields.io/github/license/jweiland-net/pfprojects?label=license&style=for-the-badge
