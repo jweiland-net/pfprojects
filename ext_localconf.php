@@ -25,6 +25,6 @@ call_user_func(static function (): void {
         [
             ProjectController::class => 'search',
         ],
-        ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT
+        ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
     );
 });

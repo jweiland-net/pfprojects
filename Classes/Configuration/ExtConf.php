@@ -11,6 +11,7 @@ declare(strict_types=1);
 
 namespace JWeiland\Pfprojects\Configuration;
 
+use Symfony\Component\DependencyInjection\Attribute\Autoconfigure;
 use TYPO3\CMS\Core\Configuration\Exception\ExtensionConfigurationExtensionNotConfiguredException;
 use TYPO3\CMS\Core\Configuration\Exception\ExtensionConfigurationPathDoesNotExistException;
 use TYPO3\CMS\Core\Configuration\ExtensionConfiguration;
@@ -19,37 +20,38 @@ use TYPO3\CMS\Core\SingletonInterface;
 /**
  * This class will streamline the values from extension manager configuration
  */
-class ExtConf implements SingletonInterface
+#[Autoconfigure(constructor: 'create')]
+readonly class ExtConf implements SingletonInterface
 {
-    /**
-     * @var int
-     */
-    protected $rootCategory = 0;
+    private const EXT_KEY = 'pfprojects';
 
-    public function __construct(ExtensionConfiguration $extensionConfiguration)
+    private const DEFAULT_SETTINGS = [
+        'rootCategory' => 0,
+    ];
+
+    public function __construct(
+        private int $rootCategory = self::DEFAULT_SETTINGS['rootCategory'],
+    ) {}
+
+    public static function create(ExtensionConfiguration $extensionConfiguration): self
     {
+        $extensionSettings = self::DEFAULT_SETTINGS;
+
         try {
-            $extConf = $extensionConfiguration->get('pfprojects');
-            if (is_array($extConf)) {
-                // call setter method foreach configuration entry
-                foreach ($extConf as $key => $value) {
-                    $methodName = 'set' . ucfirst($key);
-                    if (method_exists($this, $methodName)) {
-                        $this->$methodName((string)$value);
-                    }
-                }
-            }
-        } catch (ExtensionConfigurationExtensionNotConfiguredException | ExtensionConfigurationPathDoesNotExistException $e) {
+            $extensionSettings = array_merge(
+                $extensionSettings,
+                $extensionConfiguration->get(self::EXT_KEY),
+            );
+        } catch (ExtensionConfigurationExtensionNotConfiguredException|ExtensionConfigurationPathDoesNotExistException) {
         }
+
+        return new self(
+            rootCategory: (int)$extensionSettings['rootCategory'],
+        );
     }
 
     public function getRootCategory(): int
     {
         return $this->rootCategory;
-    }
-
-    public function setRootCategory(string $rootCategory): void
-    {
-        $this->rootCategory = (int)$rootCategory;
     }
 }
