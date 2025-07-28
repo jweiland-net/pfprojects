@@ -133,6 +133,14 @@
         <source>Link</source>
         <target state="final">Link</target>
       </trans-unit>
+      <trans-unit id="plugin.pfprojects.title" approved="yes">
+        <source>Pforzheim Projects</source>
+        <target state="final">Pforzheim-projekter</target>
+      </trans-unit>
+      <trans-unit id="plugin.pfprojects.description" approved="yes">
+        <source>This plugin shows a list of projects and can be connected with service_bw2.</source>
+        <target state="final">Dette plugin viser de aktuelle projekter i byen Pforzheim. Takket være trafiklysikoner kan du hurtigt se projektets status.</target>
+      </trans-unit>
     </body>
   </file>
 </xliff>
