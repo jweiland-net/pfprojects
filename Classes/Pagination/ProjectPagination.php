@@ -11,8 +11,10 @@ declare(strict_types=1);
 
 namespace JWeiland\Pfprojects\Pagination;
 
+use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Pagination\PaginationInterface;
 use TYPO3\CMS\Core\Pagination\PaginatorInterface;
+use TYPO3\CMS\Core\Utility\ArrayUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class ProjectPagination implements PaginationInterface
@@ -29,8 +31,9 @@ class ProjectPagination implements PaginationInterface
     public function __construct(PaginatorInterface $paginator)
     {
         $this->paginator = $paginator;
+        $pluginArguments = $this->getPluginArguments($this->pluginNamespace);
 
-        foreach (GeneralUtility::_GPmerged($this->pluginNamespace) as $argumentName => $argument) {
+        foreach ($pluginArguments as $argumentName => $argument) {
             if ($argumentName[0] === '_' && $argumentName[1] === '_') {
                 continue;
             }
@@ -45,6 +48,21 @@ class ProjectPagination implements PaginationInterface
 
             $this->arguments[$argumentName] = $argument;
         }
+    }
+
+    public function getPluginArguments($pluginNamespace): array
+    {
+        $request = $this->getRequestFromGlobalScope();
+        $getMergedWithPost = $request->getQueryParams()[$pluginNamespace] ?? [];
+        $postArgument = $request->getParsedBody()[$pluginNamespace] ?? [];
+        ArrayUtility::mergeRecursiveWithOverrule($getMergedWithPost, $postArgument);
+
+        return $getMergedWithPost;
+    }
+
+    public function getRequestFromGlobalScope(): ServerRequestInterface
+    {
+        return $GLOBALS['TYPO3_REQUEST'];
     }
 
     public function getPreviousPageNumber(): ?int
