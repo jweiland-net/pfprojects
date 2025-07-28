@@ -7,6 +7,13 @@
 ChangeLog
 =========
 
+Version 8.0.0
+=============
+
+*   Add TYPO3 13 Compatibility
+*   Removed compatibility for old versions
+*   Configurations moved to SiteSets
+
 Version 7.0.0
 =============
 
