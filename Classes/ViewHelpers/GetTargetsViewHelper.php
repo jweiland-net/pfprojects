@@ -67,9 +67,11 @@ class GetTargetsViewHelper extends AbstractViewHelper
         if ($categoryA->getTitle() === $categoryB->getTitle()) {
             return 0;
         }
+
         if ($categoryA->getTitle() > $categoryB->getTitle()) {
             return 1;
         }
+
         return -1;
     }
 }

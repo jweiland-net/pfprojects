@@ -17,15 +17,9 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class ProjectPagination implements PaginationInterface
 {
-    /**
-     * @var string
-     */
-    protected $pluginNamespace = 'tx_pfprojects_pfprojects';
+    protected string $pluginNamespace = 'tx_pfprojects_pfprojects';
 
-    /**
-     * @var PaginatorInterface
-     */
-    protected $paginator;
+    protected PaginatorInterface $paginator;
 
     /**
      * @var array<string, mixed>
@@ -40,9 +34,11 @@ class ProjectPagination implements PaginationInterface
             if ($argumentName[0] === '_' && $argumentName[1] === '_') {
                 continue;
             }
+
             if (in_array($argumentName, ['@extension', '@subpackage', '@controller', '@action', '@format'], true)) {
                 continue;
             }
+
             if (in_array($argumentName, ['extension', 'plugin', 'controller', 'action'], true)) {
                 continue;
             }
@@ -127,5 +123,17 @@ class ProjectPagination implements PaginationInterface
         }
 
         return $this->paginator->getKeyOfLastPaginatedItem() + 1;
+    }
+
+    public function getAllPageNumbers(): array
+    {
+        $firstPage = $this->getFirstPageNumber();
+        $lastPage = $this->getLastPageNumber();
+
+        if ($lastPage < $firstPage) {
+            return [];
+        }
+
+        return range($firstPage, $lastPage);
     }
 }

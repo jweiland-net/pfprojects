@@ -141,6 +141,7 @@ class SlugUpdateWizard implements UpgradeWizardInterface
             if ($counter > 5) {
                 $this->slugCache[$slug] = $counter;
             }
+
             $counter++;
         }
 

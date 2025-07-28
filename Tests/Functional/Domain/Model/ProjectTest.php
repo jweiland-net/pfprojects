@@ -26,9 +26,6 @@ class ProjectTest extends FunctionalTestCase
      */
     protected $subject;
 
-    /**
-     * @var array
-     */
     protected array $testExtensionsToLoad = [
         'jweiland/maps2',
         'jweiland/pfprojects',

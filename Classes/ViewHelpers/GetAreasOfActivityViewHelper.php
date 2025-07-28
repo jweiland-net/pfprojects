@@ -82,6 +82,7 @@ class GetAreasOfActivityViewHelper extends AbstractViewHelper
         if ($categoryA->getTitle() === $categoryB->getTitle()) {
             return 0;
         }
+
         if ($categoryA->getTitle() > $categoryB->getTitle()) {
             return 1;
         }

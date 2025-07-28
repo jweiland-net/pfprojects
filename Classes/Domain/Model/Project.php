@@ -112,10 +112,10 @@ class Project extends AbstractEntity
      */
     public function initializeObject(): void
     {
-        $this->images = $this->images ?? new ObjectStorage();
-        $this->files = $this->files ?? new ObjectStorage();
-        $this->links = $this->links ?? new ObjectStorage();
-        $this->areaOfActivity = $this->areaOfActivity ?? new ObjectStorage();
+        $this->images ??= new ObjectStorage();
+        $this->files ??= new ObjectStorage();
+        $this->links ??= new ObjectStorage();
+        $this->areaOfActivity ??= new ObjectStorage();
     }
 
     public function getTitle(): string
@@ -228,7 +228,8 @@ class Project extends AbstractEntity
             // get manually given organizer
             return $this->getOfficeManuell();
         }
-        if (!empty($this->organisationseinheit) && !empty($this->getOrganisationseinheit())) {
+
+        if (!empty($this->organisationseinheit) && $this->getOrganisationseinheit() !== []) {
             // we will get an array like $arr[123 => ['name' => 'John', ...]
             foreach ($this->getOrganisationseinheit() as $record) {
                 if (isset($record['name'])) {
@@ -236,6 +237,7 @@ class Project extends AbstractEntity
                 }
             }
         }
+
         return '';
     }
 

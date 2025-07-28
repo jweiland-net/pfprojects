@@ -65,11 +65,6 @@ class ProjectController extends ActionController
         return $this->htmlResponse();
     }
 
-    /**
-     * @param int $areaOfActivity
-     * @param string $sortBy
-     * @param string $direction
-     */
     #[Extbase\Validate(['validator' => 'RegularExpression', 'options' => ['regularExpression' => '/title|status|start_date|area_of_activity/'], 'param' => 'sortBy'])]
     #[Extbase\Validate(['validator' => 'RegularExpression', 'options' => ['regularExpression' => '/ASC|DESC/'], 'param' => 'direction'])]
     public function searchAction(int $areaOfActivity = 0, string $sortBy = 'status', string $direction = 'ASC'): ResponseInterface
