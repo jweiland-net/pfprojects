@@ -1,0 +1,42 @@
+categories:
+  pfprojects:
+    label: 'pfprojects'
+  pfprojects.templates:
+    label: 'Templates'
+    parent: pfprojects
+  pfprojects.pages:
+    label: 'Pages'
+    parent: pfprojects
+  pfprojects.settings:
+    label: 'Settings'
+    parent: pfprojects
+settings:
+  pfprojects.templateRootPath:
+    label: 'Templates'
+    category: pfprojects.templates
+    description: 'Path to template root'
+    type: string
+    default: 'EXT:pfprojects/Resources/Private/Templates/'
+  pfprojects.partialRootPath:
+    label: 'Partials'
+    category: pfprojects.templates
+    description: 'Path to partial root'
+    type: string
+    default: 'EXT:pfprojects/Resources/Private/Partials/'
+  pfprojects.layoutRootPath:
+    label: 'Layouts'
+    category: pfprojects.templates
+    description: 'Path to layout root'
+    type: string
+    default: 'EXT:pfprojects/Resources/Private/Layouts/'
+  pfprojects.storagePid:
+    label: 'Default storage PID'
+    category: pfprojects.pages
+    description: 'Folder that stores all POIs'
+    type: int
+    default: 0
+  pfprojects.pageBrowser.itemsPerPage:
+    label: 'Items per page in pagination'
+    category: pfprojects.settings
+    type: int
+    default: 10

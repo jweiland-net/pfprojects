@@ -33,9 +33,10 @@ class ProjectRepository extends Repository
         $query = $this->createQuery();
 
         $constraint = [];
-        if ($areaOfActivity) {
+        if ($areaOfActivity !== 0) {
             $constraint[] = $query->contains('areaOfActivity', $areaOfActivity);
         }
+
         if (
             GeneralUtility::inList('title,status,start_date,area_of_activity', $sortBy) &&
             GeneralUtility::inList('ASC,DESC', strtoupper($direction))

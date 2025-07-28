@@ -16,5 +16,8 @@ use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 ExtensionUtility::registerPlugin(
     'Pfprojects',
     'Pfprojects',
-    'PF Projects',
+    'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:plugin.pfprojects.title',
+    'ext-pfprojects-wizard-icon',
+    'Pforzheim Projects',
+    'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:plugin.pfprojects.description',
 );

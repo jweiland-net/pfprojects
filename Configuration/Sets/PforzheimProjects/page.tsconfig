@@ -1,0 +1,2 @@
+# Add CType Preview
+mod.web_layout.tt_content.preview.list.pfprojects_pfprojects = EXT:pfprojects/Resources/Private/Templates/PluginPreview/PfProjects.html

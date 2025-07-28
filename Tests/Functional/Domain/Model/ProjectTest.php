@@ -13,6 +13,7 @@ namespace JWeiland\Pfprojects\Tests\Unit\Domain\Model;
 
 use JWeiland\Maps2\Domain\Model\PoiCollection;
 use JWeiland\Pfprojects\Domain\Model\Project;
+use PHPUnit\Framework\Attributes\Test;
 use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
 
@@ -21,16 +22,12 @@ use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
  */
 class ProjectTest extends FunctionalTestCase
 {
-    /**
-     * @var Project
-     */
-    protected $subject;
+    protected Project $subject;
 
-    /**
-     * @var array
-     */
     protected array $testExtensionsToLoad = [
         'jweiland/maps2',
+        'jweiland/service-bw2',
+        'typo3/cms-scheduler',
         'jweiland/pfprojects',
     ];
 
@@ -50,9 +47,7 @@ class ProjectTest extends FunctionalTestCase
         parent::tearDown();
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getTitleInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
@@ -61,9 +56,7 @@ class ProjectTest extends FunctionalTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setTitleSetsTitle(): void
     {
         $this->subject->setTitle('foo bar');
@@ -74,9 +67,7 @@ class ProjectTest extends FunctionalTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getStartDateInitiallyReturnsNull(): void
     {
         self::assertNull(
@@ -84,9 +75,7 @@ class ProjectTest extends FunctionalTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setStartDateSetsStartDate(): void
     {
         $date = new \DateTime();
@@ -98,9 +87,7 @@ class ProjectTest extends FunctionalTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getStatusInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
@@ -109,9 +96,7 @@ class ProjectTest extends FunctionalTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setStatusSetsStatus(): void
     {
         $this->subject->setStatus('foo bar');
@@ -122,9 +107,7 @@ class ProjectTest extends FunctionalTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getContactPersonInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
@@ -133,9 +116,7 @@ class ProjectTest extends FunctionalTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setContactPersonSetsContactPerson(): void
     {
         $this->subject->setContactPerson('foo bar');
@@ -146,9 +127,7 @@ class ProjectTest extends FunctionalTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getTelephoneInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
@@ -157,9 +136,7 @@ class ProjectTest extends FunctionalTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setTelephoneSetsTelephone(): void
     {
         $this->subject->setTelephone('foo bar');
@@ -170,9 +147,7 @@ class ProjectTest extends FunctionalTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getEmailInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
@@ -181,9 +156,7 @@ class ProjectTest extends FunctionalTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setEmailSetsEmail(): void
     {
         $this->subject->setEmail('foo bar');
@@ -194,9 +167,7 @@ class ProjectTest extends FunctionalTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getOfficeTypeInitiallyReturnsFalse(): void
     {
         self::assertFalse(
@@ -204,9 +175,7 @@ class ProjectTest extends FunctionalTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setOfficeTypeSetsOfficeType(): void
     {
         $this->subject->setOfficeType(true);
@@ -215,9 +184,7 @@ class ProjectTest extends FunctionalTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getOfficeManuellInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
@@ -226,9 +193,7 @@ class ProjectTest extends FunctionalTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setOfficeManuellSetsOfficeManuell(): void
     {
         $this->subject->setOfficeManuell('foo bar');
@@ -239,9 +204,7 @@ class ProjectTest extends FunctionalTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getImagesInitiallyReturnsObjectStorage(): void
     {
         self::assertEquals(
@@ -250,9 +213,7 @@ class ProjectTest extends FunctionalTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setImagesSetsImages(): void
     {
         $instance = new ObjectStorage();
@@ -264,9 +225,7 @@ class ProjectTest extends FunctionalTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getDescriptionInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
@@ -275,9 +234,7 @@ class ProjectTest extends FunctionalTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setDescriptionSetsDescription(): void
     {
         $this->subject->setDescription('foo bar');
@@ -288,17 +245,13 @@ class ProjectTest extends FunctionalTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getTxMaps2UidInitiallyReturnsNull(): void
     {
         self::assertNull($this->subject->getTxMaps2Uid());
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setTxMaps2UidSetsTxMaps2Uid(): void
     {
         $instance = new PoiCollection();
@@ -310,9 +263,7 @@ class ProjectTest extends FunctionalTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getFilesInitiallyReturnsObjectStorage(): void
     {
         self::assertEquals(
@@ -321,9 +272,7 @@ class ProjectTest extends FunctionalTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setFilesSetsFiles(): void
     {
         $instance = new ObjectStorage();
@@ -335,9 +284,7 @@ class ProjectTest extends FunctionalTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getLinksInitiallyReturnsObjectStorage(): void
     {
         self::assertEquals(
@@ -346,9 +293,7 @@ class ProjectTest extends FunctionalTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setLinksSetsLinks(): void
     {
         $instance = new ObjectStorage();

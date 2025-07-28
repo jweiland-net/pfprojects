@@ -11,21 +11,16 @@ declare(strict_types=1);
 
 namespace JWeiland\Pfprojects\Pagination;
 
+use Psr\Http\Message\ServerRequestInterface;
 use TYPO3\CMS\Core\Pagination\PaginationInterface;
 use TYPO3\CMS\Core\Pagination\PaginatorInterface;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Core\Utility\ArrayUtility;
 
 class ProjectPagination implements PaginationInterface
 {
-    /**
-     * @var string
-     */
-    protected $pluginNamespace = 'tx_pfprojects_pfprojects';
+    protected string $pluginNamespace = 'tx_pfprojects_pfprojects';
 
-    /**
-     * @var PaginatorInterface
-     */
-    protected $paginator;
+    protected PaginatorInterface $paginator;
 
     /**
      * @var array<string, mixed>
@@ -35,20 +30,38 @@ class ProjectPagination implements PaginationInterface
     public function __construct(PaginatorInterface $paginator)
     {
         $this->paginator = $paginator;
+        $pluginArguments = $this->getPluginArguments($this->pluginNamespace);
 
-        foreach (GeneralUtility::_GPmerged($this->pluginNamespace) as $argumentName => $argument) {
+        foreach ($pluginArguments as $argumentName => $argument) {
             if ($argumentName[0] === '_' && $argumentName[1] === '_') {
                 continue;
             }
+
             if (in_array($argumentName, ['@extension', '@subpackage', '@controller', '@action', '@format'], true)) {
                 continue;
             }
+
             if (in_array($argumentName, ['extension', 'plugin', 'controller', 'action'], true)) {
                 continue;
             }
 
             $this->arguments[$argumentName] = $argument;
         }
+    }
+
+    public function getPluginArguments($pluginNamespace): array
+    {
+        $request = $this->getRequestFromGlobalScope();
+        $getMergedWithPost = $request->getQueryParams()[$pluginNamespace] ?? [];
+        $postArgument = $request->getParsedBody()[$pluginNamespace] ?? [];
+        ArrayUtility::mergeRecursiveWithOverrule($getMergedWithPost, $postArgument);
+
+        return $getMergedWithPost;
+    }
+
+    public function getRequestFromGlobalScope(): ServerRequestInterface
+    {
+        return $GLOBALS['TYPO3_REQUEST'];
     }
 
     public function getPreviousPageNumber(): ?int
@@ -127,5 +140,17 @@ class ProjectPagination implements PaginationInterface
         }
 
         return $this->paginator->getKeyOfLastPaginatedItem() + 1;
+    }
+
+    public function getAllPageNumbers(): array
+    {
+        $firstPage = $this->getFirstPageNumber();
+        $lastPage = $this->getLastPageNumber();
+
+        if ($lastPage < $firstPage) {
+            return [];
+        }
+
+        return range($firstPage, $lastPage);
     }
 }

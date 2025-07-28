@@ -1,0 +1,28 @@
+plugin.tx_pfprojects {
+  view {
+    templateRootPaths.10 = {$pfprojects.templateRootPath}
+    partialRootPaths.10 = {$pfprojects.partialRootPath}
+    layoutRootPaths.10 = {$pfprojects.layoutRootPath}
+  }
+
+  persistence {
+    storagePid = {$pfprojects.storagePid}
+  }
+
+  settings {
+    pidOfMaps2Plugin = {$pfprojects.pidOfMaps2Plugin}
+    pidOfDetailPage = {$pfprojects.pidOfDetailPage}
+    pidOfServiceBw2Page = {$pfprojects.pidOfServiceBw2Page}
+
+    show {
+      image {
+        width = 200c
+        height = 150c
+      }
+    }
+
+    pageBrowser {
+      itemsPerPage = {$pfprojects.pageBrowser.itemsPerPage}
+    }
+  }
+}

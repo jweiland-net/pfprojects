@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace JWeiland\Pfprojects\Tests\Functional\Domain\Repository;
 
 use JWeiland\Pfprojects\Domain\Repository\CategoryRepository;
+use PHPUnit\Framework\Attributes\Test;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
@@ -25,13 +26,13 @@ class CategoryRepositoryTest extends FunctionalTestCase
      * @var string[]
      */
     protected array $testExtensionsToLoad = [
-        'jweiland/ext/pfprojects',
+        'jweiland/maps2',
+        'jweiland/service-bw2',
+        'typo3/cms-scheduler',
+        'jweiland/pfprojects',
     ];
 
-    /**
-     * @var CategoryRepository
-     */
-    protected $subject;
+    protected CategoryRepository $subject;
 
     protected function setUp(): void
     {
@@ -49,9 +50,7 @@ class CategoryRepositoryTest extends FunctionalTestCase
         parent::tearDown();
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function categoriesAreSortedByTitleAsDefault(): void
     {
         $expectedResult = [
@@ -64,9 +63,7 @@ class CategoryRepositoryTest extends FunctionalTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function respectStoragePageIsDisabled(): void
     {
         self::assertFalse(
