@@ -103,6 +103,12 @@
 			<trans-unit id="tx_pfprojects_domain_model_link.link">
 				<source>Link</source>
 			</trans-unit>
+			<trans-unit id="plugin.pfprojects.title">
+				<source>Pforzheim Projects</source>
+			</trans-unit>
+			<trans-unit id="plugin.pfprojects.description">
+				<source>This plugin shows a list of projects and can be connected with service_bw2.</source>
+			</trans-unit>
 		</body>
 	</file>
 </xliff>
