@@ -26,7 +26,7 @@ class Project extends AbstractEntity
     #[Extbase\Validate(['validator' => 'NotEmpty'])]
     protected string $title = '';
 
-    protected ?\DateTime $startDate;
+    protected ?\DateTime $startDate = null;
 
     protected string $status = '';
 
@@ -70,7 +70,7 @@ class Project extends AbstractEntity
     /**
      * @var PoiCollection|null
      */
-    protected ?PoiCollection $txMaps2Uid;
+    protected ?PoiCollection $txMaps2Uid = null;
 
     public function __construct()
     {
