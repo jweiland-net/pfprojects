@@ -11,7 +11,6 @@ declare(strict_types=1);
 
 namespace JWeiland\Pfprojects\Updates;
 
-use Doctrine\DBAL\Driver\Statement;
 use Doctrine\DBAL\Result;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
