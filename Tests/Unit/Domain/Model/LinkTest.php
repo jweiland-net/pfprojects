@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace JWeiland\Pfprojects\Tests\Unit\Domain\Model;
 
 use JWeiland\Pfprojects\Domain\Model\Link;
+use PHPUnit\Framework\Attributes\Test;
 use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
 
 /**
@@ -19,10 +20,7 @@ use TYPO3\TestingFramework\Core\Unit\UnitTestCase;
  */
 class LinkTest extends UnitTestCase
 {
-    /**
-     * @var Link
-     */
-    protected $subject;
+    protected Link $subject;
 
     protected function setUp(): void
     {
@@ -34,9 +32,7 @@ class LinkTest extends UnitTestCase
         unset($this->subject);
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function getLinkInitiallyReturnsVideo(): void
     {
         self::assertSame(
@@ -45,9 +41,7 @@ class LinkTest extends UnitTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setLinkSetsLink(): void
     {
         $this->subject->setLink('foo bar');
@@ -58,10 +52,7 @@ class LinkTest extends UnitTestCase
         );
     }
 
-    /**
-     * @test
-     */
-    public function getTitleInitiallyReturnsEmptyString(): void
+    #[Test] public function getTitleInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
             'Video',
@@ -69,9 +60,7 @@ class LinkTest extends UnitTestCase
         );
     }
 
-    /**
-     * @test
-     */
+    #[Test]
     public function setTitleSetsTitle(): void
     {
         $this->subject->setTitle('foo bar');
