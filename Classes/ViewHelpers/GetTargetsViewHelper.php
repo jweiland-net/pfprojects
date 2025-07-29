@@ -57,7 +57,7 @@ class GetTargetsViewHelper extends AbstractViewHelper
             }
         }
 
-        usort($categories, ['self', 'sortTargetsByTitle']);
+        usort($categories, self::sortTargetsByTitle(...));
 
         return $categories;
     }

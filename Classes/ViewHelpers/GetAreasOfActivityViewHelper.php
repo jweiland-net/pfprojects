@@ -23,15 +23,9 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
  */
 class GetAreasOfActivityViewHelper extends AbstractViewHelper
 {
-    /**
-     * @var CategoryRepository
-     */
-    protected $categoryRepository;
+    protected CategoryRepository $categoryRepository;
 
-    /**
-     * @var ExtConf
-     */
-    protected $extConf;
+    protected ExtConf $extConf;
 
     public function __construct(CategoryRepository $categoryRepository, ExtConf $extConf)
     {

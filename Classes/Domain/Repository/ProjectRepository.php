@@ -50,6 +50,6 @@ class ProjectRepository extends Repository
             return $query->execute();
         }
 
-        return $query->matching($query->logicalAnd($constraint))->execute();
+        return $query->matching($query->logicalAnd(...$constraint))->execute();
     }
 }

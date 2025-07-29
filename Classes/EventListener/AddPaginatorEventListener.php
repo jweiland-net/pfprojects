@@ -17,10 +17,7 @@ use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
 
 class AddPaginatorEventListener
 {
-    /**
-     * @var int
-     */
-    protected $itemsPerPage = 15;
+    protected int $itemsPerPage = 15;
 
     public function __invoke(PostProcessFluidVariablesEvent $event): void
     {

@@ -21,25 +21,13 @@ use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
  */
 class Category extends AbstractEntity
 {
-    /**
-     * @var string
-     */
     #[Extbase\Validate(['validator' => 'NotEmpty'])]
-    protected $title = '';
+    protected string $title = '';
 
-    /**
-     * @var string
-     */
-    protected $description = '';
+    protected string $description = '';
 
-    /**
-     * Because of "lazy" we can't set type to this property.
-     * ToDo: Use multi types (PHP 8.1)
-     *
-     * @var Category|null
-     */
     #[Lazy]
-    protected $parent;
+    protected ?Category $parent;
 
     public function getTitle(): string
     {
