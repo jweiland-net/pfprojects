@@ -49,7 +49,10 @@ class ProjectPagination implements PaginationInterface
         }
     }
 
-    public function getPluginArguments($pluginNamespace): array
+    /**
+     * @return array<string, mixed>
+     */
+    public function getPluginArguments(string $pluginNamespace): array
     {
         $request = $this->getRequestFromGlobalScope();
         $getMergedWithPost = $request->getQueryParams()[$pluginNamespace] ?? [];
@@ -75,6 +78,9 @@ class ProjectPagination implements PaginationInterface
         return $previousPage >= $this->getFirstPageNumber() ? $previousPage : null;
     }
 
+    /**
+     * @return mixed[]|null
+     */
     public function getPreviousPageArguments(): ?array
     {
         $arguments = $this->arguments;
@@ -90,6 +96,9 @@ class ProjectPagination implements PaginationInterface
         return $nextPage <= $this->paginator->getNumberOfPages() ? $nextPage : null;
     }
 
+    /**
+     * @return mixed[]|null
+     */
     public function getNextPageArguments(): ?array
     {
         $arguments = $this->arguments;
@@ -103,6 +112,9 @@ class ProjectPagination implements PaginationInterface
         return 1;
     }
 
+    /**
+     * @return mixed[]|null
+     */
     public function getFirstPageArguments(): ?array
     {
         $arguments = $this->arguments;
@@ -116,6 +128,9 @@ class ProjectPagination implements PaginationInterface
         return $this->paginator->getNumberOfPages();
     }
 
+    /**
+     * @return mixed[]|null
+     */
     public function getLastPageArguments(): ?array
     {
         $arguments = $this->arguments;

@@ -11,23 +11,31 @@ declare(strict_types=1);
 
 namespace JWeiland\Pfprojects\Domain\Repository;
 
+use JWeiland\Pfprojects\Domain\Model\Project;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Persistence\Exception\InvalidQueryException;
 use TYPO3\CMS\Extbase\Persistence\QueryInterface;
 use TYPO3\CMS\Extbase\Persistence\QueryResultInterface;
 use TYPO3\CMS\Extbase\Persistence\Repository;
 
 /**
  * Main repository to retrieve project records.
+ *
+ * @extends Repository<Project>
  */
 class ProjectRepository extends Repository
 {
     /**
-     * @var array
+     * @var array<non-empty-string, 'ASC'|'DESC'>
      */
     protected $defaultOrderings = [
         'status' => QueryInterface::ORDER_ASCENDING,
     ];
 
+    /**
+     * @return QueryResultInterface<int, Project>
+     * @throws InvalidQueryException
+     */
     public function findAllSorted(int $areaOfActivity, string $sortBy, string $direction): QueryResultInterface
     {
         $query = $this->createQuery();

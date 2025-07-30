@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace JWeiland\Pfprojects\Domain\Model;
 
 use JWeiland\Maps2\Domain\Model\PoiCollection;
+use JWeiland\ServiceBw2\Request\Portal\Organisationseinheiten;
 use JWeiland\ServiceBw2\Utility\ModelUtility;
 use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
@@ -161,6 +162,9 @@ class Project extends AbstractEntity
         $this->officeType = $officeType;
     }
 
+    /**
+     * @return array<int, Organisationseinheiten>
+     */
     public function getOrganisationseinheit(): array
     {
         try {

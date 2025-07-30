@@ -25,7 +25,7 @@ use TYPO3\CMS\Extbase\Persistence\Repository;
 class CategoryRepository extends Repository
 {
     /**
-     * @var array
+     * @var array<non-empty-string, 'ASC'|'DESC'>
      */
     protected $defaultOrderings = [
         'title' => QueryInterface::ORDER_ASCENDING,

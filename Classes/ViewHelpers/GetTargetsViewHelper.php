@@ -40,6 +40,8 @@ class GetTargetsViewHelper extends AbstractViewHelper
 
     /**
      * Get direct child categories of defined root category in extConf
+     *
+     * @return Category[]
      */
     public function render(): array
     {

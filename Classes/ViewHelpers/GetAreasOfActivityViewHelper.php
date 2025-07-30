@@ -46,6 +46,8 @@ class GetAreasOfActivityViewHelper extends AbstractViewHelper
 
     /**
      * Get direct child categories of defined root category in extConf
+     *
+     * @return Category[]
      */
     public function render(): array
     {
@@ -66,7 +68,7 @@ class GetAreasOfActivityViewHelper extends AbstractViewHelper
             $categories = $categoryResult->toArray();
         }
 
-        usort($categories, ['self', 'sortCategoriesByTitle']);
+        usort($categories, self::sortCategoriesByTitle(...));
 
         return $categories;
     }
