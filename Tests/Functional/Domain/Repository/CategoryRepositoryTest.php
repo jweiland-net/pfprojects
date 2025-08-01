@@ -22,12 +22,7 @@ use TYPO3\TestingFramework\Core\Functional\FunctionalTestCase;
  */
 class CategoryRepositoryTest extends FunctionalTestCase
 {
-    /**
-     * @var string[]
-     */
-    protected array $coreExtensionsToLoad = [
-        'typo3/cms-scheduler',
-    ];
+    protected CategoryRepository $subject;
 
     /**
      * @var string[]
@@ -38,7 +33,12 @@ class CategoryRepositoryTest extends FunctionalTestCase
         'jweiland/pfprojects',
     ];
 
-    protected CategoryRepository $subject;
+    /**
+     * @var string[]
+     */
+    protected array $coreExtensionsToLoad = [
+        'typo3/cms-scheduler',
+    ];
 
     protected function setUp(): void
     {
