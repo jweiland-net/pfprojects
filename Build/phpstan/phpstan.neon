@@ -3,6 +3,7 @@ includes:
 parameters:
 	level: 6
 
+	checkGenericClassInNonGenericObjectType: false
 	inferPrivatePropertyTypeFromConstructor: true
 	treatPhpDocTypesAsCertain: false
 
@@ -17,3 +18,4 @@ parameters:
 
 	excludePaths:
 		- '../../ext_emconf.php'
+		- '../../Classes/Updates/'

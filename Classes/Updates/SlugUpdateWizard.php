@@ -11,7 +11,7 @@ declare(strict_types=1);
 
 namespace JWeiland\Pfprojects\Updates;
 
-use Doctrine\DBAL\Driver\Statement;
+use Doctrine\DBAL\Result;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\Restriction\DeletedRestriction;
@@ -27,25 +27,13 @@ use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 #[UpgradeWizard('pfProjectUpdateSlug')]
 class SlugUpdateWizard implements UpgradeWizardInterface
 {
-    /**
-     * @var string
-     */
-    protected $tableName = 'tx_pfprojects_domain_model_project';
+    protected string $tableName = 'tx_pfprojects_domain_model_project';
 
-    /**
-     * @var string
-     */
-    protected $fieldName = 'path_segment';
+    protected string $fieldName = 'path_segment';
 
-    /**
-     * @var SlugHelper|null
-     */
-    protected $slugHelper;
+    protected ?SlugHelper $slugHelper;
 
-    /**
-     * @var array
-     */
-    protected $slugCache = [];
+    protected array $slugCache = [];
 
     /**
      * Return the identifier for this wizard
@@ -83,7 +71,7 @@ class SlugUpdateWizard implements UpgradeWizardInterface
                     $this->fieldName,
                 ),
             ))->executeQuery()
-            ->fetchColumn();
+            ->fetchOne();
 
         return (bool)$amountOfRecordsWithEmptySlug;
     }
@@ -148,7 +136,7 @@ class SlugUpdateWizard implements UpgradeWizardInterface
         return $newSlug ?? $slug;
     }
 
-    protected function getUniqueSlugStatement(int $uid, string $slug): Statement
+    protected function getUniqueSlugStatement(int $uid, string $slug): Result
     {
         $queryBuilder = $this->getConnectionPool()->getQueryBuilderForTable($this->tableName);
         $queryBuilder->getRestrictions()->removeAll();

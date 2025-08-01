@@ -14,32 +14,19 @@ namespace JWeiland\Pfprojects\Domain\Model;
 use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
-use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 
 /**
  * Domain model for links which are related to projects
  */
 class Category extends AbstractEntity
 {
-    /**
-     * @var string
-     */
     #[Extbase\Validate(['validator' => 'NotEmpty'])]
-    protected $title = '';
+    protected string $title = '';
 
-    /**
-     * @var string
-     */
-    protected $description = '';
+    protected string $description = '';
 
-    /**
-     * Because of "lazy" we can't set type to this property.
-     * ToDo: Use multi types (PHP 8.1)
-     *
-     * @var Category|null
-     */
     #[Lazy]
-    protected $parent;
+    protected ?Category $parent;
 
     public function getTitle(): string
     {
@@ -63,7 +50,7 @@ class Category extends AbstractEntity
 
     public function getParent(): ?Category
     {
-        if ($this->parent instanceof LazyLoadingProxy) {
+        if ($this->parent instanceof AbstractEntity) {
             $this->parent->_loadRealInstance();
         }
 

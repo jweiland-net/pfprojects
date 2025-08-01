@@ -12,6 +12,7 @@ declare(strict_types=1);
 namespace JWeiland\Pfprojects\Domain\Model;
 
 use JWeiland\Maps2\Domain\Model\PoiCollection;
+use JWeiland\ServiceBw2\Request\Portal\Organisationseinheiten;
 use JWeiland\ServiceBw2\Utility\ModelUtility;
 use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
@@ -23,81 +24,54 @@ use TYPO3\CMS\Extbase\Persistence\ObjectStorage;
  */
 class Project extends AbstractEntity
 {
-    /**
-     * @var string
-     */
     #[Extbase\Validate(['validator' => 'NotEmpty'])]
-    protected $title = '';
+    protected string $title = '';
 
-    /**
-     * @var \DateTime|null
-     */
-    protected $startDate;
+    protected ?\DateTime $startDate = null;
 
-    /**
-     * @var string
-     */
-    protected $status = '';
+    protected string $status = '';
 
-    /**
-     * @var string
-     */
-    protected $contactPerson = '';
+    protected string $contactPerson = '';
 
-    /**
-     * @var string
-     */
-    protected $telephone = '';
+    protected string $telephone = '';
 
-    /**
-     * @var string
-     */
-    protected $email = '';
+    protected string $email = '';
 
-    /**
-     * @var bool
-     */
-    protected $officeType = false;
+    protected bool $officeType = false;
 
-    /**
-     * @var int
-     */
-    protected $organisationseinheit = 0;
+    protected int $organisationseinheit = 0;
 
-    /**
-     * @var string
-     */
-    protected $officeManuell = '';
+    protected string $officeManuell = '';
 
     /**
      * @var ObjectStorage<FileReference>
      */
-    protected $images;
+    protected ObjectStorage $images;
 
     /**
      * @var string
      */
-    protected $description = '';
+    protected string $description = '';
 
     /**
      * @var ObjectStorage<FileReference>
      */
-    protected $files;
+    protected ObjectStorage $files;
 
     /**
      * @var ObjectStorage<Link>
      */
-    protected $links;
+    protected ObjectStorage $links;
 
     /**
      * @var ObjectStorage<Category>
      */
-    protected $areaOfActivity;
+    protected ObjectStorage $areaOfActivity;
 
     /**
      * @var PoiCollection|null
      */
-    protected $txMaps2Uid;
+    protected ?PoiCollection $txMaps2Uid = null;
 
     public function __construct()
     {
@@ -188,6 +162,9 @@ class Project extends AbstractEntity
         $this->officeType = $officeType;
     }
 
+    /**
+     * @return array<int, Organisationseinheiten>
+     */
     public function getOrganisationseinheit(): array
     {
         try {

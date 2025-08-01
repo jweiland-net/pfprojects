@@ -24,11 +24,20 @@ class ProjectTest extends FunctionalTestCase
 {
     protected Project $subject;
 
+    /**
+     * @var string[]
+     */
     protected array $testExtensionsToLoad = [
         'jweiland/maps2',
         'jweiland/service-bw2',
-        'typo3/cms-scheduler',
         'jweiland/pfprojects',
+    ];
+
+    /**
+     * @var string[]
+     */
+    protected array $coreExtensionsToLoad = [
+        'typo3/cms-scheduler',
     ];
 
     protected function setUp(): void

@@ -28,9 +28,9 @@ return [
     ],
     'types' => [
         '1' => [
-            'showitem' => '--palette--;;language, l10n_diffsource, 
+            'showitem' => '--palette--;;language, l10n_diffsource,
             --palette--;;titleHidden, link,
-            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access, 
+            --div--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.tabs.access,
             --palette--;LLL:EXT:frontend/Resources/Private/Language/locallang_tca.xlf:pages.palettes.access;access',
         ],
     ],
@@ -101,8 +101,7 @@ return [
             'exclude' => true,
             'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
+                'type' => 'datetime',
                 'size' => 16,
                 'eval' => 'datetime,int',
                 'default' => 0,
@@ -115,8 +114,7 @@ return [
             'exclude' => true,
             'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputDateTime',
+                'type' => 'datetime',
                 'size' => 16,
                 'eval' => 'datetime,int',
                 'default' => 0,
@@ -138,8 +136,7 @@ return [
             'exclude' => true,
             'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_link.link',
             'config' => [
-                'type' => 'input',
-                'renderType' => 'inputLink',
+                'type' => 'link',
                 'size' => 30,
                 'eval' => 'trim',
             ],
