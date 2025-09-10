@@ -43,7 +43,7 @@ Download and install `pfprojects` with the extension manager module.
 
 ## 3 Support
 
-Free Support is available via [GitHub Issue Tracker](https://github.com/jweiland-net/pforum/issues).
+Free Support is available via [GitHub Issue Tracker](https://github.com/jweiland-net/pfprojects/issues).
 
 For commercial support, please contact us at [support@jweiland.net](support@jweiland.net).
 
