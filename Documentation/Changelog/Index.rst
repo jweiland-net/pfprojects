@@ -7,6 +7,11 @@
 ChangeLog
 =========
 
+Version 8.0.1
+=============
+
+*   [BUGFIX] SiteSet identifier renamed by removing default
+
 Version 8.0.0
 =============
 
