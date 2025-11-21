@@ -7,6 +7,12 @@
 ChangeLog
 =========
 
+Version 8.1.0
+=============
+
+*   [TASK] Added new update wizard for list_type to CType
+*   [BUGFIX] Small BUGFIX in Category Model
+
 Version 8.0.1
 =============
 
