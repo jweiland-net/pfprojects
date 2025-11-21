@@ -12,7 +12,6 @@ declare(strict_types=1);
 namespace JWeiland\Pfprojects\Domain\Model;
 
 use TYPO3\CMS\Extbase\Annotation as Extbase;
-use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
 
 /**
@@ -25,8 +24,7 @@ class Category extends AbstractEntity
 
     protected string $description = '';
 
-    #[Lazy]
-    protected ?Category $parent;
+    protected ?Category $parent = null;
 
     public function getTitle(): string
     {
