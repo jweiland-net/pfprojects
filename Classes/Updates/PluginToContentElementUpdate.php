@@ -29,7 +29,7 @@ class PluginToContentElementUpdate extends AbstractListTypeToCTypeUpdate
 
     public function getTitle(): string
     {
-        return 'EXT:pfprojects migrate plugins to Content Elements';
+        return '[pfprojects] Migrate plugins to Content Elements';
     }
 
     public function getDescription(): string

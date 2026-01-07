@@ -24,7 +24,7 @@ use TYPO3\CMS\Install\Updates\UpgradeWizardInterface;
 /**
  * Updater to fill empty slug columns of project records
  */
-#[UpgradeWizard('pfProjectUpdateSlug')]
+#[UpgradeWizard('pfprojects_projectUpdateSlug')]
 class SlugUpdateWizard implements UpgradeWizardInterface
 {
     protected string $tableName = 'tx_pfprojects_domain_model_project';
@@ -34,15 +34,6 @@ class SlugUpdateWizard implements UpgradeWizardInterface
     protected ?SlugHelper $slugHelper;
 
     protected array $slugCache = [];
-
-    /**
-     * Return the identifier for this wizard
-     * This should be the same string as used in the ext_localconf class registration
-     */
-    public function getIdentifier(): string
-    {
-        return 'pfProjectUpdateSlug';
-    }
 
     public function getTitle(): string
     {
