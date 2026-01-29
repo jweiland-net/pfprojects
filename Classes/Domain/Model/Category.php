@@ -12,7 +12,9 @@ declare(strict_types=1);
 namespace JWeiland\Pfprojects\Domain\Model;
 
 use TYPO3\CMS\Extbase\Annotation as Extbase;
+use TYPO3\CMS\Extbase\Annotation\ORM\Lazy;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
+use TYPO3\CMS\Extbase\Persistence\Generic\LazyLoadingProxy;
 
 /**
  * Domain model for links which are related to projects
@@ -24,7 +26,12 @@ class Category extends AbstractEntity
 
     protected string $description = '';
 
-    protected ?Category $parent = null;
+    /**
+     * Remove the PHP property type hint here to allow LazyLoadingProxy
+     * @var Category|LazyLoadingProxy|null
+     */
+    #[Lazy]
+    protected $parent;
 
     public function getTitle(): string
     {
@@ -48,9 +55,9 @@ class Category extends AbstractEntity
 
     public function getParent(): ?Category
     {
-        if ($this->parent instanceof AbstractEntity) {
-            $this->parent->_loadRealInstance();
-        }
+        $this->parent = $this->parent instanceof LazyLoadingProxy
+            ? $this->parent->_loadRealInstance()
+            : $this->parent;
 
         return $this->parent;
     }
