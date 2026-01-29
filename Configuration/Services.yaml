@@ -6,6 +6,7 @@ services:
 
   JWeiland\Pfprojects\:
     resource: '../Classes/*'
+    exclude: '../Classes/Domain/Model/*'
 
   JWeiland\Pfprojects\EventListener\AddPaginatorEventListener:
     tags:
