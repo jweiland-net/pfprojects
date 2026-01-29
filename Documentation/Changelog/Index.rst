@@ -7,6 +7,15 @@
 ChangeLog
 =========
 
+Version 8.1.3
+=============
+
+*   [BUGFIX] Update plugin icon path in new content element wizard
+*   [TASK] Update indents in fluid templates wizard
+*   [TASK] Remove german translation files. Using crowdin now
+*   [TASK] Migrate xlf files to use version 1.2
+*   [TASK] Exclude domain model classes from DI autoconfigure
+
 Version 8.1.2
 =============
 
