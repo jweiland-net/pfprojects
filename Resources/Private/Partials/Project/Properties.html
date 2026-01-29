@@ -46,7 +46,10 @@
         <div class="gridleft clearfix rulerbefore4">
             <dl class="extdl nomargin clearfix">
                 <dt class="floatleft">
-                    <f:image src="{f:uri.resource(path: 'Icons/{project.status}.png')}" width="64" title="{f:translate(key: 'tx_pfprojects_domain_model_project.status.{project.status}')}"/>
+                    <f:image src="EXT:pfprojects/Resources/Public/Icons/{project.status}.png"
+                             width="64"
+                             title="{f:translate(key: 'tx_pfprojects_domain_model_project.status.{project.status}')}"
+                    />
                 </dt>
                 <dd>{f:translate(key: 'tx_pfprojects_domain_model_project.status.{project.status}')}</dd>
             </dl>
