@@ -1,21 +1,21 @@
 <html lang="en"
-			xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-			data-namespace-typo3-fluid="true">
+      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
 
 <f:layout name="Default"/>
 
 <f:section name="main">
-	<f:render partial="Project/Filter" arguments="{areaOfActivity: areaOfActivity, sortBy: sortBy, direction: direction}" />
+    <f:render partial="Project/Filter" arguments="{areaOfActivity: areaOfActivity, sortBy: sortBy, direction: direction}"/>
 
-	<div class="floatleft grid_8">
-		<f:if condition="{projects}">
-			<f:then>
-				<f:render partial="Project/List" arguments="{projects: projects, pagination: pagination, paginator: paginator}" />
-			</f:then>
-			<f:else>
-				<div class="noResults">{f:translate(key: 'noResults')}</div>
-			</f:else>
-		</f:if>
-	</div>
+    <div class="floatleft grid_8">
+        <f:if condition="{projects}">
+            <f:then>
+                <f:render partial="Project/List" arguments="{projects: projects, pagination: pagination, paginator: paginator}"/>
+            </f:then>
+            <f:else>
+                <div class="noResults">{f:translate(key: 'noResults')}</div>
+            </f:else>
+        </f:if>
+    </div>
 </f:section>
 </html>

@@ -1,21 +1,21 @@
 <html lang="en"
-			xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
-			data-namespace-typo3-fluid="true">
+      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers"
+      data-namespace-typo3-fluid="true">
 
 <f:if condition="{images -> f:count()}">
-	<div class="marginbottom2{f:if(condition: '{images -> f:count()}==1', then: '', else: ' flexslider')}">
-		<ul class="slides">
-			<f:for each="{images}" as="image" iteration="iterator">
-				<f:if condition="{image}">
-					<li>
-						<f:image image="{image}"
-										 alt="Sliderimage-{iterator.cycle}"
-										 width="{settings.show.image.width}"
-										 height="{settings.show.image.height}"/>
-					</li>
-				</f:if>
-			</f:for>
-		</ul>
-	</div>
+    <div class="marginbottom2{f:if(condition: '{images -> f:count()}==1', then: '', else: ' flexslider')}">
+        <ul class="slides">
+            <f:for each="{images}" as="image" iteration="iterator">
+                <f:if condition="{image}">
+                    <li>
+                        <f:image image="{image}"
+                                 alt="Sliderimage-{iterator.cycle}"
+                                 width="{settings.show.image.width}"
+                                 height="{settings.show.image.height}"/>
+                    </li>
+                </f:if>
+            </f:for>
+        </ul>
+    </div>
 </f:if>
 </html>
