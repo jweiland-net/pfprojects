@@ -11,6 +11,7 @@ Version 8.1.3
 =============
 
 *   [BUGFIX] Update plugin icon path in new content element wizard
+*   [BUGFIX] Resolve TypeError in Category model and fix icon paths
 *   [TASK] Update indents in fluid templates wizard
 *   [TASK] Remove german translation files. Using crowdin now
 *   [TASK] Migrate xlf files to use version 1.2
