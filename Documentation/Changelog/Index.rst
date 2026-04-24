@@ -7,6 +7,21 @@
 ChangeLog
 =========
 
+Version 9.0.0
+=============
+
+[TASK] Remove unused dependencies and simplify code formatting
+[TASK] Update default DBMS version and supported versions in test script
+[TASK] Remove unused development dependencies from composer.json
+[TASK] Remove unused dependency and simplify plugin registration
+[TASK] Simplify office handling in project domain model
+[TASK] Simplify TCA configuration for projects
+[TASK] Remove unused project domain model table
+[TASK] Remove unused domain model and related TCA/table
+[TASK] Remove unused TCA configurations from domain models
+[TASK] Refactor DI, class properties, and annotations
+[TASK] Refactor and enhance build scripts and PHP-CS-Fixer config
+
 Version 8.1.3
 =============
 
