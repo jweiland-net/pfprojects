@@ -15,20 +15,22 @@ use JWeiland\Pfprojects\Event\PostProcessFluidVariablesEvent;
 use JWeiland\Pfprojects\Pagination\ProjectPagination;
 use TYPO3\CMS\Extbase\Pagination\QueryResultPaginator;
 
-class AddPaginatorEventListener
+class AddPaginatorEventListener extends AbstractControllerEventListener
 {
     protected int $itemsPerPage = 15;
 
     public function __invoke(PostProcessFluidVariablesEvent $event): void
     {
-        $paginator = new QueryResultPaginator(
-            $event->getFluidVariables()['projects'],
-            $this->getCurrentPage($event),
-            $this->getItemsPerPage($event),
-        );
+        if ($this->isValidRequest($event)) {
+            $paginator = new QueryResultPaginator(
+                $event->getFluidVariables()['projects'],
+                $this->getCurrentPage($event),
+                $this->getItemsPerPage($event),
+            );
 
-        $event->addFluidVariable('paginator', $paginator);
-        $event->addFluidVariable('pagination', new ProjectPagination($paginator));
+            $event->addFluidVariable('paginator', $paginator);
+            $event->addFluidVariable('pagination', new ProjectPagination($paginator));
+        }
     }
 
     protected function getCurrentPage(PostProcessFluidVariablesEvent $event): int
