@@ -21,17 +21,12 @@ use TYPO3Fluid\Fluid\Core\ViewHelper\AbstractViewHelper;
  * Seems to be the same as GetTargetsViewHelper:
  * Additionally this VH can retrieve child categories directly from CategoryRepository
  */
-class GetAreasOfActivityViewHelper extends AbstractViewHelper
+final class GetAreasOfActivityViewHelper extends AbstractViewHelper
 {
-    protected CategoryRepository $categoryRepository;
-
-    protected ExtConf $extConf;
-
-    public function __construct(CategoryRepository $categoryRepository, ExtConf $extConf)
-    {
-        $this->categoryRepository = $categoryRepository;
-        $this->extConf = $extConf;
-    }
+    public function __construct(
+        private readonly CategoryRepository $categoryRepository,
+        private readonly ExtConf $extConf,
+    ) {}
 
     public function initializeArguments(): void
     {

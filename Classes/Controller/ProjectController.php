@@ -22,15 +22,9 @@ use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
  */
 class ProjectController extends ActionController
 {
-    /**
-     * @var ProjectRepository
-     */
-    protected $projectRepository;
-
-    public function injectProjectRepository(ProjectRepository $projectRepository): void
-    {
-        $this->projectRepository = $projectRepository;
-    }
+    public function __construct(
+        protected ProjectRepository $projectRepository,
+    ) {}
 
     public function initializeAction(): void
     {
@@ -66,8 +60,18 @@ class ProjectController extends ActionController
         return $this->htmlResponse();
     }
 
-    #[Extbase\Validate(['validator' => 'RegularExpression', 'options' => ['regularExpression' => '/title|status|start_date|area_of_activity/'], 'param' => 'sortBy'])]
-    #[Extbase\Validate(['validator' => 'RegularExpression', 'options' => ['regularExpression' => '/ASC|DESC/'], 'param' => 'direction'])]
+    #[Extbase\Validate([
+        'param' => 'sortBy',
+        'validator' => 'RegularExpression',
+        'options' => [
+            'regularExpression' => '/title|status|start_date|area_of_activity/',
+        ],
+    ])]
+    #[Extbase\Validate([
+        'param' => 'direction',
+        'validator' => 'RegularExpression',
+        'options' => ['regularExpression' => '/ASC|DESC/'],
+    ])]
     public function searchAction(int $areaOfActivity = 0, string $sortBy = 'status', string $direction = 'ASC'): ResponseInterface
     {
         /** @var PostProcessFluidVariablesEvent $event */
@@ -85,6 +89,7 @@ class ProjectController extends ActionController
         );
 
         $this->view->assignMultiple($event->getFluidVariables());
+
         return $this->htmlResponse();
     }
 
@@ -94,6 +99,7 @@ class ProjectController extends ActionController
             'project',
             $this->projectRepository->findByIdentifier($project),
         );
+
         return $this->htmlResponse();
     }
 }

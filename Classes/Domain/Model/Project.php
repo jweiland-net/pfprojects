@@ -48,9 +48,6 @@ class Project extends AbstractEntity
      */
     protected ObjectStorage $images;
 
-    /**
-     * @var string
-     */
     protected string $description = '';
 
     /**
@@ -68,9 +65,6 @@ class Project extends AbstractEntity
      */
     protected ObjectStorage $areaOfActivity;
 
-    /**
-     * @var PoiCollection|null
-     */
     protected ?PoiCollection $txMaps2Uid = null;
 
     public function __construct()
