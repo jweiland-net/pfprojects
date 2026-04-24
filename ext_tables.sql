@@ -19,13 +19,3 @@ CREATE TABLE tx_pfprojects_domain_model_project
 	links                int(11) unsigned    DEFAULT '0'          NOT NULL,
 	area_of_activity     int(11)             DEFAULT '0'          NOT NULL
 );
-
-#
-# Table structure for table 'tx_pfprojects_domain_model_link'
-#
-CREATE TABLE tx_pfprojects_domain_model_link
-(
-	title   varchar(255) DEFAULT ''  NOT NULL,
-	link    varchar(255) DEFAULT ''  NOT NULL,
-	project int(11)      DEFAULT '0' NOT NULL
-);

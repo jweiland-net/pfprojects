@@ -60,10 +60,5 @@ return [
                 'eval' => 'trim',
             ],
         ],
-        'project' => [
-            'config' => [
-                'type' => 'passthrough',
-            ],
-        ],
     ],
 ];
