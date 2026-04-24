@@ -46,8 +46,8 @@ class ProjectRepository extends Repository
         }
 
         if (
-            GeneralUtility::inList('title,status,start_date,area_of_activity', $sortBy) &&
-            GeneralUtility::inList('ASC,DESC', strtoupper($direction))
+            GeneralUtility::inList('title,status,start_date,area_of_activity', $sortBy)
+            && GeneralUtility::inList('ASC,DESC', strtoupper($direction))
         ) {
             $query->setOrderings([
                 $sortBy => strtoupper($direction),

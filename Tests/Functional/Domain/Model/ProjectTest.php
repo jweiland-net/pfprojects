@@ -9,7 +9,7 @@ declare(strict_types=1);
  * LICENSE file that was distributed with this source code.
  */
 
-namespace JWeiland\Pfprojects\Tests\Unit\Domain\Model;
+namespace JWeiland\Pfprojects\Tests\Functional\Domain\Model;
 
 use JWeiland\Maps2\Domain\Model\PoiCollection;
 use JWeiland\Pfprojects\Domain\Model\Project;
@@ -29,15 +29,7 @@ class ProjectTest extends FunctionalTestCase
      */
     protected array $testExtensionsToLoad = [
         'jweiland/maps2',
-        'jweiland/service-bw2',
         'jweiland/pfprojects',
-    ];
-
-    /**
-     * @var string[]
-     */
-    protected array $coreExtensionsToLoad = [
-        'typo3/cms-scheduler',
     ];
 
     protected function setUp(): void
