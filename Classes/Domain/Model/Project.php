@@ -12,8 +12,6 @@ declare(strict_types=1);
 namespace JWeiland\Pfprojects\Domain\Model;
 
 use JWeiland\Maps2\Domain\Model\PoiCollection;
-use JWeiland\ServiceBw2\Request\Portal\Organisationseinheiten;
-use JWeiland\ServiceBw2\Utility\ModelUtility;
 use TYPO3\CMS\Extbase\Annotation as Extbase;
 use TYPO3\CMS\Extbase\Domain\Model\FileReference;
 use TYPO3\CMS\Extbase\DomainObject\AbstractEntity;
@@ -37,11 +35,7 @@ class Project extends AbstractEntity
 
     protected string $email = '';
 
-    protected bool $officeType = false;
-
-    protected int $organisationseinheit = 0;
-
-    protected string $officeManuell = '';
+    protected string $office = '';
 
     /**
      * @var ObjectStorage<FileReference>
@@ -146,70 +140,14 @@ class Project extends AbstractEntity
         $this->email = $email;
     }
 
-    public function getOfficeType(): bool
-    {
-        return $this->officeType;
-    }
-
-    public function setOfficeType(bool $officeType): void
-    {
-        $this->officeType = $officeType;
-    }
-
-    /**
-     * @return array<int, Organisationseinheiten>
-     */
-    public function getOrganisationseinheit(): array
-    {
-        try {
-            return ModelUtility::getOrganisationseinheiten($this->organisationseinheit);
-        } catch (\JsonException $jsonException) {
-            return [];
-        }
-    }
-
-    public function getOrigOrganisationseinheit(): int
-    {
-        return $this->organisationseinheit;
-    }
-
-    public function setOrganisationseinheit(int $organisationseinheit): void
-    {
-        $this->organisationseinheit = $organisationseinheit;
-    }
-
-    public function getOfficeManuell(): string
-    {
-        return $this->officeManuell;
-    }
-
-    public function setOfficeManuell(string $officeManuell): void
-    {
-        $this->officeManuell = $officeManuell;
-    }
-
-    /**
-     * Get Office
-     * It can handle both kinds of offices
-     * Useful for Fluid Templates
-     */
     public function getOffice(): string
     {
-        if ($this->officeType) {
-            // get manually given organizer
-            return $this->getOfficeManuell();
-        }
+        return $this->office;
+    }
 
-        if (!empty($this->organisationseinheit) && $this->getOrganisationseinheit() !== []) {
-            // we will get an array like $arr[123 => ['name' => 'John', ...]
-            foreach ($this->getOrganisationseinheit() as $record) {
-                if (isset($record['name'])) {
-                    return $record['name'];
-                }
-            }
-        }
-
-        return '';
+    public function setOffice(string $office): void
+    {
+        $this->office = $office;
     }
 
     public function getImages(): ObjectStorage

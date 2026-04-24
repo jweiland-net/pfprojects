@@ -177,39 +177,22 @@ class ProjectTest extends FunctionalTestCase
     }
 
     #[Test]
-    public function getOfficeTypeInitiallyReturnsFalse(): void
-    {
-        self::assertFalse(
-            $this->subject->getOfficeType(),
-        );
-    }
-
-    #[Test]
-    public function setOfficeTypeSetsOfficeType(): void
-    {
-        $this->subject->setOfficeType(true);
-        self::assertTrue(
-            $this->subject->getOfficeType(),
-        );
-    }
-
-    #[Test]
-    public function getOfficeManuellInitiallyReturnsEmptyString(): void
+    public function getOfficeInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
             '',
-            $this->subject->getOfficeManuell(),
+            $this->subject->getOffice(),
         );
     }
 
     #[Test]
-    public function setOfficeManuellSetsOfficeManuell(): void
+    public function setOfficeSetsOffice(): void
     {
-        $this->subject->setOfficeManuell('foo bar');
+        $this->subject->setOffice('foo bar');
 
         self::assertSame(
             'foo bar',
-            $this->subject->getOfficeManuell(),
+            $this->subject->getOffice(),
         );
     }
 

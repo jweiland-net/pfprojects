@@ -13,7 +13,6 @@ return [
         'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'type' => 'office_type',
         'versioningWS' => true,
         'languageField' => 'sys_language_uid',
         'transOrigPointerField' => 'l10n_parent',
@@ -33,7 +32,7 @@ return [
             --palette--;LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:palette.contact;contact,
             --div--;LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tab.project,
             --palette--;LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:palette.projectData;projectData,
-            --palette--;LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:palette.organizer;organizer,
+            organizer,
             area_of_activity, links,
             --div--;LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tab.media,
             images, files,
@@ -46,7 +45,6 @@ return [
         'titleHidden' => ['showitem' => 'title, hidden'],
         'contact' => ['showitem' => 'contact_person, --linebreak--, telephone, email'],
         'projectData' => ['showitem' => 'start_date, status, --linebreak--, description'],
-        'organizer' => ['showitem' => 'office_type, --linebreak--, organisationseinheit, office_manuell'],
         'access' => [
             'showitem' => 'starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel',
         ],
@@ -151,28 +149,9 @@ return [
                 'eval' => 'trim',
             ],
         ],
-        'office_type' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.office_type',
-            'description' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.office_type.description',
-            'config' => [
-                'type' => 'check',
-                'default' => 0,
-            ],
-        ],
-        'organisationseinheit' => [
-            'displayCond' => 'FIELD:office_type:=:0',
-            'exclude' => true,
-            'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.organisationseinheit',
-            'config' => [
-                'type' => 'file',
-                'maxitems' => '1',
-            ],
-        ],
         'office_manuell' => [
-            'displayCond' => 'FIELD:office_type:=:1',
             'exclude' => true,
-            'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.office_manuell',
+            'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.office',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
