@@ -32,7 +32,7 @@ return [
             --palette--;LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:palette.contact;contact,
             --div--;LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tab.project,
             --palette--;LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:palette.projectData;projectData,
-            organizer,
+            office_manuell,
             area_of_activity, links,
             --div--;LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tab.media,
             images, files,
