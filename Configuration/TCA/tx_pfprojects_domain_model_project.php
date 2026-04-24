@@ -183,27 +183,7 @@ return [
             'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.area_of_activity',
             'exclude' => true,
             'config' => [
-                'type' => 'select',
-                'renderType' => 'selectTree',
-                'foreign_table' => 'sys_category',
-                'foreign_table_where' => 'AND {#sys_category}.{#sys_language_uid} IN (-1, 0)',
-                'MM' => 'sys_category_record_mm',
-                'MM_match_fields' => [
-                    'fieldname' => 'area_of_activity',
-                    'tablenames' => 'tx_pfprojects_domain_model_project',
-                ],
-                'MM_opposite_field' => 'items',
-                'maxitems' => '9999',
-                'size' => '20',
-                'treeConfig' => [
-                    'appearance' => [
-                        'expandAll' => 1,
-                        'maxLevels' => 99,
-                        'showHeader' => true,
-                    ],
-                    'parentField' => 'parent',
-                    'rootUid' => 0,
-                ],
+                'type' => 'category',
             ],
         ],
         'images' => [
@@ -212,6 +192,7 @@ return [
             'config' => [
                 'type' => 'file',
                 'maxitems' => 5,
+                'allowed' => 'common-image-types',
             ],
         ],
         'description' => [
@@ -231,6 +212,7 @@ return [
             'config' => [
                 'type' => 'file',
                 'maxitems' => 5,
+                'allowed' => 'pdf',
             ],
         ],
         'links' => [
