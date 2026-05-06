@@ -11,18 +11,28 @@ declare(strict_types=1);
 
 namespace JWeiland\Pfprojects\Event;
 
-use TYPO3\CMS\Extbase\Mvc\Request;
+use TYPO3\CMS\Extbase\Mvc\RequestInterface;
 
 class PostProcessFluidVariablesEvent implements ControllerActionEventInterface
 {
-    protected Request $request;
+    protected RequestInterface $request;
 
+    /**
+     * @var array<string, mixed>
+     */
     protected array $settings = [];
 
+    /**
+     * @var array<string, mixed>
+     */
     protected array $fluidVariables = [];
 
+    /**
+     * @param array<string, mixed> $settings
+     * @param array<string, mixed> $fluidVariables
+     */
     public function __construct(
-        Request $request,
+        RequestInterface $request,
         array $settings,
         array $fluidVariables,
     ) {
@@ -31,7 +41,7 @@ class PostProcessFluidVariablesEvent implements ControllerActionEventInterface
         $this->fluidVariables = $fluidVariables;
     }
 
-    public function getRequest(): Request
+    public function getRequest(): RequestInterface
     {
         return $this->request;
     }
@@ -46,17 +56,23 @@ class PostProcessFluidVariablesEvent implements ControllerActionEventInterface
         return $this->request->getControllerActionName();
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getSettings(): array
     {
         return $this->settings;
     }
 
+    /**
+     * @return array<string, mixed>
+     */
     public function getFluidVariables(): array
     {
         return $this->fluidVariables;
     }
 
-    public function addFluidVariable(string $key, $value): void
+    public function addFluidVariable(string $key, mixed $value): void
     {
         $this->fluidVariables[$key] = $value;
     }

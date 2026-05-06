@@ -20,8 +20,10 @@ class AbstractControllerEventListener
 {
     /**
      * Only execute this EventListener if controller and action matches
+     *
+     * @var array<string, array<string>>
      */
-    protected $allowedControllerActions = [];
+    protected array $allowedControllerActions = [];
 
     protected function isValidRequest(ControllerActionEventInterface $event): bool
     {
