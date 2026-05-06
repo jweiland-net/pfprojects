@@ -7,6 +7,11 @@
 ChangeLog
 =========
 
+Version 9.0.1
+=============
+
+[BUGFIX] Dispatch event in ProjectController show action
+
 Version 9.0.0
 =============
 

@@ -57,6 +57,7 @@ class ProjectController extends ActionController
         );
 
         $this->view->assignMultiple($event->getFluidVariables());
+
         return $this->htmlResponse();
     }
 
@@ -95,10 +96,18 @@ class ProjectController extends ActionController
 
     public function showAction(int $project): ResponseInterface
     {
-        $this->view->assign(
-            'project',
-            $this->projectRepository->findByIdentifier($project),
+        /** @var PostProcessFluidVariablesEvent $event */
+        $event = $this->eventDispatcher->dispatch(
+            new PostProcessFluidVariablesEvent(
+                $this->request,
+                $this->settings,
+                [
+                    'project' => $this->projectRepository->findByIdentifier($project),
+                ],
+            ),
         );
+
+        $this->view->assignMultiple($event->getFluidVariables());
 
         return $this->htmlResponse();
     }
