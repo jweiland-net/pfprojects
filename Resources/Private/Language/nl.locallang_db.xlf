@@ -75,25 +75,7 @@
         <source>Email</source>
         <target state="needs-translation">Email</target>
       </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_project.office_type">
-        <source>Enter organizer yourself</source>
-        <target state="needs-translation">Enter organizer yourself</target>
-      </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_project.office_type.description">
-        <source>
-					Disabled: Select organizer from a given list of organizers.
-					Activated: You can enter the organizer yourself via a text field.
-				</source>
-        <target state="needs-translation">
-					Disabled: Select organizer from a given list of organizers.
-					Activated: You can enter the organizer yourself via a text field.
-				</target>
-      </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_project.organisationseinheit">
-        <source>Select an organizer from the list.</source>
-        <target state="needs-translation">Select an organizer from the list.</target>
-      </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_project.office_manuell">
+      <trans-unit id="tx_pfprojects_domain_model_project.office">
         <source>Enter the organizer.</source>
         <target state="needs-translation">Enter the organizer.</target>
       </trans-unit>
