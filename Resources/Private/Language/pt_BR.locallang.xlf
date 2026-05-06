@@ -43,19 +43,7 @@
         <source>Email</source>
         <target state="needs-translation">Email</target>
       </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_project.office_type">
-        <source>Default: Choose organizer by a record of service_bw2. If checked: You can insert your own organizer with
-					help of a text field. Each click reloads the current form.
-				</source>
-        <target state="needs-translation">Default: Choose organizer by a record of service_bw2. If checked: You can insert your own organizer with
-					help of a text field. Each click reloads the current form.
-				</target>
-      </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_project.organisationseinheit">
-        <source>Organizational Unit</source>
-        <target state="needs-translation">Organizational Unit</target>
-      </trans-unit>
-      <trans-unit id="tx_pfprojects_domain_model_project.office_manuell">
+      <trans-unit id="tx_pfprojects_domain_model_project.office">
         <source>Insert your own organizer.</source>
         <target state="needs-translation">Insert your own organizer.</target>
       </trans-unit>
