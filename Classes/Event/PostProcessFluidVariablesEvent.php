@@ -13,7 +13,7 @@ namespace JWeiland\Pfprojects\Event;
 
 use TYPO3\CMS\Extbase\Mvc\RequestInterface;
 
-class PostProcessFluidVariablesEvent
+class PostProcessFluidVariablesEvent implements ControllerActionEventInterface
 {
     protected RequestInterface $request;
 
@@ -44,6 +44,16 @@ class PostProcessFluidVariablesEvent
     public function getRequest(): RequestInterface
     {
         return $this->request;
+    }
+
+    public function getControllerName(): string
+    {
+        return $this->request->getControllerName();
+    }
+
+    public function getActionName(): string
+    {
+        return $this->request->getControllerActionName();
     }
 
     /**

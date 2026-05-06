@@ -45,11 +45,3 @@ This extension shows a list of projects and can be connected with service_bw2.
     Installation/Index
     Configuration/Index
     Changelog/Index
-
-..  Meta Menu
-
-..  toctree::
-    :hidden:
-
-    Sitemap
-    genindex

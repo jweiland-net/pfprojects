@@ -13,7 +13,6 @@ return [
         'label' => 'title',
         'tstamp' => 'tstamp',
         'crdate' => 'crdate',
-        'type' => 'office_type',
         'versioningWS' => true,
         'languageField' => 'sys_language_uid',
         'transOrigPointerField' => 'l10n_parent',
@@ -25,7 +24,7 @@ return [
             'endtime' => 'endtime',
         ],
         'searchFields' => 'title,contact_person,description',
-        'iconfile' => 'EXT:pfprojects/Resources/Public/Icons/tx_pfprojects_domain_model_project.gif',
+        'iconfile' => 'EXT:pfprojects/Resources/Public/Icons/tx_pfprojects_domain_model_project.svg',
     ],
     'types' => [
         '1' => [
@@ -33,7 +32,7 @@ return [
             --palette--;LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:palette.contact;contact,
             --div--;LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tab.project,
             --palette--;LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:palette.projectData;projectData,
-            --palette--;LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:palette.organizer;organizer,
+            office_manuell,
             area_of_activity, links,
             --div--;LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tab.media,
             images, files,
@@ -46,100 +45,11 @@ return [
         'titleHidden' => ['showitem' => 'title, hidden'],
         'contact' => ['showitem' => 'contact_person, --linebreak--, telephone, email'],
         'projectData' => ['showitem' => 'start_date, status, --linebreak--, description'],
-        'organizer' => ['showitem' => 'office_type, --linebreak--, organisationseinheit, office_manuell'],
         'access' => [
             'showitem' => 'starttime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel,endtime;LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel',
         ],
     ],
     'columns' => [
-        'sys_language_uid' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.language',
-            'config' => ['type' => 'language'],
-        ],
-        'l10n_parent' => [
-            'displayCond' => 'FIELD:sys_language_uid:>:0',
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.l18n_parent',
-            'config' => [
-                'type' => 'select',
-                'renderType' => 'selectSingle',
-                'items' => [
-                    ['label' => '', 'value' => 0],
-                ],
-                'foreign_table' => 'tx_pfprojects_domain_model_project',
-                'foreign_table_where' => 'AND tx_pfprojects_domain_model_project.pid=###CURRENT_PID### AND tx_pfprojects_domain_model_project.sys_language_uid IN (-1,0)',
-                'fieldWizard' => [
-                    'selectIcons' => [
-                        'disabled' => true,
-                    ],
-                ],
-                'default' => 0,
-            ],
-        ],
-        'l10n_diffsource' => [
-            'config' => [
-                'type' => 'passthrough',
-                'default' => '',
-            ],
-        ],
-        'hidden' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:core/Resources/Private/Language/locallang_general.xlf:LGL.hidden',
-            'config' => [
-                'type' => 'check',
-                'default' => 0,
-            ],
-        ],
-        'cruser_id' => [
-            'label' => 'cruser_id',
-            'config' => [
-                'type' => 'passthrough',
-            ],
-        ],
-        'pid' => [
-            'label' => 'pid',
-            'config' => [
-                'type' => 'passthrough',
-            ],
-        ],
-        'crdate' => [
-            'label' => 'crdate',
-            'config' => [
-                'type' => 'passthrough',
-            ],
-        ],
-        'tstamp' => [
-            'label' => 'tstamp',
-            'config' => [
-                'type' => 'passthrough',
-            ],
-        ],
-        'starttime' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:starttime_formlabel',
-            'config' => [
-                'type' => 'datetime',
-                'size' => 16,
-                'eval' => 'datetime,int',
-                'default' => 0,
-                'behaviour' => [
-                    'allowLanguageSynchronization' => true,
-                ],
-            ],
-        ],
-        'endtime' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:endtime_formlabel',
-            'config' => [
-                'type' => 'datetime',
-                'size' => 16,
-                'eval' => 'datetime,int',
-                'default' => 0,
-                'behaviour' => [
-                    'allowLanguageSynchronization' => true,
-                ],
-            ],
-        ],
         'title' => [
             'exclude' => true,
             'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.title',
@@ -239,28 +149,9 @@ return [
                 'eval' => 'trim',
             ],
         ],
-        'office_type' => [
-            'exclude' => true,
-            'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.office_type',
-            'description' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.office_type.description',
-            'config' => [
-                'type' => 'check',
-                'default' => 0,
-            ],
-        ],
-        'organisationseinheit' => [
-            'displayCond' => 'FIELD:office_type:=:0',
-            'exclude' => true,
-            'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.organisationseinheit',
-            'config' => [
-                'type' => 'file',
-                'maxitems' => '1',
-            ],
-        ],
         'office_manuell' => [
-            'displayCond' => 'FIELD:office_type:=:1',
             'exclude' => true,
-            'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.office_manuell',
+            'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.office',
             'config' => [
                 'type' => 'input',
                 'size' => 30,
@@ -271,27 +162,7 @@ return [
             'label' => 'LLL:EXT:pfprojects/Resources/Private/Language/locallang_db.xlf:tx_pfprojects_domain_model_project.area_of_activity',
             'exclude' => true,
             'config' => [
-                'type' => 'select',
-                'renderType' => 'selectTree',
-                'foreign_table' => 'sys_category',
-                'foreign_table_where' => 'AND {#sys_category}.{#sys_language_uid} IN (-1, 0)',
-                'MM' => 'sys_category_record_mm',
-                'MM_match_fields' => [
-                    'fieldname' => 'area_of_activity',
-                    'tablenames' => 'tx_pfprojects_domain_model_project',
-                ],
-                'MM_opposite_field' => 'items',
-                'maxitems' => '9999',
-                'size' => '20',
-                'treeConfig' => [
-                    'appearance' => [
-                        'expandAll' => 1,
-                        'maxLevels' => 99,
-                        'showHeader' => true,
-                    ],
-                    'parentField' => 'parent',
-                    'rootUid' => 0,
-                ],
+                'type' => 'category',
             ],
         ],
         'images' => [
@@ -300,6 +171,7 @@ return [
             'config' => [
                 'type' => 'file',
                 'maxitems' => 5,
+                'allowed' => 'common-image-types',
             ],
         ],
         'description' => [
@@ -319,6 +191,7 @@ return [
             'config' => [
                 'type' => 'file',
                 'maxitems' => 5,
+                'allowed' => 'pdf',
             ],
         ],
         'links' => [

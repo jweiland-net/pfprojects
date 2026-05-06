@@ -79,32 +79,9 @@
             </f:if>
 
             <dl class="extdl clearfix rulerafter">
-                <f:if condition="{project.officeType}">
-                    <f:then>
-                        <f:if condition="{project.officeManuell}">
-                            <dt>{f:translate(key: 'tx_pfprojects_domain_model_project.office_manuell')}:</dt>
-                            <dd class="grid_8 floatleft noborder">{project.officeManuell}</dd>
-                        </f:if>
-                    </f:then>
-                    <f:else>
-                        <f:if condition="{project.organisationseinheit}">
-                            <f:then>
-                                <dt>{f:translate(key: 'tx_pfprojects_domain_model_project.organisationseinheit')}:</dt>
-                                <dd class="grid_8 floatleft noborder">
-                                    <f:for each="{project.organisationseinheit}" as="organisationseinheit">
-                                        <f:link.action pageUid="{settings.pidOfServiceBw2Page}"
-                                                       action="show"
-                                                       controller="Organisationseinheiten"
-                                                       pluginName="servicebw"
-                                                       extensionName="serviceBw2"
-                                                       arguments="{id: organisationseinheit.id}">
-                                            {organisationseinheit.name}
-                                        </f:link.action>
-                                    </f:for>
-                                </dd>
-                            </f:then>
-                        </f:if>
-                    </f:else>
+                <f:if condition="{project.office}">
+                    <dt>{f:translate(key: 'tx_pfprojects_domain_model_project.office')}:</dt>
+                    <dd class="grid_8 floatleft noborder">{project.office}</dd>
                 </f:if>
 
                 <f:if condition="{project.txMaps2Uid}">

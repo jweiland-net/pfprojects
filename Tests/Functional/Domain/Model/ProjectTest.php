@@ -9,7 +9,7 @@ declare(strict_types=1);
  * LICENSE file that was distributed with this source code.
  */
 
-namespace JWeiland\Pfprojects\Tests\Unit\Domain\Model;
+namespace JWeiland\Pfprojects\Tests\Functional\Domain\Model;
 
 use JWeiland\Maps2\Domain\Model\PoiCollection;
 use JWeiland\Pfprojects\Domain\Model\Project;
@@ -29,15 +29,7 @@ class ProjectTest extends FunctionalTestCase
      */
     protected array $testExtensionsToLoad = [
         'jweiland/maps2',
-        'jweiland/service-bw2',
         'jweiland/pfprojects',
-    ];
-
-    /**
-     * @var string[]
-     */
-    protected array $coreExtensionsToLoad = [
-        'typo3/cms-scheduler',
     ];
 
     protected function setUp(): void
@@ -177,39 +169,22 @@ class ProjectTest extends FunctionalTestCase
     }
 
     #[Test]
-    public function getOfficeTypeInitiallyReturnsFalse(): void
-    {
-        self::assertFalse(
-            $this->subject->getOfficeType(),
-        );
-    }
-
-    #[Test]
-    public function setOfficeTypeSetsOfficeType(): void
-    {
-        $this->subject->setOfficeType(true);
-        self::assertTrue(
-            $this->subject->getOfficeType(),
-        );
-    }
-
-    #[Test]
-    public function getOfficeManuellInitiallyReturnsEmptyString(): void
+    public function getOfficeInitiallyReturnsEmptyString(): void
     {
         self::assertSame(
             '',
-            $this->subject->getOfficeManuell(),
+            $this->subject->getOffice(),
         );
     }
 
     #[Test]
-    public function setOfficeManuellSetsOfficeManuell(): void
+    public function setOfficeSetsOffice(): void
     {
-        $this->subject->setOfficeManuell('foo bar');
+        $this->subject->setOffice('foo bar');
 
         self::assertSame(
             'foo bar',
-            $this->subject->getOfficeManuell(),
+            $this->subject->getOffice(),
         );
     }
 

@@ -29,15 +29,7 @@ class CategoryRepositoryTest extends FunctionalTestCase
      */
     protected array $testExtensionsToLoad = [
         'jweiland/maps2',
-        'jweiland/service-bw2',
         'jweiland/pfprojects',
-    ];
-
-    /**
-     * @var string[]
-     */
-    protected array $coreExtensionsToLoad = [
-        'typo3/cms-scheduler',
     ];
 
     protected function setUp(): void

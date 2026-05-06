@@ -60,19 +60,7 @@
 			<trans-unit id="tx_pfprojects_domain_model_project.email">
 				<source>Email</source>
 			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.office_type">
-				<source>Enter organizer yourself</source>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.office_type.description">
-				<source>
-					Disabled: Select organizer from a given list of organizers.
-					Activated: You can enter the organizer yourself via a text field.
-				</source>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.organisationseinheit">
-				<source>Select an organizer from the list.</source>
-			</trans-unit>
-			<trans-unit id="tx_pfprojects_domain_model_project.office_manuell">
+			<trans-unit id="tx_pfprojects_domain_model_project.office">
 				<source>Enter the organizer.</source>
 			</trans-unit>
 			<trans-unit id="tx_pfprojects_domain_model_project.images">

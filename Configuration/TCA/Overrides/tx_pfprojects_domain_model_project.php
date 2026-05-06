@@ -12,19 +12,13 @@ use JWeiland\Pfprojects\Configuration\ExtConf;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-call_user_func(static function (): void {
-    $extConf = GeneralUtility::makeInstance(
-        ExtConf::class,
-    );
-    unset($GLOBALS['TCA']['tx_pfprojects_domain_model_project']['columns']['area_of_activity']['config']['treeConfig']['rootUid']);
-    $GLOBALS['TCA']['tx_pfprojects_domain_model_project']['columns']['area_of_activity']['config']['treeConfig']['startingPoints']
-        = $extConf->getRootCategory();
+$extConf = GeneralUtility::makeInstance(ExtConf::class);
+$GLOBALS['TCA']['tx_pfprojects_domain_model_project']['columns']['area_of_activity']['config']['treeConfig']['startingPoints'] = $extConf->getRootCategory();
 
-    // Add tx_maps2_uid column to projects table
-    if (ExtensionManagementUtility::isLoaded('maps2')) {
-        Maps2Registry::getInstance()->add(
-            'pfprojects',
-            'tx_pfprojects_domain_model_project',
-        );
-    }
-});
+// Add tx_maps2_uid column to projects table
+if (ExtensionManagementUtility::isLoaded('maps2')) {
+    Maps2Registry::getInstance()->add(
+        'pfprojects',
+        'tx_pfprojects_domain_model_project',
+    );
+}

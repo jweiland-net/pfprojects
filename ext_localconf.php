@@ -14,17 +14,14 @@ if (!defined('TYPO3')) {
 use JWeiland\Pfprojects\Controller\ProjectController;
 use TYPO3\CMS\Extbase\Utility\ExtensionUtility;
 
-call_user_func(static function (): void {
-    ExtensionUtility::configurePlugin(
-        'Pfprojects',
-        'Pfprojects',
-        [
-            ProjectController::class => 'list, search, show',
-        ],
-        // non-cacheable actions
-        [
-            ProjectController::class => 'search',
-        ],
-        ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
-    );
-});
+ExtensionUtility::configurePlugin(
+    'Pfprojects',
+    'Pfprojects',
+    [
+        ProjectController::class => 'list, search, show',
+    ],
+    [
+        ProjectController::class => 'search',
+    ],
+    ExtensionUtility::PLUGIN_TYPE_CONTENT_ELEMENT,
+);
