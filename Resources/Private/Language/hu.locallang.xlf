@@ -5,131 +5,131 @@
     <body>
       <trans-unit id="tx_pfprojects_domain_model_project">
         <source>Project</source>
-        <target state="needs-translation">Project</target>
+        <target state="translated">Projekt</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.title">
         <source>Title</source>
-        <target state="needs-translation">Title</target>
+        <target state="translated">Cím</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.start_date">
         <source>Project Start</source>
-        <target state="needs-translation">Project Start</target>
+        <target state="translated">Projekt kezdete</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.status">
         <source>Project Status</source>
-        <target state="needs-translation">Project Status</target>
+        <target state="translated">Projekt állapota</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.status.1green">
         <source>Finished</source>
-        <target state="needs-translation">Finished</target>
+        <target state="translated">Befejezve</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.status.2yellow">
         <source>In Progress</source>
-        <target state="needs-translation">In Progress</target>
+        <target state="translated">Folyamatban</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.status.3red">
         <source>Planned</source>
-        <target state="needs-translation">Planned</target>
+        <target state="translated">Tervezett</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.contact_person">
         <source>Contact Person</source>
-        <target state="needs-translation">Contact Person</target>
+        <target state="translated">Kapcsolattartó</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.telephone">
         <source>Telephone</source>
-        <target state="needs-translation">Telephone</target>
+        <target state="translated">Telefon</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.email">
         <source>Email</source>
-        <target state="needs-translation">Email</target>
+        <target state="translated">E-mail</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.office">
         <source>Insert your own organizer.</source>
-        <target state="needs-translation">Insert your own organizer.</target>
+        <target state="translated">Adja meg saját szervezőjét.</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.images">
         <source>Images</source>
-        <target state="needs-translation">Images</target>
+        <target state="translated">Képek</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.description">
         <source>Description</source>
-        <target state="needs-translation">Description</target>
+        <target state="translated">Leírás</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.tx_maps2_uid">
         <source>Map</source>
-        <target state="needs-translation">Map</target>
+        <target state="translated">Térkép</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.files">
         <source>Files</source>
-        <target state="needs-translation">Files</target>
+        <target state="translated">Fájlok</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.links">
         <source>Links</source>
-        <target state="needs-translation">Links</target>
+        <target state="translated">Hivatkozások</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.area_of_activity">
         <source>Area of Activity</source>
-        <target state="needs-translation">Area of Activity</target>
+        <target state="translated">Tevékenységi terület</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_link">
         <source>Link</source>
-        <target state="needs-translation">Link</target>
+        <target state="translated">Hivatkozás</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_link.title">
         <source>Title</source>
-        <target state="needs-translation">Title</target>
+        <target state="translated">Cím</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_link.link">
         <source>Link</source>
-        <target state="needs-translation">Link</target>
+        <target state="translated">Hivatkozás</target>
       </trans-unit>
       <trans-unit id="backToList">
         <source>Back to list</source>
-        <target state="needs-translation">Back to list</target>
+        <target state="translated">Vissza a listához</target>
       </trans-unit>
       <trans-unit id="backToDetails">
         <source>Back to detail view</source>
-        <target state="needs-translation">Back to detail view</target>
+        <target state="translated">Vissza a részletnézethez</target>
       </trans-unit>
       <trans-unit id="targets">
         <source>Targets</source>
-        <target state="needs-translation">Targets</target>
+        <target state="translated">Célok</target>
       </trans-unit>
       <trans-unit id="noResults">
         <source>No results</source>
-        <target state="needs-translation">No results</target>
+        <target state="translated">Nincs eredmény</target>
       </trans-unit>
       <trans-unit id="asc">
         <source>Ascending</source>
-        <target state="needs-translation">Ascending</target>
+        <target state="translated">Növekvő</target>
       </trans-unit>
       <trans-unit id="desc">
         <source>Descending</source>
-        <target state="needs-translation">Descending</target>
+        <target state="translated">Csökkenő</target>
       </trans-unit>
       <trans-unit id="sortBy">
         <source>Sort by</source>
-        <target state="needs-translation">Sort by</target>
+        <target state="translated">Rendezés</target>
       </trans-unit>
       <trans-unit id="ordering">
         <source>Ordering</source>
-        <target state="needs-translation">Ordering</target>
+        <target state="translated">Sorrend</target>
       </trans-unit>
       <trans-unit id="pageBrowser.first">
         <source>First</source>
-        <target state="needs-translation">First</target>
+        <target state="translated">Első</target>
       </trans-unit>
       <trans-unit id="pageBrowser.previous">
         <source>Previous</source>
-        <target state="needs-translation">Previous</target>
+        <target state="translated">Előző</target>
       </trans-unit>
       <trans-unit id="pageBrowser.next">
         <source>Next</source>
-        <target state="needs-translation">Next</target>
+        <target state="translated">Következő</target>
       </trans-unit>
       <trans-unit id="pageBrowser.last">
         <source>Last</source>
-        <target state="needs-translation">Last</target>
+        <target state="translated">Utolsó</target>
       </trans-unit>
     </body>
   </file>
