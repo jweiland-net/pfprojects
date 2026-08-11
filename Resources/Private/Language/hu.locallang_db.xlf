@@ -5,75 +5,75 @@
     <body>
       <trans-unit id="plugin.pfprojects.title">
         <source>Pforzheim Projects</source>
-        <target state="needs-translation">Pforzheim Projects</target>
+        <target state="translated">Pforzheim projektjei</target>
       </trans-unit>
       <trans-unit id="plugin.pfprojects.description">
         <source>This plugin displays the current projects of the city of Pforzheim. Thanks to traffic light icons you can quickly see the project status.</source>
-        <target state="needs-translation">This plugin displays the current projects of the city of Pforzheim. Thanks to traffic light icons you can quickly see the project status.</target>
+        <target state="translated">Ez a bővítmény Pforzheim város aktuális projektjeit jeleníti meg. A jelzőlámpa ikonoknak köszönhetően gyorsan láthatja a projekt állapotát.</target>
       </trans-unit>
       <trans-unit id="tab.project">
         <source>Project</source>
-        <target state="needs-translation">Project</target>
+        <target state="translated">Projekt</target>
       </trans-unit>
       <trans-unit id="tab.media">
         <source>Media</source>
-        <target state="needs-translation">Media</target>
+        <target state="translated">Média</target>
       </trans-unit>
       <trans-unit id="palette.contact">
         <source>Contact</source>
-        <target state="needs-translation">Contact</target>
+        <target state="translated">Kapcsolat</target>
       </trans-unit>
       <trans-unit id="palette.projectData">
         <source>Project data</source>
-        <target state="needs-translation">Project data</target>
+        <target state="translated">Projekt adatai</target>
       </trans-unit>
       <trans-unit id="palette.organizer">
         <source>Organizer</source>
-        <target state="needs-translation">Organizer</target>
+        <target state="translated">Szervező</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project">
         <source>Project</source>
-        <target state="needs-translation">Project</target>
+        <target state="translated">Projekt</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.title">
         <source>Title</source>
-        <target state="needs-translation">Title</target>
+        <target state="translated">Cím</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.path_segment">
         <source>Segment for URL</source>
-        <target state="needs-translation">Segment for URL</target>
+        <target state="translated">URL-szegmens</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.start_date">
         <source>Project Start</source>
-        <target state="needs-translation">Project Start</target>
+        <target state="translated">Projekt kezdete</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.status">
         <source>Project Status</source>
-        <target state="needs-translation">Project Status</target>
+        <target state="translated">Projekt állapota</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.status.1green">
         <source>Finished</source>
-        <target state="needs-translation">Finished</target>
+        <target state="translated">Befejezve</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.status.2yellow">
         <source>In Progress</source>
-        <target state="needs-translation">In Progress</target>
+        <target state="translated">Folyamatban</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.status.3red">
         <source>Planned</source>
-        <target state="needs-translation">Planned</target>
+        <target state="translated">Tervezett</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.contact_person">
         <source>Contact Person</source>
-        <target state="needs-translation">Contact Person</target>
+        <target state="translated">Kapcsolattartó</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.telephone">
         <source>Telephone</source>
-        <target state="needs-translation">Telephone</target>
+        <target state="translated">Telefon</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.email">
         <source>Email</source>
-        <target state="needs-translation">Email</target>
+        <target state="translated">E-mail</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.office">
         <source>Enter the organizer.</source>
@@ -81,47 +81,47 @@
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.images">
         <source>Images</source>
-        <target state="needs-translation">Images</target>
+        <target state="translated">Képek</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.description">
         <source>Description</source>
-        <target state="needs-translation">Description</target>
+        <target state="translated">Leírás</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.tx_maps2_uid">
         <source>Map</source>
-        <target state="needs-translation">Map</target>
+        <target state="translated">Térkép</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.files">
         <source>Files</source>
-        <target state="needs-translation">Files</target>
+        <target state="translated">Fájlok</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.links">
         <source>Links</source>
-        <target state="needs-translation">Links</target>
+        <target state="translated">Hivatkozások</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.area_of_activity">
         <source>Area of Activity</source>
-        <target state="needs-translation">Area of Activity</target>
+        <target state="translated">Tevékenységi terület</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_link">
         <source>Link</source>
-        <target state="needs-translation">Link</target>
+        <target state="translated">Hivatkozás</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_link.title">
         <source>Title</source>
-        <target state="needs-translation">Title</target>
+        <target state="translated">Cím</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_link.link">
         <source>Link</source>
-        <target state="needs-translation">Link</target>
+        <target state="translated">Hivatkozás</target>
       </trans-unit>
       <trans-unit id="plugin.pfprojects.title">
         <source>Pforzheim Projects</source>
-        <target state="needs-translation">Pforzheim Projects</target>
+        <target state="translated">Pforzheim projektjei</target>
       </trans-unit>
       <trans-unit id="plugin.pfprojects.description">
         <source>This plugin shows a list of projects and can be connected with service_bw2.</source>
-        <target state="needs-translation">This plugin displays the current projects of the city of Pforzheim. Thanks to traffic light icons you can quickly see the project status.</target>
+        <target state="translated">Ez a bővítmény Pforzheim város aktuális projektjeit jeleníti meg. A jelzőlámpa ikonoknak köszönhetően gyorsan láthatja a projekt állapotát.</target>
       </trans-unit>
     </body>
   </file>
