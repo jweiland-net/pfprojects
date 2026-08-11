@@ -77,7 +77,7 @@
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.office">
         <source>Enter the organizer.</source>
-        <target state="needs-translation">Enter the organizer.</target>
+        <target state="translated">Adja meg a szervezőt.</target>
       </trans-unit>
       <trans-unit id="tx_pfprojects_domain_model_project.images">
         <source>Images</source>
