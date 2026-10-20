@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:pfprojects/Resources/Private/Language/locallang.xlf" date="2018-01-09T14:24:45Z" product-name="pfprojects" target-language="t3">
+    <header/>
+    <body>
+      <trans-unit id="tx_pfprojects_domain_model_project">
+        <source>Project</source>
+        <target>crwdns390844:0crwdne390844:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.title">
+        <source>Title</source>
+        <target>crwdns390846:0crwdne390846:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.start_date">
+        <source>Project Start</source>
+        <target>crwdns390848:0crwdne390848:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.status">
+        <source>Project Status</source>
+        <target>crwdns390850:0crwdne390850:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.status.1green">
+        <source>Finished</source>
+        <target>crwdns390852:0crwdne390852:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.status.2yellow">
+        <source>In Progress</source>
+        <target>crwdns390854:0crwdne390854:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.status.3red">
+        <source>Planned</source>
+        <target>crwdns390856:0crwdne390856:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.contact_person">
+        <source>Contact Person</source>
+        <target>crwdns390858:0crwdne390858:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.telephone">
+        <source>Telephone</source>
+        <target>crwdns390860:0crwdne390860:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.email">
+        <source>Email</source>
+        <target>crwdns390862:0crwdne390862:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.office">
+        <source>Insert your own organizer.</source>
+        <target>crwdns409410:0crwdne409410:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.images">
+        <source>Images</source>
+        <target>crwdns390870:0crwdne390870:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.description">
+        <source>Description</source>
+        <target>crwdns390872:0crwdne390872:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.tx_maps2_uid">
+        <source>Map</source>
+        <target>crwdns390874:0crwdne390874:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.files">
+        <source>Files</source>
+        <target>crwdns390876:0crwdne390876:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.links">
+        <source>Links</source>
+        <target>crwdns390878:0crwdne390878:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.area_of_activity">
+        <source>Area of Activity</source>
+        <target>crwdns390880:0crwdne390880:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_link">
+        <source>Link</source>
+        <target>crwdns390882:0crwdne390882:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_link.title">
+        <source>Title</source>
+        <target>crwdns390884:0crwdne390884:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_link.link">
+        <source>Link</source>
+        <target>crwdns390886:0crwdne390886:0</target>
+      </trans-unit>
+      <trans-unit id="backToList">
+        <source>Back to list</source>
+        <target>crwdns390888:0crwdne390888:0</target>
+      </trans-unit>
+      <trans-unit id="backToDetails">
+        <source>Back to detail view</source>
+        <target>crwdns390890:0crwdne390890:0</target>
+      </trans-unit>
+      <trans-unit id="targets">
+        <source>Targets</source>
+        <target>crwdns390892:0crwdne390892:0</target>
+      </trans-unit>
+      <trans-unit id="noResults">
+        <source>No results</source>
+        <target>crwdns390894:0crwdne390894:0</target>
+      </trans-unit>
+      <trans-unit id="asc">
+        <source>Ascending</source>
+        <target>crwdns390896:0crwdne390896:0</target>
+      </trans-unit>
+      <trans-unit id="desc">
+        <source>Descending</source>
+        <target>crwdns390898:0crwdne390898:0</target>
+      </trans-unit>
+      <trans-unit id="sortBy">
+        <source>Sort by</source>
+        <target>crwdns390900:0crwdne390900:0</target>
+      </trans-unit>
+      <trans-unit id="ordering">
+        <source>Ordering</source>
+        <target>crwdns390902:0crwdne390902:0</target>
+      </trans-unit>
+      <trans-unit id="pageBrowser.first">
+        <source>First</source>
+        <target>crwdns390904:0crwdne390904:0</target>
+      </trans-unit>
+      <trans-unit id="pageBrowser.previous">
+        <source>Previous</source>
+        <target>crwdns390906:0crwdne390906:0</target>
+      </trans-unit>
+      <trans-unit id="pageBrowser.next">
+        <source>Next</source>
+        <target>crwdns390908:0crwdne390908:0</target>
+      </trans-unit>
+      <trans-unit id="pageBrowser.last">
+        <source>Last</source>
+        <target>crwdns390910:0crwdne390910:0</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
