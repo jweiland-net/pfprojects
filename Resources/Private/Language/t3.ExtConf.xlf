@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:pfprojects/Resources/Private/Language/ExtConf.xlf" date="2018-01-09T14:24:45Z" product-name="pfprojects" target-language="t3">
+    <header/>
+    <body>
+      <trans-unit id="rootCategory" xml:space="preserve">
+				<source>Root category for area of activity: In each project record you have the possibility to add one or more areas of activity. In huge installations it's better to define a root category here to NOT show all categories.</source>
+			<target>crwdns390842:0crwdne390842:0</target></trans-unit>
+    </body>
+  </file>
+</xliff>
