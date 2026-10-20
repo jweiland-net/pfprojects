@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" datatype="plaintext" original="EXT:pfprojects/Resources/Private/Language/locallang_db.xlf" date="2018-01-09T14:24:45Z" product-name="pfprojects" target-language="t3">
+    <header/>
+    <body>
+      <trans-unit id="plugin.pfprojects.title">
+        <source>Pforzheim Projects</source>
+        <target>crwdns390912:0crwdne390912:0</target>
+      </trans-unit>
+      <trans-unit id="plugin.pfprojects.description">
+        <source>This plugin displays the current projects of the city of Pforzheim. Thanks to traffic light icons you can quickly see the project status.</source>
+        <target>crwdns390914:0crwdne390914:0</target>
+      </trans-unit>
+      <trans-unit id="tab.project">
+        <source>Project</source>
+        <target>crwdns390916:0crwdne390916:0</target>
+      </trans-unit>
+      <trans-unit id="tab.media">
+        <source>Media</source>
+        <target>crwdns390918:0crwdne390918:0</target>
+      </trans-unit>
+      <trans-unit id="palette.contact">
+        <source>Contact</source>
+        <target>crwdns390920:0crwdne390920:0</target>
+      </trans-unit>
+      <trans-unit id="palette.projectData">
+        <source>Project data</source>
+        <target>crwdns390922:0crwdne390922:0</target>
+      </trans-unit>
+      <trans-unit id="palette.organizer">
+        <source>Organizer</source>
+        <target>crwdns390924:0crwdne390924:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project">
+        <source>Project</source>
+        <target>crwdns390926:0crwdne390926:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.title">
+        <source>Title</source>
+        <target>crwdns390928:0crwdne390928:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.path_segment">
+        <source>Segment for URL</source>
+        <target>crwdns390930:0crwdne390930:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.start_date">
+        <source>Project Start</source>
+        <target>crwdns390932:0crwdne390932:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.status">
+        <source>Project Status</source>
+        <target>crwdns390934:0crwdne390934:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.status.1green">
+        <source>Finished</source>
+        <target>crwdns390936:0crwdne390936:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.status.2yellow">
+        <source>In Progress</source>
+        <target>crwdns390938:0crwdne390938:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.status.3red">
+        <source>Planned</source>
+        <target>crwdns390940:0crwdne390940:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.contact_person">
+        <source>Contact Person</source>
+        <target>crwdns390942:0crwdne390942:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.telephone">
+        <source>Telephone</source>
+        <target>crwdns390944:0crwdne390944:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.email">
+        <source>Email</source>
+        <target>crwdns390946:0crwdne390946:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.office">
+        <source>Enter the organizer.</source>
+        <target>crwdns409412:0crwdne409412:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.images">
+        <source>Images</source>
+        <target>crwdns390956:0crwdne390956:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.description">
+        <source>Description</source>
+        <target>crwdns390958:0crwdne390958:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.tx_maps2_uid">
+        <source>Map</source>
+        <target>crwdns390960:0crwdne390960:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.files">
+        <source>Files</source>
+        <target>crwdns390962:0crwdne390962:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.links">
+        <source>Links</source>
+        <target>crwdns390964:0crwdne390964:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_project.area_of_activity">
+        <source>Area of Activity</source>
+        <target>crwdns390966:0crwdne390966:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_link">
+        <source>Link</source>
+        <target>crwdns390968:0crwdne390968:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_link.title">
+        <source>Title</source>
+        <target>crwdns390970:0crwdne390970:0</target>
+      </trans-unit>
+      <trans-unit id="tx_pfprojects_domain_model_link.link">
+        <source>Link</source>
+        <target>crwdns390972:0crwdne390972:0</target>
+      </trans-unit>
+      <trans-unit id="plugin.pfprojects.title">
+        <source>Pforzheim Projects</source>
+        <target>crwdns390912:0crwdne390912:0</target>
+      </trans-unit>
+      <trans-unit id="plugin.pfprojects.description">
+        <source>This plugin shows a list of projects and can be connected with service_bw2.</source>
+        <target>crwdns390914:0crwdne390914:0</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
